@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_application_content_sections",
+  "info": {
+    "displayName": "Content Section"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "ApplicationContent": {
+      "type": "richtext"
+    }
+  }
+}

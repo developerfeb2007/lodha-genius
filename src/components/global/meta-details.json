@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_global_meta_details",
+  "info": {
+    "displayName": "Meta Details"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "OGTitle": {
+      "type": "string"
+    },
+    "OGDescription": {
+      "type": "text"
+    },
+    "OGImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_application_schedule_sections",
+  "info": {
+    "displayName": "Schedule Section"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "Schedule": {
+      "type": "component",
+      "repeatable": true,
+      "component": "application.schedule"
+    }
+  }
+}

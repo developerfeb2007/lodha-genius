@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_application_drs",
+  "info": {
+    "displayName": "Documents Required"
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "richtext"
+    }
+  }
+}

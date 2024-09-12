@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_application_steps",
+  "info": {
+    "displayName": "Steps"
+  },
+  "options": {},
+  "attributes": {
+    "StepTitle": {
+      "type": "string"
+    },
+    "StepDescription": {
+      "type": "richtext"
+    }
+  }
+}

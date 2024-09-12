@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_application_schedules",
+  "info": {
+    "displayName": "Schedule"
+  },
+  "options": {},
+  "attributes": {
+    "Date": {
+      "type": "datetime"
+    },
+    "Title": {
+      "type": "string"
+    }
+  }
+}

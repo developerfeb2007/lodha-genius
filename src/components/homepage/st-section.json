@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_homepage_st_sections",
+  "info": {
+    "displayName": "Shaping Tomorrow Section",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "ShapingTomorrow": {
+      "type": "component",
+      "repeatable": true,
+      "component": "homepage.shaping-tomorrow"
+    }
+  }
+}

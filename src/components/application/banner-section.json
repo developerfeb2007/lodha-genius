@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_application_banner_sections",
+  "info": {
+    "displayName": "Banner Section"
+  },
+  "options": {},
+  "attributes": {
+    "BannerNote": {
+      "type": "text"
+    },
+    "Banner": {
+      "type": "component",
+      "repeatable": true,
+      "component": "global.banner-section"
+    }
+  }
+}

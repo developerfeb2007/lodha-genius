@@ -1,0 +1,44 @@
+{
+  "collectionName": "components_homepage_programme_overviews",
+  "info": {
+    "displayName": "Programme Overview"
+  },
+  "options": {},
+  "attributes": {
+    "Subject": {
+      "type": "string"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Video": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Alt": {
+      "type": "string"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "richtext"
+    },
+    "URL": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_application_dr_sections",
+  "info": {
+    "displayName": "Documents Required section"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Alt": {
+      "type": "string"
+    },
+    "DocumentsRequired": {
+      "displayName": "Documents Required",
+      "type": "component",
+      "repeatable": true,
+      "component": "application.dr"
+    }
+  }
+}

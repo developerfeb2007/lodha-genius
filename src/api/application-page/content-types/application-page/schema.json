@@ -1,0 +1,60 @@
+{
+  "kind": "singleType",
+  "collectionName": "application_pages",
+  "info": {
+    "singularName": "application-page",
+    "pluralName": "application-pages",
+    "displayName": "Application Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "BannerSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "application.banner-section"
+    },
+    "ContentSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "application.content-section"
+    },
+    "ProgrammeSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.prog-section"
+    },
+    "ScheduleSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "application.schedule-section"
+    },
+    "DocumentsRequiredSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "application.dr-section"
+    },
+    "StepsSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "application.steps-section"
+    },
+    "AboutAptitudeSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "application.aa-section"
+    },
+    "ApplicationFormSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "application.af-section"
+    },
+    "MetaDetails": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.meta-details"
+    }
+  }
+}

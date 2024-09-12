@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_application_steps_sections",
+  "info": {
+    "displayName": "Steps Section"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "URL": {
+      "type": "string"
+    },
+    "Steps": {
+      "displayName": "Steps",
+      "type": "component",
+      "repeatable": true,
+      "component": "application.steps"
+    }
+  }
+}

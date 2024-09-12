@@ -1,0 +1,18 @@
+{
+    "collectionName": "components_homepage_stu_sections",
+    "info": {
+      "displayName": "Students Section",
+      "description": ""
+    },
+    "options": {},
+    "attributes": {
+      "Heading": {
+        "type": "string"
+      },
+      "Students": {
+        "type": "component",
+        "repeatable": true,
+        "component": "homepage.students"
+      }
+    }
+  }

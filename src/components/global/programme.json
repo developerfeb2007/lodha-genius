@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_homepage_programmes",
+  "info": {
+    "displayName": "Programme",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "richtext"
+    },
+    "URL": {
+      "type": "string"
+    }
+  }
+}

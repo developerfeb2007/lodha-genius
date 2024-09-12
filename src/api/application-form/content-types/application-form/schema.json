@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "application_forms",
+  "info": {
+    "singularName": "application-form",
+    "pluralName": "application-forms",
+    "displayName": "Application Form"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "FirstName": {
+      "type": "string"
+    },
+    "LastName": {
+      "type": "string"
+    },
+    "Phone": {
+      "type": "string"
+    },
+    "Email": {
+      "type": "email"
+    },
+    "City": {
+      "type": "string"
+    },
+    "State": {
+      "type": "string"
+    },
+    "EmailUpdates": {
+      "type": "boolean"
+    },
+    "UTM": {
+      "type": "json"
+    }
+  }
+}
