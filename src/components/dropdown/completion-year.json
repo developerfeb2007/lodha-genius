@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_dropdown_completion_years",
+  "info": {
+    "displayName": "Completion Year"
+  },
+  "options": {},
+  "attributes": {
+    "Value": {
+      "type": "string"
+    }
+  }
+}

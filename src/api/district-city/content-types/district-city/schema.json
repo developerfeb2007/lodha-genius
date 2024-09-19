@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "district_cities",
+  "info": {
+    "singularName": "district-city",
+    "pluralName": "district-cities",
+    "displayName": "District/City"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "State": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::state.state"
+    }
+  }
+}

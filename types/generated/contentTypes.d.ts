@@ -742,7 +742,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
   options: {
     draftAndPublish: false;
-    timestamps: true;
   };
   attributes: {
     username: Attribute.String &
@@ -771,6 +770,10 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'manyToOne',
       'plugin::users-permissions.role'
     >;
+    firstName: Attribute.String;
+    lastName: Attribute.String;
+    countryCode: Attribute.String;
+    mobile: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -864,6 +867,79 @@ export interface ApiApplicationPageApplicationPage extends Schema.SingleType {
   };
 }
 
+export interface ApiDistrictCityDistrictCity extends Schema.CollectionType {
+  collectionName: 'district_cities';
+  info: {
+    singularName: 'district-city';
+    pluralName: 'district-cities';
+    displayName: 'District/City';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    Name: Attribute.String;
+    State: Attribute.Relation<
+      'api::district-city.district-city',
+      'oneToOne',
+      'api::state.state'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::district-city.district-city',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::district-city.district-city',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiDropdownDataDropdownData extends Schema.SingleType {
+  collectionName: 'dropdowns_data';
+  info: {
+    singularName: 'dropdown-data';
+    pluralName: 'dropdowns-data';
+    displayName: 'Dropdown Data';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Gender: Attribute.Component<'dropdown.gender', true>;
+    Class: Attribute.Component<'dropdown.class', true>;
+    Language: Attribute.Component<'dropdown.language', true>;
+    Fluency: Attribute.Component<'dropdown.fluency', true>;
+    SchoolBoard: Attribute.Component<'dropdown.school-board', true>;
+    CompletionYear: Attribute.Component<'dropdown.completion-year', true>;
+    Profession: Attribute.Component<'dropdown.profession', true>;
+    Relation: Attribute.Component<'dropdown.relation', true>;
+    AnnualIncome: Attribute.Component<'dropdown.annual-income', true>;
+    HowDidYouHear: Attribute.Component<'dropdown.source', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::dropdown-data.dropdown-data',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::dropdown-data.dropdown-data',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiHomepageHomepage extends Schema.SingleType {
   collectionName: 'homepages';
   info: {
@@ -900,6 +976,36 @@ export interface ApiHomepageHomepage extends Schema.SingleType {
   };
 }
 
+export interface ApiStateState extends Schema.CollectionType {
+  collectionName: 'states';
+  info: {
+    singularName: 'state';
+    pluralName: 'states';
+    displayName: 'State';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    Name: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::state.state',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::state.state',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -920,7 +1026,10 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::application-form.application-form': ApiApplicationFormApplicationForm;
       'api::application-page.application-page': ApiApplicationPageApplicationPage;
+      'api::district-city.district-city': ApiDistrictCityDistrictCity;
+      'api::dropdown-data.dropdown-data': ApiDropdownDataDropdownData;
       'api::homepage.homepage': ApiHomepageHomepage;
+      'api::state.state': ApiStateState;
     }
   }
 }

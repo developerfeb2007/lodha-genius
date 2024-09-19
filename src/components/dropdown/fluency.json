@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_dropdown_fluencies",
+  "info": {
+    "displayName": "Fluency"
+  },
+  "options": {},
+  "attributes": {
+    "Value": {
+      "type": "string"
+    }
+  }
+}

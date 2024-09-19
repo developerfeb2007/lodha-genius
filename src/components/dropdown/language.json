@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_dropdown_languages",
+  "info": {
+    "displayName": "Language"
+  },
+  "options": {},
+  "attributes": {
+    "Value": {
+      "type": "string"
+    }
+  }
+}

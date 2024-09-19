@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_dropdown_annual_incomes",
+  "info": {
+    "displayName": "Annual Income"
+  },
+  "options": {},
+  "attributes": {
+    "Value": {
+      "type": "string"
+    }
+  }
+}

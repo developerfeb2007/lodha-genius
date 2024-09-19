@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_dropdown_school_boards",
+  "info": {
+    "displayName": "School Board"
+  },
+  "options": {},
+  "attributes": {
+    "Value": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_dropdown_classes",
+  "info": {
+    "displayName": "Class"
+  },
+  "options": {},
+  "attributes": {
+    "Value": {
+      "type": "string"
+    }
+  }
+}

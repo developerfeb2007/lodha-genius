@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_dropdown_genders",
+  "info": {
+    "displayName": "Gender"
+  },
+  "options": {},
+  "attributes": {
+    "Value": {
+      "type": "string"
+    }
+  }
+}

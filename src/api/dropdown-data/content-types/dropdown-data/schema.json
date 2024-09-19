@@ -1,0 +1,75 @@
+{
+  "kind": "singleType",
+  "collectionName": "dropdowns_data",
+  "info": {
+    "singularName": "dropdown-data",
+    "pluralName": "dropdowns-data",
+    "displayName": "Dropdown Data"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Gender": {
+      "displayName": "Gender",
+      "type": "component",
+      "repeatable": true,
+      "component": "dropdown.gender"
+    },
+    "Class": {
+      "displayName": "Class",
+      "type": "component",
+      "repeatable": true,
+      "component": "dropdown.class"
+    },
+    "Language": {
+      "displayName": "Language",
+      "type": "component",
+      "repeatable": true,
+      "component": "dropdown.language"
+    },
+    "Fluency": {
+      "displayName": "Fluency",
+      "type": "component",
+      "repeatable": true,
+      "component": "dropdown.fluency"
+    },
+    "SchoolBoard": {
+      "displayName": "School Board",
+      "type": "component",
+      "repeatable": true,
+      "component": "dropdown.school-board"
+    },
+    "CompletionYear": {
+      "displayName": "Completion Year",
+      "type": "component",
+      "repeatable": true,
+      "component": "dropdown.completion-year"
+    },
+    "Profession": {
+      "displayName": "Profession",
+      "type": "component",
+      "repeatable": true,
+      "component": "dropdown.profession"
+    },
+    "Relation": {
+      "displayName": "Relation",
+      "type": "component",
+      "repeatable": true,
+      "component": "dropdown.relation"
+    },
+    "AnnualIncome": {
+      "displayName": "Annual Income",
+      "type": "component",
+      "repeatable": true,
+      "component": "dropdown.annual-income"
+    },
+    "HowDidYouHear": {
+      "displayName": "Source",
+      "type": "component",
+      "repeatable": true,
+      "component": "dropdown.source"
+    }
+  }
+}

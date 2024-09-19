@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_dropdown_sources",
+  "info": {
+    "displayName": "Source"
+  },
+  "options": {},
+  "attributes": {
+    "Value": {
+      "type": "string"
+    }
+  }
+}

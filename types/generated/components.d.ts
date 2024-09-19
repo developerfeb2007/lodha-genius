@@ -45,6 +45,7 @@ export interface HomepageShapingTomorrow extends Schema.Component {
   collectionName: 'components_homepage_shaping_tomorrows';
   info: {
     displayName: 'Shaping Tomorrow';
+    description: '';
   };
   attributes: {
     Name: Attribute.String;
@@ -53,6 +54,7 @@ export interface HomepageShapingTomorrow extends Schema.Component {
     Alt: Attribute.String;
     Title: Attribute.String;
     URL: Attribute.String;
+    Video: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
   };
 }
 
@@ -137,6 +139,106 @@ export interface GlobalBannerSection extends Schema.Component {
     Heading: Attribute.String;
     Description: Attribute.RichText;
     URL: Attribute.String;
+  };
+}
+
+export interface DropdownSource extends Schema.Component {
+  collectionName: 'components_dropdown_sources';
+  info: {
+    displayName: 'Source';
+  };
+  attributes: {
+    Value: Attribute.String;
+  };
+}
+
+export interface DropdownSchoolBoard extends Schema.Component {
+  collectionName: 'components_dropdown_school_boards';
+  info: {
+    displayName: 'School Board';
+  };
+  attributes: {
+    Value: Attribute.String;
+  };
+}
+
+export interface DropdownRelation extends Schema.Component {
+  collectionName: 'components_dropdown_relations';
+  info: {
+    displayName: 'Relation';
+  };
+  attributes: {
+    Value: Attribute.String;
+  };
+}
+
+export interface DropdownProfession extends Schema.Component {
+  collectionName: 'components_dropdown_professions';
+  info: {
+    displayName: 'Profession';
+  };
+  attributes: {
+    Value: Attribute.String;
+  };
+}
+
+export interface DropdownLanguage extends Schema.Component {
+  collectionName: 'components_dropdown_languages';
+  info: {
+    displayName: 'Language';
+  };
+  attributes: {
+    Value: Attribute.String;
+  };
+}
+
+export interface DropdownGender extends Schema.Component {
+  collectionName: 'components_dropdown_genders';
+  info: {
+    displayName: 'Gender';
+  };
+  attributes: {
+    Value: Attribute.String;
+  };
+}
+
+export interface DropdownFluency extends Schema.Component {
+  collectionName: 'components_dropdown_fluencies';
+  info: {
+    displayName: 'Fluency';
+  };
+  attributes: {
+    Value: Attribute.String;
+  };
+}
+
+export interface DropdownCompletionYear extends Schema.Component {
+  collectionName: 'components_dropdown_completion_years';
+  info: {
+    displayName: 'Completion Year';
+  };
+  attributes: {
+    Value: Attribute.String;
+  };
+}
+
+export interface DropdownClass extends Schema.Component {
+  collectionName: 'components_dropdown_classes';
+  info: {
+    displayName: 'Class';
+  };
+  attributes: {
+    Value: Attribute.String;
+  };
+}
+
+export interface DropdownAnnualIncome extends Schema.Component {
+  collectionName: 'components_dropdown_annual_incomes';
+  info: {
+    displayName: 'Annual Income';
+  };
+  attributes: {
+    Value: Attribute.String;
   };
 }
 
@@ -285,6 +387,16 @@ declare module '@strapi/types' {
       'global.prog-section': GlobalProgSection;
       'global.meta-details': GlobalMetaDetails;
       'global.banner-section': GlobalBannerSection;
+      'dropdown.source': DropdownSource;
+      'dropdown.school-board': DropdownSchoolBoard;
+      'dropdown.relation': DropdownRelation;
+      'dropdown.profession': DropdownProfession;
+      'dropdown.language': DropdownLanguage;
+      'dropdown.gender': DropdownGender;
+      'dropdown.fluency': DropdownFluency;
+      'dropdown.completion-year': DropdownCompletionYear;
+      'dropdown.class': DropdownClass;
+      'dropdown.annual-income': DropdownAnnualIncome;
       'application.steps': ApplicationSteps;
       'application.steps-section': ApplicationStepsSection;
       'application.schedule': ApplicationSchedule;
