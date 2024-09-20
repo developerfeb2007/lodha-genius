@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "fluencies",
+  "info": {
+    "singularName": "fluency",
+    "pluralName": "fluencies",
+    "displayName": "English Fluency",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Value": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

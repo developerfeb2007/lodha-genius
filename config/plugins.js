@@ -9,5 +9,21 @@ module.exports = ({ env }) => ({
         breakpoints: {}, // This disables the creation of additional image formats
       },
     },
+    email: {
+      config: {
+        provider: 'nodemailer',
+        providerOptions: {
+          host: env('SMTP_HOST', 'smtp.gmail.com'),
+          port: env('SMTP_PORT', 587),
+          auth: {
+            user: env('SMTP_USER'),
+            pass: env('SMTP_PASS'),
+          },
+        },
+        settings: {
+          defaultFrom: env('SMTP_USER'),
+        },
+      },
+    },
   });
   

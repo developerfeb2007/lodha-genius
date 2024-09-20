@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "completion_years",
+  "info": {
+    "singularName": "completion-year",
+    "pluralName": "completion-years",
+    "displayName": "Completion Year"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Value": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

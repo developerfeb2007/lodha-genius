@@ -1,5 +1,44 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface UserPersonalDetails extends Schema.Component {
+  collectionName: 'components_user_personal_details';
+  info: {
+    displayName: 'Personal Details';
+  };
+  attributes: {
+    StudentFirstName: Attribute.String & Attribute.Required;
+    StudentLastName: Attribute.String & Attribute.Required;
+    Gender: Attribute.Relation<
+      'user.personal-details',
+      'oneToOne',
+      'api::gender.gender'
+    >;
+    DOB: Attribute.Date & Attribute.Required;
+    Mobile: Attribute.String & Attribute.Required;
+    Class: Attribute.Relation<
+      'user.personal-details',
+      'oneToOne',
+      'api::class.class'
+    >;
+    EmailId: Attribute.String & Attribute.Required;
+    StudentContact: Attribute.String & Attribute.Required;
+    State: Attribute.String & Attribute.Required;
+    District_City: Attribute.String & Attribute.Required;
+    CommunicationAddress: Attribute.String & Attribute.Required;
+    PermanentAddress: Attribute.String & Attribute.Required;
+    MotherTongue: Attribute.Relation<
+      'user.personal-details',
+      'oneToOne',
+      'api::language.language'
+    >;
+    Proficiency: Attribute.Relation<
+      'user.personal-details',
+      'oneToOne',
+      'api::fluency.fluency'
+    >;
+  };
+}
+
 export interface HomepageStuSection extends Schema.Component {
   collectionName: 'components_homepage_stu_sections';
   info: {
@@ -74,6 +113,63 @@ export interface HomepagePoSection extends Schema.Component {
   attributes: {
     Heading: Attribute.String;
     ProgrammeOverview: Attribute.Component<'homepage.programme-overview', true>;
+  };
+}
+
+export interface GlobalProgramme extends Schema.Component {
+  collectionName: 'components_homepage_programmes';
+  info: {
+    displayName: 'Programme';
+    description: '';
+  };
+  attributes: {
+    Title: Attribute.String;
+    Description: Attribute.RichText;
+    URL: Attribute.String;
+  };
+}
+
+export interface GlobalProgSection extends Schema.Component {
+  collectionName: 'components_homepage_prog_sections';
+  info: {
+    displayName: 'Programme Section';
+    description: '';
+  };
+  attributes: {
+    Heading: Attribute.String;
+    Programme: Attribute.Component<'global.programme', true>;
+  };
+}
+
+export interface GlobalMetaDetails extends Schema.Component {
+  collectionName: 'components_global_meta_details';
+  info: {
+    displayName: 'Meta Details';
+    description: '';
+  };
+  attributes: {
+    Title: Attribute.String;
+    Description: Attribute.Text;
+    OGTitle: Attribute.String;
+    OGDescription: Attribute.Text;
+    OGImage: Attribute.Media<'images'>;
+  };
+}
+
+export interface GlobalBannerSection extends Schema.Component {
+  collectionName: 'components_homepage_banner_sections';
+  info: {
+    displayName: 'Banner Section';
+    description: '';
+  };
+  attributes: {
+    DesktopImage: Attribute.Media<'images'>;
+    MobileImage: Attribute.Media<'images'>;
+    Alt: Attribute.String;
+    Title: Attribute.String;
+    Heading: Attribute.String;
+    Description: Attribute.RichText;
+    URL: Attribute.String;
   };
 }
 
@@ -174,63 +270,6 @@ export interface DropdownAnnualIncome extends Schema.Component {
   };
   attributes: {
     Value: Attribute.String;
-  };
-}
-
-export interface GlobalProgramme extends Schema.Component {
-  collectionName: 'components_homepage_programmes';
-  info: {
-    displayName: 'Programme';
-    description: '';
-  };
-  attributes: {
-    Title: Attribute.String;
-    Description: Attribute.RichText;
-    URL: Attribute.String;
-  };
-}
-
-export interface GlobalProgSection extends Schema.Component {
-  collectionName: 'components_homepage_prog_sections';
-  info: {
-    displayName: 'Programme Section';
-    description: '';
-  };
-  attributes: {
-    Heading: Attribute.String;
-    Programme: Attribute.Component<'global.programme', true>;
-  };
-}
-
-export interface GlobalMetaDetails extends Schema.Component {
-  collectionName: 'components_global_meta_details';
-  info: {
-    displayName: 'Meta Details';
-    description: '';
-  };
-  attributes: {
-    Title: Attribute.String;
-    Description: Attribute.Text;
-    OGTitle: Attribute.String;
-    OGDescription: Attribute.Text;
-    OGImage: Attribute.Media<'images'>;
-  };
-}
-
-export interface GlobalBannerSection extends Schema.Component {
-  collectionName: 'components_homepage_banner_sections';
-  info: {
-    displayName: 'Banner Section';
-    description: '';
-  };
-  attributes: {
-    DesktopImage: Attribute.Media<'images'>;
-    MobileImage: Attribute.Media<'images'>;
-    Alt: Attribute.String;
-    Title: Attribute.String;
-    Heading: Attribute.String;
-    Description: Attribute.RichText;
-    URL: Attribute.String;
   };
 }
 
@@ -372,11 +411,16 @@ export interface ApplicationAaSection extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'user.personal-details': UserPersonalDetails;
       'homepage.stu-section': HomepageStuSection;
       'homepage.st-section': HomepageStSection;
       'homepage.shaping-tomorrow': HomepageShapingTomorrow;
       'homepage.programme-overview': HomepageProgrammeOverview;
       'homepage.po-section': HomepagePoSection;
+      'global.programme': GlobalProgramme;
+      'global.prog-section': GlobalProgSection;
+      'global.meta-details': GlobalMetaDetails;
+      'global.banner-section': GlobalBannerSection;
       'dropdown.source': DropdownSource;
       'dropdown.school-board': DropdownSchoolBoard;
       'dropdown.relation': DropdownRelation;
@@ -387,10 +431,6 @@ declare module '@strapi/types' {
       'dropdown.completion-year': DropdownCompletionYear;
       'dropdown.class': DropdownClass;
       'dropdown.annual-income': DropdownAnnualIncome;
-      'global.programme': GlobalProgramme;
-      'global.prog-section': GlobalProgSection;
-      'global.meta-details': GlobalMetaDetails;
-      'global.banner-section': GlobalBannerSection;
       'application.steps': ApplicationSteps;
       'application.steps-section': ApplicationStepsSection;
       'application.schedule': ApplicationSchedule;

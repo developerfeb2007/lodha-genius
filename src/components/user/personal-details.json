@@ -1,0 +1,69 @@
+{
+  "collectionName": "components_user_personal_details",
+  "info": {
+    "displayName": "Personal Details"
+  },
+  "options": {},
+  "attributes": {
+    "StudentFirstName": {
+      "type": "string",
+      "required": true
+    },
+    "StudentLastName": {
+      "type": "string",
+      "required": true
+    },
+    "Gender": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::gender.gender"
+    },
+    "DOB": {
+      "type": "date",
+      "required": true
+    },
+    "Mobile": {
+      "type": "string",
+      "required": true
+    },
+    "Class": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::class.class"
+    },
+    "EmailId": {
+      "type": "string",
+      "required": true
+    },
+    "StudentContact": {
+      "type": "string",
+      "required": true
+    },
+    "State": {
+      "type": "string",
+      "required": true
+    },
+    "District_City": {
+      "type": "string",
+      "required": true
+    },
+    "CommunicationAddress": {
+      "type": "string",
+      "required": true
+    },
+    "PermanentAddress": {
+      "type": "string",
+      "required": true
+    },
+    "MotherTongue": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::language.language"
+    },
+    "Proficiency": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::fluency.fluency"
+    }
+  }
+}

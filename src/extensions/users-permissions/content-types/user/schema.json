@@ -76,6 +76,17 @@
     },
     "mobile": {
       "type": "string"
+    },
+    "otp": {
+      "type": "integer",
+      "required": false,
+      "private": true
+    },
+    "PersonalDetails": {
+      "displayName": "Personal Details",
+      "type": "component",
+      "repeatable": false,
+      "component": "user.personal-details"
     }
   }
 }

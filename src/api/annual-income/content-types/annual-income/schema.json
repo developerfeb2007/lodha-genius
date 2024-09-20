@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "annual_incomes",
+  "info": {
+    "singularName": "annual-income",
+    "pluralName": "annual-incomes",
+    "displayName": "Annual Income"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Value": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

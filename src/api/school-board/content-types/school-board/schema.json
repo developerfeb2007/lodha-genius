@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "school_boards",
+  "info": {
+    "singularName": "school-board",
+    "pluralName": "school-boards",
+    "displayName": "School Board"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Value": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

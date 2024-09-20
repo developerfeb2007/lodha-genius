@@ -774,6 +774,8 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
     lastName: Attribute.String;
     countryCode: Attribute.String;
     mobile: Attribute.String;
+    otp: Attribute.Integer & Attribute.Private;
+    PersonalDetails: Attribute.Component<'user.personal-details'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -784,6 +786,35 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'plugin::users-permissions.user',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiAnnualIncomeAnnualIncome extends Schema.CollectionType {
+  collectionName: 'annual_incomes';
+  info: {
+    singularName: 'annual-income';
+    pluralName: 'annual-incomes';
+    displayName: 'Annual Income';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    Value: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::annual-income.annual-income',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::annual-income.annual-income',
       'oneToOne',
       'admin::user'
     > &
@@ -867,6 +898,65 @@ export interface ApiApplicationPageApplicationPage extends Schema.SingleType {
   };
 }
 
+export interface ApiClassClass extends Schema.CollectionType {
+  collectionName: 'classes';
+  info: {
+    singularName: 'class';
+    pluralName: 'classes';
+    displayName: 'Classes';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    Value: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::class.class',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::class.class',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCompletionYearCompletionYear extends Schema.CollectionType {
+  collectionName: 'completion_years';
+  info: {
+    singularName: 'completion-year';
+    pluralName: 'completion-years';
+    displayName: 'Completion Year';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    Value: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::completion-year.completion-year',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::completion-year.completion-year',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiDistrictCityDistrictCity extends Schema.CollectionType {
   collectionName: 'district_cities';
   info: {
@@ -901,38 +991,58 @@ export interface ApiDistrictCityDistrictCity extends Schema.CollectionType {
   };
 }
 
-export interface ApiDropdownDataDropdownData extends Schema.SingleType {
-  collectionName: 'dropdowns_data';
+export interface ApiFluencyFluency extends Schema.CollectionType {
+  collectionName: 'fluencies';
   info: {
-    singularName: 'dropdown-data';
-    pluralName: 'dropdowns-data';
-    displayName: 'Dropdown Data';
+    singularName: 'fluency';
+    pluralName: 'fluencies';
+    displayName: 'English Fluency';
+    description: '';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
-    Gender: Attribute.Component<'dropdown.gender', true>;
-    Class: Attribute.Component<'dropdown.class', true>;
-    Language: Attribute.Component<'dropdown.language', true>;
-    Fluency: Attribute.Component<'dropdown.fluency', true>;
-    SchoolBoard: Attribute.Component<'dropdown.school-board', true>;
-    CompletionYear: Attribute.Component<'dropdown.completion-year', true>;
-    Profession: Attribute.Component<'dropdown.profession', true>;
-    Relation: Attribute.Component<'dropdown.relation', true>;
-    AnnualIncome: Attribute.Component<'dropdown.annual-income', true>;
-    HowDidYouHear: Attribute.Component<'dropdown.source', true>;
+    Value: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::dropdown-data.dropdown-data',
+      'api::fluency.fluency',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::dropdown-data.dropdown-data',
+      'api::fluency.fluency',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiGenderGender extends Schema.CollectionType {
+  collectionName: 'genders';
+  info: {
+    singularName: 'gender';
+    pluralName: 'genders';
+    displayName: 'Gender';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    Value: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::gender.gender',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::gender.gender',
       'oneToOne',
       'admin::user'
     > &
@@ -975,6 +1085,64 @@ export interface ApiHomepageHomepage extends Schema.SingleType {
   };
 }
 
+export interface ApiLanguageLanguage extends Schema.CollectionType {
+  collectionName: 'languages';
+  info: {
+    singularName: 'language';
+    pluralName: 'languages';
+    displayName: 'Language';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    Value: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::language.language',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::language.language',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiProfessionProfession extends Schema.CollectionType {
+  collectionName: 'professions';
+  info: {
+    singularName: 'profession';
+    pluralName: 'professions';
+    displayName: 'Profession';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    Value: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::profession.profession',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::profession.profession',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiProgrammeSectionProgrammeSection extends Schema.SingleType {
   collectionName: 'programme_sections';
   info: {
@@ -998,6 +1166,94 @@ export interface ApiProgrammeSectionProgrammeSection extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::programme-section.programme-section',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiRelationRelation extends Schema.CollectionType {
+  collectionName: 'relations';
+  info: {
+    singularName: 'relation';
+    pluralName: 'relations';
+    displayName: 'Relation';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    Value: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::relation.relation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::relation.relation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSchoolBoardSchoolBoard extends Schema.CollectionType {
+  collectionName: 'school_boards';
+  info: {
+    singularName: 'school-board';
+    pluralName: 'school-boards';
+    displayName: 'School Board';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    Value: Attribute.Text & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::school-board.school-board',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::school-board.school-board',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSourceSource extends Schema.CollectionType {
+  collectionName: 'sources';
+  info: {
+    singularName: 'source';
+    pluralName: 'sources';
+    displayName: 'Sources';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    Value: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::source.source',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::source.source',
       'oneToOne',
       'admin::user'
     > &
@@ -1053,12 +1309,21 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::annual-income.annual-income': ApiAnnualIncomeAnnualIncome;
       'api::application-form.application-form': ApiApplicationFormApplicationForm;
       'api::application-page.application-page': ApiApplicationPageApplicationPage;
+      'api::class.class': ApiClassClass;
+      'api::completion-year.completion-year': ApiCompletionYearCompletionYear;
       'api::district-city.district-city': ApiDistrictCityDistrictCity;
-      'api::dropdown-data.dropdown-data': ApiDropdownDataDropdownData;
+      'api::fluency.fluency': ApiFluencyFluency;
+      'api::gender.gender': ApiGenderGender;
       'api::homepage.homepage': ApiHomepageHomepage;
+      'api::language.language': ApiLanguageLanguage;
+      'api::profession.profession': ApiProfessionProfession;
       'api::programme-section.programme-section': ApiProgrammeSectionProgrammeSection;
+      'api::relation.relation': ApiRelationRelation;
+      'api::school-board.school-board': ApiSchoolBoardSchoolBoard;
+      'api::source.source': ApiSourceSource;
       'api::state.state': ApiStateState;
     }
   }
