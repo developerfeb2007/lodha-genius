@@ -1,18 +1,45 @@
 {
-    "collectionName": "components_homepage_stu_sections",
-    "info": {
-      "displayName": "Students Section",
-      "description": ""
+  "collectionName": "components_homepage_stu_sections",
+  "info": {
+    "displayName": "Students Section",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
     },
-    "options": {},
-    "attributes": {
-      "Heading": {
-        "type": "string"
-      },
-      "Students": {
-        "type": "component",
-        "repeatable": true,
-        "component": "homepage.students"
-      }
+    "Description": {
+      "type": "richtext"
+    },
+    "URL": {
+      "type": "string"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Alt": {
+      "type": "string"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "BackgroundImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "BGAlt": {
+      "type": "string"
+    },
+    "BGTitle": {
+      "type": "string"
     }
   }
+}

@@ -1,7 +1,8 @@
 {
   "collectionName": "components_global_meta_details",
   "info": {
-    "displayName": "Meta Details"
+    "displayName": "Meta Details",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -18,14 +19,12 @@
       "type": "text"
     },
     "OGImage": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
       "type": "media",
-      "multiple": false
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }

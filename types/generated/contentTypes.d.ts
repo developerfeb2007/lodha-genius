@@ -835,6 +835,7 @@ export interface ApiApplicationPageApplicationPage extends Schema.SingleType {
     singularName: 'application-page';
     pluralName: 'application-pages';
     displayName: 'Application Page';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -842,7 +843,6 @@ export interface ApiApplicationPageApplicationPage extends Schema.SingleType {
   attributes: {
     BannerSection: Attribute.Component<'application.banner-section'>;
     ContentSection: Attribute.Component<'application.content-section'>;
-    ProgrammeSection: Attribute.Component<'global.prog-section'>;
     ScheduleSection: Attribute.Component<'application.schedule-section'>;
     DocumentsRequiredSection: Attribute.Component<'application.dr-section'>;
     StepsSection: Attribute.Component<'application.steps-section'>;
@@ -954,7 +954,6 @@ export interface ApiHomepageHomepage extends Schema.SingleType {
   attributes: {
     BannerSection: Attribute.Component<'global.banner-section', true>;
     ShapingTomorrowSection: Attribute.Component<'homepage.st-section'>;
-    ProgrammeSection: Attribute.Component<'global.prog-section'>;
     ProgrammeOverviewSection: Attribute.Component<'homepage.po-section'>;
     StudentsSection: Attribute.Component<'homepage.stu-section'>;
     MetaDetails: Attribute.Component<'global.meta-details'>;
@@ -969,6 +968,36 @@ export interface ApiHomepageHomepage extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::homepage.homepage',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiProgrammeSectionProgrammeSection extends Schema.SingleType {
+  collectionName: 'programme_sections';
+  info: {
+    singularName: 'programme-section';
+    pluralName: 'programme-sections';
+    displayName: 'Programme Section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    ProgrammeSection: Attribute.Component<'global.prog-section'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::programme-section.programme-section',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::programme-section.programme-section',
       'oneToOne',
       'admin::user'
     > &
@@ -1029,6 +1058,7 @@ declare module '@strapi/types' {
       'api::district-city.district-city': ApiDistrictCityDistrictCity;
       'api::dropdown-data.dropdown-data': ApiDropdownDataDropdownData;
       'api::homepage.homepage': ApiHomepageHomepage;
+      'api::programme-section.programme-section': ApiProgrammeSectionProgrammeSection;
       'api::state.state': ApiStateState;
     }
   }

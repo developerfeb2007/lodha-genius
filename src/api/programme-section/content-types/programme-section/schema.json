@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "programme_sections",
+  "info": {
+    "singularName": "programme-section",
+    "pluralName": "programme-sections",
+    "displayName": "Programme Section"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ProgrammeSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.prog-section"
+    }
+  }
+}

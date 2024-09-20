@@ -4,7 +4,8 @@
   "info": {
     "singularName": "application-page",
     "pluralName": "application-pages",
-    "displayName": "Application Page"
+    "displayName": "Application Page",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -20,11 +21,6 @@
       "type": "component",
       "repeatable": false,
       "component": "application.content-section"
-    },
-    "ProgrammeSection": {
-      "type": "component",
-      "repeatable": false,
-      "component": "global.prog-section"
     },
     "ScheduleSection": {
       "type": "component",

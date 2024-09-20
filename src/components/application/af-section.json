@@ -1,7 +1,8 @@
 {
   "collectionName": "components_application_af_sections",
   "info": {
-    "displayName": "Application Form Section"
+    "displayName": "Application Form Section",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -9,14 +10,12 @@
       "type": "string"
     },
     "Image": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
       "type": "media",
-      "multiple": false
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "Alt": {
       "type": "string"

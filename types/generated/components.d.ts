@@ -1,22 +1,5 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
-export interface HomepageStudents extends Schema.Component {
-  collectionName: 'components_homepage_students';
-  info: {
-    displayName: 'Students';
-  };
-  attributes: {
-    Description: Attribute.RichText;
-    URL: Attribute.String;
-    Image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    Alt: Attribute.String;
-    Title: Attribute.String;
-    BackgroundImage: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    BGAlt: Attribute.String;
-    BGTitle: Attribute.String;
-  };
-}
-
 export interface HomepageStuSection extends Schema.Component {
   collectionName: 'components_homepage_stu_sections';
   info: {
@@ -25,7 +8,14 @@ export interface HomepageStuSection extends Schema.Component {
   };
   attributes: {
     Heading: Attribute.String;
-    Students: Attribute.Component<'homepage.students', true>;
+    Description: Attribute.RichText;
+    URL: Attribute.String;
+    Image: Attribute.Media<'images'>;
+    Alt: Attribute.String;
+    Title: Attribute.String;
+    BackgroundImage: Attribute.Media<'images'>;
+    BGAlt: Attribute.String;
+    BGTitle: Attribute.String;
   };
 }
 
@@ -50,11 +40,11 @@ export interface HomepageShapingTomorrow extends Schema.Component {
   attributes: {
     Name: Attribute.String;
     Description: Attribute.RichText;
-    Image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Image: Attribute.Media<'images'>;
     Alt: Attribute.String;
     Title: Attribute.String;
     URL: Attribute.String;
-    Video: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Video: Attribute.Media<'videos'>;
   };
 }
 
@@ -62,11 +52,12 @@ export interface HomepageProgrammeOverview extends Schema.Component {
   collectionName: 'components_homepage_programme_overviews';
   info: {
     displayName: 'Programme Overview';
+    description: '';
   };
   attributes: {
     Subject: Attribute.String;
-    Image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    Video: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Image: Attribute.Media<'images'>;
+    Video: Attribute.Media<'videos'>;
     Alt: Attribute.String;
     Title: Attribute.String;
     Description: Attribute.RichText;
@@ -83,62 +74,6 @@ export interface HomepagePoSection extends Schema.Component {
   attributes: {
     Heading: Attribute.String;
     ProgrammeOverview: Attribute.Component<'homepage.programme-overview', true>;
-  };
-}
-
-export interface GlobalProgramme extends Schema.Component {
-  collectionName: 'components_homepage_programmes';
-  info: {
-    displayName: 'Programme';
-    description: '';
-  };
-  attributes: {
-    Title: Attribute.String;
-    Description: Attribute.RichText;
-    URL: Attribute.String;
-  };
-}
-
-export interface GlobalProgSection extends Schema.Component {
-  collectionName: 'components_homepage_prog_sections';
-  info: {
-    displayName: 'Programme Section';
-    description: '';
-  };
-  attributes: {
-    Heading: Attribute.String;
-    Programme: Attribute.Component<'global.programme', true>;
-  };
-}
-
-export interface GlobalMetaDetails extends Schema.Component {
-  collectionName: 'components_global_meta_details';
-  info: {
-    displayName: 'Meta Details';
-  };
-  attributes: {
-    Title: Attribute.String;
-    Description: Attribute.Text;
-    OGTitle: Attribute.String;
-    OGDescription: Attribute.Text;
-    OGImage: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-  };
-}
-
-export interface GlobalBannerSection extends Schema.Component {
-  collectionName: 'components_homepage_banner_sections';
-  info: {
-    displayName: 'Banner Section';
-    description: '';
-  };
-  attributes: {
-    DesktopImage: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    MobileImage: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    Alt: Attribute.String;
-    Title: Attribute.String;
-    Heading: Attribute.String;
-    Description: Attribute.RichText;
-    URL: Attribute.String;
   };
 }
 
@@ -242,6 +177,63 @@ export interface DropdownAnnualIncome extends Schema.Component {
   };
 }
 
+export interface GlobalProgramme extends Schema.Component {
+  collectionName: 'components_homepage_programmes';
+  info: {
+    displayName: 'Programme';
+    description: '';
+  };
+  attributes: {
+    Title: Attribute.String;
+    Description: Attribute.RichText;
+    URL: Attribute.String;
+  };
+}
+
+export interface GlobalProgSection extends Schema.Component {
+  collectionName: 'components_homepage_prog_sections';
+  info: {
+    displayName: 'Programme Section';
+    description: '';
+  };
+  attributes: {
+    Heading: Attribute.String;
+    Programme: Attribute.Component<'global.programme', true>;
+  };
+}
+
+export interface GlobalMetaDetails extends Schema.Component {
+  collectionName: 'components_global_meta_details';
+  info: {
+    displayName: 'Meta Details';
+    description: '';
+  };
+  attributes: {
+    Title: Attribute.String;
+    Description: Attribute.Text;
+    OGTitle: Attribute.String;
+    OGDescription: Attribute.Text;
+    OGImage: Attribute.Media<'images'>;
+  };
+}
+
+export interface GlobalBannerSection extends Schema.Component {
+  collectionName: 'components_homepage_banner_sections';
+  info: {
+    displayName: 'Banner Section';
+    description: '';
+  };
+  attributes: {
+    DesktopImage: Attribute.Media<'images'>;
+    MobileImage: Attribute.Media<'images'>;
+    Alt: Attribute.String;
+    Title: Attribute.String;
+    Heading: Attribute.String;
+    Description: Attribute.RichText;
+    URL: Attribute.String;
+  };
+}
+
 export interface ApplicationSteps extends Schema.Component {
   collectionName: 'components_application_steps';
   info: {
@@ -302,10 +294,11 @@ export interface ApplicationDrSection extends Schema.Component {
   collectionName: 'components_application_dr_sections';
   info: {
     displayName: 'Documents Required section';
+    description: '';
   };
   attributes: {
     Heading: Attribute.String;
-    Image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Image: Attribute.Media<'images'>;
     Title: Attribute.String;
     Alt: Attribute.String;
     DocumentsRequired: Attribute.Component<'application.dr', true>;
@@ -338,10 +331,11 @@ export interface ApplicationAfSection extends Schema.Component {
   collectionName: 'components_application_af_sections';
   info: {
     displayName: 'Application Form Section';
+    description: '';
   };
   attributes: {
     Heading: Attribute.String;
-    Image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Image: Attribute.Media<'images'>;
     Alt: Attribute.String;
     Title: Attribute.String;
   };
@@ -351,11 +345,12 @@ export interface ApplicationAa extends Schema.Component {
   collectionName: 'components_application_aas';
   info: {
     displayName: 'About Aptitude';
+    description: '';
   };
   attributes: {
     Subject: Attribute.String;
-    Image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    Video: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Image: Attribute.Media<'images'>;
+    Video: Attribute.Media<'videos'>;
     Alt: Attribute.String;
     Title: Attribute.String;
     Description: Attribute.RichText;
@@ -377,16 +372,11 @@ export interface ApplicationAaSection extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
-      'homepage.students': HomepageStudents;
       'homepage.stu-section': HomepageStuSection;
       'homepage.st-section': HomepageStSection;
       'homepage.shaping-tomorrow': HomepageShapingTomorrow;
       'homepage.programme-overview': HomepageProgrammeOverview;
       'homepage.po-section': HomepagePoSection;
-      'global.programme': GlobalProgramme;
-      'global.prog-section': GlobalProgSection;
-      'global.meta-details': GlobalMetaDetails;
-      'global.banner-section': GlobalBannerSection;
       'dropdown.source': DropdownSource;
       'dropdown.school-board': DropdownSchoolBoard;
       'dropdown.relation': DropdownRelation;
@@ -397,6 +387,10 @@ declare module '@strapi/types' {
       'dropdown.completion-year': DropdownCompletionYear;
       'dropdown.class': DropdownClass;
       'dropdown.annual-income': DropdownAnnualIncome;
+      'global.programme': GlobalProgramme;
+      'global.prog-section': GlobalProgSection;
+      'global.meta-details': GlobalMetaDetails;
+      'global.banner-section': GlobalBannerSection;
       'application.steps': ApplicationSteps;
       'application.steps-section': ApplicationStepsSection;
       'application.schedule': ApplicationSchedule;
