@@ -101,6 +101,7 @@ export interface HomepageProgrammeOverview extends Schema.Component {
     Title: Attribute.String;
     Description: Attribute.RichText;
     URL: Attribute.String;
+    Color: Attribute.String;
   };
 }
 

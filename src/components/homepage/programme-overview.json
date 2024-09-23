@@ -36,6 +36,9 @@
     },
     "URL": {
       "type": "string"
+    },
+    "Color": {
+      "type": "string"
     }
   }
 }
