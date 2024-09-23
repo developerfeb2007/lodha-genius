@@ -21,8 +21,8 @@ jobs:
     - name: Add SSH Host Key
       run: |
         mkdir -p ~/.ssh
-        ssh-keyscan -p 2245 your_server_ip >> ~/.ssh/known_hosts
+        ssh-keyscan -p 2245 13.234.175.14 >> ~/.ssh/known_hosts  # Replace with your actual IP
 
     - name: Deploy to Server
       run: |
-        ssh -p 2245 root@13.234.175.14 "cd /home/lodhaadmindigita/public_html && git pull origin main"
+        ssh -p 2245 root@13.234.175.14 "cd /home/lodhaadmindigita/public_html && git pull origin main"  # Replace with your actual IP
