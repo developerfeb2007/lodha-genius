@@ -1,5 +1,26 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface UserSchoolDetails extends Schema.Component {
+  collectionName: 'components_user_school_details';
+  info: {
+    displayName: 'School Details';
+    description: '';
+  };
+  attributes: {
+    SchoolName: Attribute.String & Attribute.Required;
+    SchoolBoard: Attribute.Relation<
+      'user.school-details',
+      'oneToOne',
+      'api::school-board.school-board'
+    >;
+    SchoolPoint_ContactName: Attribute.String & Attribute.Required;
+    SchoolPoint_ContactNumber: Attribute.String & Attribute.Required;
+    SchoolPoint_ContactEmail: Attribute.Email & Attribute.Required;
+    SchoolState: Attribute.String & Attribute.Required;
+    SchoolCity: Attribute.String & Attribute.Required;
+  };
+}
+
 export interface UserPersonalDetails extends Schema.Component {
   collectionName: 'components_user_personal_details';
   info: {
@@ -36,6 +57,86 @@ export interface UserPersonalDetails extends Schema.Component {
       'oneToOne',
       'api::fluency.fluency'
     >;
+  };
+}
+
+export interface UserGuardian2 extends Schema.Component {
+  collectionName: 'components_user_guardian2s';
+  info: {
+    displayName: 'Guardian2';
+  };
+  attributes: {
+    Name: Attribute.String;
+    Contact: Attribute.String;
+    Email: Attribute.Email;
+    Profession: Attribute.Relation<
+      'user.guardian2',
+      'oneToOne',
+      'api::profession.profession'
+    >;
+    Relation: Attribute.Relation<
+      'user.guardian2',
+      'oneToOne',
+      'api::relation.relation'
+    >;
+  };
+}
+
+export interface UserGuardian1 extends Schema.Component {
+  collectionName: 'components_user_guardian1s';
+  info: {
+    displayName: 'Guardian1';
+  };
+  attributes: {
+    Name: Attribute.String & Attribute.Required;
+    Contact: Attribute.String & Attribute.Required;
+    Email: Attribute.Email & Attribute.Required;
+    Profession: Attribute.Relation<
+      'user.guardian1',
+      'oneToOne',
+      'api::profession.profession'
+    >;
+    Relation: Attribute.Relation<
+      'user.guardian1',
+      'oneToOne',
+      'api::relation.relation'
+    >;
+  };
+}
+
+export interface UserGuardianDetails extends Schema.Component {
+  collectionName: 'components_user_guardian_details';
+  info: {
+    displayName: 'Guardian Details';
+  };
+  attributes: {
+    Guardian1: Attribute.Component<'user.guardian1'>;
+    Guardian2: Attribute.Component<'user.guardian2'>;
+    AnnualIncome: Attribute.Relation<
+      'user.guardian-details',
+      'oneToOne',
+      'api::annual-income.annual-income'
+    >;
+  };
+}
+
+export interface UserAcademicRecord extends Schema.Component {
+  collectionName: 'components_user_academic_records';
+  info: {
+    displayName: 'Academic Record';
+  };
+  attributes: {
+    SchoolBoard: Attribute.Relation<
+      'user.academic-record',
+      'oneToOne',
+      'api::school-board.school-board'
+    >;
+    CompletionYear: Attribute.Relation<
+      'user.academic-record',
+      'oneToOne',
+      'api::completion-year.completion-year'
+    >;
+    Percentage: Attribute.Decimal & Attribute.Required;
   };
 }
 
@@ -395,6 +496,7 @@ export interface ApplicationAa extends Schema.Component {
     Title: Attribute.String;
     Description: Attribute.RichText;
     URL: Attribute.String;
+    Color: Attribute.String;
   };
 }
 
@@ -412,7 +514,12 @@ export interface ApplicationAaSection extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'user.school-details': UserSchoolDetails;
       'user.personal-details': UserPersonalDetails;
+      'user.guardian2': UserGuardian2;
+      'user.guardian1': UserGuardian1;
+      'user.guardian-details': UserGuardianDetails;
+      'user.academic-record': UserAcademicRecord;
       'homepage.stu-section': HomepageStuSection;
       'homepage.st-section': HomepageStSection;
       'homepage.shaping-tomorrow': HomepageShapingTomorrow;

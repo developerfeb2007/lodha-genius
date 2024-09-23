@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_user_guardian1s",
+  "info": {
+    "displayName": "Guardian1"
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Contact": {
+      "type": "string",
+      "required": true
+    },
+    "Email": {
+      "type": "email",
+      "required": true
+    },
+    "Profession": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::profession.profession"
+    },
+    "Relation": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::relation.relation"
+    }
+  }
+}

@@ -776,6 +776,9 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
     mobile: Attribute.String;
     otp: Attribute.Integer & Attribute.Private;
     PersonalDetails: Attribute.Component<'user.personal-details'>;
+    SchoolDetails: Attribute.Component<'user.school-details'>;
+    AcademicRecord: Attribute.Component<'user.academic-record'>;
+    GuardianDetails: Attribute.Component<'user.guardian-details'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -950,40 +953,6 @@ export interface ApiCompletionYearCompletionYear extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::completion-year.completion-year',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiDistrictCityDistrictCity extends Schema.CollectionType {
-  collectionName: 'district_cities';
-  info: {
-    singularName: 'district-city';
-    pluralName: 'district-cities';
-    displayName: 'District/City';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    Name: Attribute.String;
-    State: Attribute.Relation<
-      'api::district-city.district-city',
-      'oneToOne',
-      'api::state.state'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::district-city.district-city',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::district-city.district-city',
       'oneToOne',
       'admin::user'
     > &
@@ -1213,7 +1182,7 @@ export interface ApiSchoolBoardSchoolBoard extends Schema.CollectionType {
     draftAndPublish: false;
   };
   attributes: {
-    Value: Attribute.Text & Attribute.Required;
+    Value: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1261,36 +1230,6 @@ export interface ApiSourceSource extends Schema.CollectionType {
   };
 }
 
-export interface ApiStateState extends Schema.CollectionType {
-  collectionName: 'states';
-  info: {
-    singularName: 'state';
-    pluralName: 'states';
-    displayName: 'State';
-    description: '';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    Name: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::state.state',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::state.state',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1314,7 +1253,6 @@ declare module '@strapi/types' {
       'api::application-page.application-page': ApiApplicationPageApplicationPage;
       'api::class.class': ApiClassClass;
       'api::completion-year.completion-year': ApiCompletionYearCompletionYear;
-      'api::district-city.district-city': ApiDistrictCityDistrictCity;
       'api::fluency.fluency': ApiFluencyFluency;
       'api::gender.gender': ApiGenderGender;
       'api::homepage.homepage': ApiHomepageHomepage;
@@ -1324,7 +1262,6 @@ declare module '@strapi/types' {
       'api::relation.relation': ApiRelationRelation;
       'api::school-board.school-board': ApiSchoolBoardSchoolBoard;
       'api::source.source': ApiSourceSource;
-      'api::state.state': ApiStateState;
     }
   }
 }

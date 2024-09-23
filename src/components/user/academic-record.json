@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_user_academic_records",
+  "info": {
+    "displayName": "Academic Record"
+  },
+  "options": {},
+  "attributes": {
+    "SchoolBoard": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::school-board.school-board"
+    },
+    "CompletionYear": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::completion-year.completion-year"
+    },
+    "Percentage": {
+      "type": "decimal",
+      "required": true
+    }
+  }
+}

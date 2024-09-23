@@ -85,6 +85,24 @@
       "type": "component",
       "repeatable": false,
       "component": "user.personal-details"
+    },
+    "SchoolDetails": {
+      "displayName": "School Details",
+      "type": "component",
+      "repeatable": false,
+      "component": "user.school-details"
+    },
+    "AcademicRecord": {
+      "displayName": "Academic Record",
+      "type": "component",
+      "repeatable": false,
+      "component": "user.academic-record"
+    },
+    "GuardianDetails": {
+      "displayName": "Guardian Details",
+      "type": "component",
+      "repeatable": false,
+      "component": "user.guardian-details"
     }
   }
 }

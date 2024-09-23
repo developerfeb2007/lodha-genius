@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_user_school_details",
+  "info": {
+    "displayName": "School Details",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "SchoolName": {
+      "type": "string",
+      "required": true
+    },
+    "SchoolBoard": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::school-board.school-board"
+    },
+    "SchoolPoint_ContactName": {
+      "type": "string",
+      "required": true
+    },
+    "SchoolPoint_ContactNumber": {
+      "type": "string",
+      "required": true
+    },
+    "SchoolPoint_ContactEmail": {
+      "type": "email",
+      "required": true
+    },
+    "SchoolState": {
+      "type": "string",
+      "required": true
+    },
+    "SchoolCity": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
