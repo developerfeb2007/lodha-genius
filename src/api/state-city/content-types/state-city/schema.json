@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "state_cities",
+  "info": {
+    "singularName": "state-city",
+    "pluralName": "state-cities",
+    "displayName": "State/City"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Attachment": {
+      "allowedTypes": [
+        "files"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

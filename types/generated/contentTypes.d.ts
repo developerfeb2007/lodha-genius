@@ -1230,6 +1230,35 @@ export interface ApiSourceSource extends Schema.CollectionType {
   };
 }
 
+export interface ApiStateCityStateCity extends Schema.SingleType {
+  collectionName: 'state_cities';
+  info: {
+    singularName: 'state-city';
+    pluralName: 'state-cities';
+    displayName: 'State/City';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    Attachment: Attribute.Media<'files'> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::state-city.state-city',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::state-city.state-city',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1262,6 +1291,7 @@ declare module '@strapi/types' {
       'api::relation.relation': ApiRelationRelation;
       'api::school-board.school-board': ApiSchoolBoardSchoolBoard;
       'api::source.source': ApiSourceSource;
+      'api::state-city.state-city': ApiStateCityStateCity;
     }
   }
 }
