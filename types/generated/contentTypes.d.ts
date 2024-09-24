@@ -1230,36 +1230,6 @@ export interface ApiSourceSource extends Schema.CollectionType {
   };
 }
 
-export interface ApiTestingTesting extends Schema.SingleType {
-  collectionName: 'testings';
-  info: {
-    singularName: 'testing';
-    pluralName: 'testings';
-    displayName: 'testing';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Message: Attribute.String & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::testing.testing',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::testing.testing',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1292,7 +1262,6 @@ declare module '@strapi/types' {
       'api::relation.relation': ApiRelationRelation;
       'api::school-board.school-board': ApiSchoolBoardSchoolBoard;
       'api::source.source': ApiSourceSource;
-      'api::testing.testing': ApiTestingTesting;
     }
   }
 }
