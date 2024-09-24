@@ -25,4 +25,4 @@ jobs:
 
     - name: Deploy to Server
       run: |
-        ssh -p 2245 root@13.234.175.14 "cd /home/lodhaadmindigita/public_html && git pull origin main"  # Replace with your actual IP
+        ssh -p 2245 root@13.234.175.14 "cd /home/lodhaadmindigita/public_html && git pull origin main && npm run build && pm2 restart strapis"  # Replace with your actual IP
