@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_user_others",
+  "info": {
+    "displayName": "Other"
+  },
+  "options": {},
+  "attributes": {
+    "Participation": {
+      "type": "boolean",
+      "required": true
+    },
+    "ExamName": {
+      "type": "string"
+    },
+    "ExamQualified": {
+      "type": "boolean"
+    },
+    "ExtraCurricularInterests": {
+      "type": "boolean"
+    },
+    "Interests": {
+      "type": "text"
+    }
+  }
+}

@@ -81,11 +81,6 @@
       "type": "integer",
       "private": true
     },
-    "PersonalDetails": {
-      "type": "component",
-      "repeatable": false,
-      "component": "user.personal-details"
-    },
     "SchoolDetails": {
       "displayName": "School Details",
       "type": "component",
@@ -103,6 +98,18 @@
       "type": "component",
       "repeatable": false,
       "component": "user.guardian-details"
+    },
+    "PersonalContactDetails": {
+      "displayName": "Personal",
+      "type": "component",
+      "repeatable": false,
+      "component": "user.personal"
+    },
+    "OtherInformation": {
+      "displayName": "Other Info",
+      "type": "component",
+      "repeatable": false,
+      "component": "user.other-info"
     }
   }
 }

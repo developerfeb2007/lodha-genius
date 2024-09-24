@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_user_schools",
+  "info": {
+    "displayName": "School"
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Board": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::school-board.school-board"
+    },
+    "State": {
+      "type": "string",
+      "required": true
+    },
+    "District_City": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

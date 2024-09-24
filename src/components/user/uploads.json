@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_user_uploads",
+  "info": {
+    "displayName": "Uploads"
+  },
+  "options": {},
+  "attributes": {
+    "Photograph": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "Marksheet": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "ConsentLetter": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

@@ -6,34 +6,15 @@
   },
   "options": {},
   "attributes": {
-    "SchoolName": {
-      "type": "string",
-      "required": true
+    "SchoolInfo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "user.school"
     },
-    "SchoolBoard": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::school-board.school-board"
-    },
-    "SchoolPoint_ContactName": {
-      "type": "string",
-      "required": true
-    },
-    "SchoolPoint_ContactNumber": {
-      "type": "string",
-      "required": true
-    },
-    "SchoolPoint_ContactEmail": {
-      "type": "email",
-      "required": true
-    },
-    "SchoolState": {
-      "type": "string",
-      "required": true
-    },
-    "SchoolCity": {
-      "type": "string",
-      "required": true
+    "PointOfContact": {
+      "type": "component",
+      "repeatable": false,
+      "component": "user.poc"
     }
   }
 }

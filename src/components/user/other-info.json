@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_user_other_infos",
+  "info": {
+    "displayName": "Other Info"
+  },
+  "options": {},
+  "attributes": {
+    "OtherInfo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "user.other"
+    },
+    "Support": {
+      "type": "component",
+      "repeatable": false,
+      "component": "user.support"
+    }
+  }
+}

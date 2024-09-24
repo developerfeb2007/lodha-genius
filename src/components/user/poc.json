@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_user_pocs",
+  "info": {
+    "displayName": "POC"
+  },
+  "options": {},
+  "attributes": {
+    "PoC": {
+      "type": "string",
+      "required": true
+    },
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "CountryCode": {
+      "type": "string",
+      "required": true
+    },
+    "Number": {
+      "type": "string",
+      "required": true
+    },
+    "Email": {
+      "type": "email",
+      "required": true
+    }
+  }
+}

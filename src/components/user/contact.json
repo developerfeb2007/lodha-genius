@@ -1,0 +1,43 @@
+{
+  "collectionName": "components_user_contacts",
+  "info": {
+    "displayName": "Contact"
+  },
+  "options": {},
+  "attributes": {
+    "StudentFirstName": {
+      "type": "string",
+      "required": true
+    },
+    "StudentLastName": {
+      "type": "string",
+      "required": true
+    },
+    "Gender": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::gender.gender"
+    },
+    "DOB": {
+      "type": "date",
+      "required": true
+    },
+    "Class": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::class.class"
+    },
+    "Email": {
+      "type": "email",
+      "required": true
+    },
+    "CountryCode": {
+      "type": "string",
+      "required": true
+    },
+    "Mobile": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

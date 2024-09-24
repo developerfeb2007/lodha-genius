@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_user_addresses",
+  "info": {
+    "displayName": "Address",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "AddressLine1": {
+      "type": "string",
+      "required": true
+    },
+    "AddressLine2": {
+      "type": "string",
+      "required": true
+    },
+    "State": {
+      "type": "string",
+      "required": true
+    },
+    "District_City": {
+      "type": "string",
+      "required": true
+    },
+    "PIN": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

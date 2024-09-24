@@ -775,10 +775,11 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
     countryCode: Attribute.String;
     mobile: Attribute.String;
     otp: Attribute.Integer & Attribute.Private;
-    PersonalDetails: Attribute.Component<'user.personal-details'>;
     SchoolDetails: Attribute.Component<'user.school-details'>;
     AcademicRecord: Attribute.Component<'user.academic-record'>;
     GuardianDetails: Attribute.Component<'user.guardian-details'>;
+    PersonalContactDetails: Attribute.Component<'user.personal'>;
+    OtherInformation: Attribute.Component<'user.other-info'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

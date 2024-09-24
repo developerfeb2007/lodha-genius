@@ -1,7 +1,8 @@
 {
   "collectionName": "components_user_guardian1s",
   "info": {
-    "displayName": "Guardian1"
+    "displayName": "Guardian1",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -26,6 +27,15 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::relation.relation"
+    },
+    "AnnualIncome": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::annual-income.annual-income"
+    },
+    "CountryCode": {
+      "type": "string",
+      "required": true
     }
   }
 }

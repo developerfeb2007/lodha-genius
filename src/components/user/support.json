@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_user_supports",
+  "info": {
+    "displayName": "Support"
+  },
+  "options": {},
+  "attributes": {
+    "EnglishLanguageAssistance": {
+      "type": "boolean",
+      "required": true
+    },
+    "PhysicalDisability": {
+      "type": "boolean",
+      "required": true
+    },
+    "CognitiveDisability": {
+      "type": "boolean",
+      "required": true
+    },
+    "PhysicalHealth": {
+      "type": "boolean",
+      "required": true
+    },
+    "MentalHealth": {
+      "type": "boolean",
+      "required": true
+    },
+    "OtherCondition": {
+      "type": "boolean",
+      "required": true
+    },
+    "SupportRequired": {
+      "type": "text"
+    },
+    "Source": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::source.source"
+    }
+  }
+}

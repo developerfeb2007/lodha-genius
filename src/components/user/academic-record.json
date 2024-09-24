@@ -1,11 +1,12 @@
 {
   "collectionName": "components_user_academic_records",
   "info": {
-    "displayName": "Academic Record"
+    "displayName": "Academic Record",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "SchoolBoard": {
+    "Board": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::school-board.school-board"
