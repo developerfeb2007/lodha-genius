@@ -110,6 +110,11 @@
       "type": "component",
       "repeatable": false,
       "component": "user.other-info"
+    },
+    "Documents": {
+      "type": "component",
+      "repeatable": false,
+      "component": "user.uploads"
     }
   }
 }

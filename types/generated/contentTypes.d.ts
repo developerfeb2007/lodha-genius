@@ -780,6 +780,7 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
     GuardianDetails: Attribute.Component<'user.guardian-details'>;
     PersonalContactDetails: Attribute.Component<'user.personal'>;
     OtherInformation: Attribute.Component<'user.other-info'>;
+    Documents: Attribute.Component<'user.uploads'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

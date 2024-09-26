@@ -318,6 +318,63 @@ export interface HomepagePoSection extends Schema.Component {
   };
 }
 
+export interface GlobalProgramme extends Schema.Component {
+  collectionName: 'components_homepage_programmes';
+  info: {
+    displayName: 'Programme';
+    description: '';
+  };
+  attributes: {
+    Title: Attribute.String;
+    Description: Attribute.RichText;
+    URL: Attribute.String;
+  };
+}
+
+export interface GlobalProgSection extends Schema.Component {
+  collectionName: 'components_homepage_prog_sections';
+  info: {
+    displayName: 'Programme Section';
+    description: '';
+  };
+  attributes: {
+    Heading: Attribute.String;
+    Programme: Attribute.Component<'global.programme', true>;
+  };
+}
+
+export interface GlobalMetaDetails extends Schema.Component {
+  collectionName: 'components_global_meta_details';
+  info: {
+    displayName: 'Meta Details';
+    description: '';
+  };
+  attributes: {
+    Title: Attribute.String;
+    Description: Attribute.Text;
+    OGTitle: Attribute.String;
+    OGDescription: Attribute.Text;
+    OGImage: Attribute.Media<'images'>;
+  };
+}
+
+export interface GlobalBannerSection extends Schema.Component {
+  collectionName: 'components_homepage_banner_sections';
+  info: {
+    displayName: 'Banner Section';
+    description: '';
+  };
+  attributes: {
+    DesktopImage: Attribute.Media<'images'>;
+    MobileImage: Attribute.Media<'images'>;
+    Alt: Attribute.String;
+    Title: Attribute.String;
+    Heading: Attribute.String;
+    Description: Attribute.RichText;
+    URL: Attribute.String;
+  };
+}
+
 export interface DropdownSource extends Schema.Component {
   collectionName: 'components_dropdown_sources';
   info: {
@@ -554,63 +611,6 @@ export interface ApplicationAaSection extends Schema.Component {
   };
 }
 
-export interface GlobalProgramme extends Schema.Component {
-  collectionName: 'components_homepage_programmes';
-  info: {
-    displayName: 'Programme';
-    description: '';
-  };
-  attributes: {
-    Title: Attribute.String;
-    Description: Attribute.RichText;
-    URL: Attribute.String;
-  };
-}
-
-export interface GlobalProgSection extends Schema.Component {
-  collectionName: 'components_homepage_prog_sections';
-  info: {
-    displayName: 'Programme Section';
-    description: '';
-  };
-  attributes: {
-    Heading: Attribute.String;
-    Programme: Attribute.Component<'global.programme', true>;
-  };
-}
-
-export interface GlobalMetaDetails extends Schema.Component {
-  collectionName: 'components_global_meta_details';
-  info: {
-    displayName: 'Meta Details';
-    description: '';
-  };
-  attributes: {
-    Title: Attribute.String;
-    Description: Attribute.Text;
-    OGTitle: Attribute.String;
-    OGDescription: Attribute.Text;
-    OGImage: Attribute.Media<'images'>;
-  };
-}
-
-export interface GlobalBannerSection extends Schema.Component {
-  collectionName: 'components_homepage_banner_sections';
-  info: {
-    displayName: 'Banner Section';
-    description: '';
-  };
-  attributes: {
-    DesktopImage: Attribute.Media<'images'>;
-    MobileImage: Attribute.Media<'images'>;
-    Alt: Attribute.String;
-    Title: Attribute.String;
-    Heading: Attribute.String;
-    Description: Attribute.RichText;
-    URL: Attribute.String;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -633,6 +633,10 @@ declare module '@strapi/types' {
       'homepage.shaping-tomorrow': HomepageShapingTomorrow;
       'homepage.programme-overview': HomepageProgrammeOverview;
       'homepage.po-section': HomepagePoSection;
+      'global.programme': GlobalProgramme;
+      'global.prog-section': GlobalProgSection;
+      'global.meta-details': GlobalMetaDetails;
+      'global.banner-section': GlobalBannerSection;
       'dropdown.source': DropdownSource;
       'dropdown.school-board': DropdownSchoolBoard;
       'dropdown.relation': DropdownRelation;
@@ -654,10 +658,6 @@ declare module '@strapi/types' {
       'application.af-section': ApplicationAfSection;
       'application.aa': ApplicationAa;
       'application.aa-section': ApplicationAaSection;
-      'global.programme': GlobalProgramme;
-      'global.prog-section': GlobalProgSection;
-      'global.meta-details': GlobalMetaDetails;
-      'global.banner-section': GlobalBannerSection;
     }
   }
 }
