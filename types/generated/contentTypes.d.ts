@@ -781,6 +781,7 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
     PersonalContactDetails: Attribute.Component<'user.personal'>;
     OtherInformation: Attribute.Component<'user.other-info'>;
     Documents: Attribute.Component<'user.uploads'>;
+    registrationNumber: Attribute.String & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

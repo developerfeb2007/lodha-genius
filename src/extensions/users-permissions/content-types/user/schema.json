@@ -115,6 +115,10 @@
       "type": "component",
       "repeatable": false,
       "component": "user.uploads"
+    },
+    "registrationNumber": {
+      "type": "string",
+      "unique": true
     }
   }
 }

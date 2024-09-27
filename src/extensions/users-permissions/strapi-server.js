@@ -14,6 +14,35 @@ module.exports = (plugin) => {
             if(!user){
                 return ctx.badRequest("Invalid OTP");
             }
+
+            // Registration number starts
+            const staticPart = '90';
+
+            // Get the current year
+            const year = new Date().getFullYear();
+
+             // Fetch the last created entry
+            const lastEntry = await strapi.db.query("plugin::users-permissions.user").findOne({
+                where: {confirmed:1},
+                orderBy: { registrationNumber: 'desc' },
+            });
+        
+            let incrementingPart = '000001'; // Default if no previous entry exists
+        
+            if (lastEntry && lastEntry.registrationNumber) {
+                // Extract the incrementing part from the last registration number
+                const lastRegNumber = lastEntry.registrationNumber.split('/')[1];
+        
+                // Convert it to a number and increment it
+                const nextIncrement = parseInt(lastRegNumber, 10) + 1;
+        
+                // Pad the incremented number with leading zeros
+                incrementingPart = String(nextIncrement).padStart(6, '0');
+            }
+
+            // Generate the registration number
+            const registrationNumber = `${staticPart}/${year}/${incrementingPart}`;
+
             const token = strapi.plugins["users-permissions"].services.jwt.issue({
                 id: user.id
             });
@@ -24,6 +53,7 @@ module.exports = (plugin) => {
                     data: {
                         otp: null,
                         confirmed: 1,
+                        registrationNumber: registrationNumber
                     }
                 }
             );
@@ -36,7 +66,8 @@ module.exports = (plugin) => {
                     firstName: user.firstName,
                     lastName:user.lastName, 
                     countryCode: user.countryCode,
-                    mobile: user.mobile
+                    mobile: user.mobile,
+                    registrationNumber: registrationNumber
                 }
             });
         }catch(error){
