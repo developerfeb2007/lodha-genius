@@ -1,7 +1,8 @@
 {
   "collectionName": "components_user_contacts",
   "info": {
-    "displayName": "Contact"
+    "displayName": "Contact",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -37,6 +38,14 @@
     },
     "Mobile": {
       "type": "string",
+      "required": true
+    },
+    "Track": {
+      "type": "enumeration",
+      "enum": [
+        "Science",
+        "Mathematics"
+      ],
       "required": true
     }
   }

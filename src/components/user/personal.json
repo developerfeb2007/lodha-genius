@@ -1,7 +1,8 @@
 {
   "collectionName": "components_user_personals",
   "info": {
-    "displayName": "Personal"
+    "displayName": "Personal",
+    "description": ""
   },
   "options": {},
   "attributes": {

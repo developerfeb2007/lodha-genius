@@ -80,6 +80,7 @@ export interface UserPersonal extends Schema.Component {
   collectionName: 'components_user_personals';
   info: {
     displayName: 'Personal';
+    description: '';
   };
   attributes: {
     PersonalDetails: Attribute.Component<'user.contact'>;
@@ -187,6 +188,7 @@ export interface UserContact extends Schema.Component {
   collectionName: 'components_user_contacts';
   info: {
     displayName: 'Contact';
+    description: '';
   };
   attributes: {
     StudentFirstName: Attribute.String & Attribute.Required;
@@ -201,6 +203,8 @@ export interface UserContact extends Schema.Component {
     Email: Attribute.Email & Attribute.Required;
     CountryCode: Attribute.String & Attribute.Required;
     Mobile: Attribute.String & Attribute.Required;
+    Track: Attribute.Enumeration<['Science', 'Mathematics']> &
+      Attribute.Required;
   };
 }
 
