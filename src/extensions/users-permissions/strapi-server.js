@@ -31,7 +31,7 @@ module.exports = (plugin) => {
         
             if (lastEntry && lastEntry.registrationNumber) {
                 // Extract the incrementing part from the last registration number
-                const lastRegNumber = lastEntry.registrationNumber.split('/')[1];
+                const lastRegNumber = lastEntry.registrationNumber.split('/')[2];
         
                 // Convert it to a number and increment it
                 const nextIncrement = parseInt(lastRegNumber, 10) + 1;
@@ -67,7 +67,11 @@ module.exports = (plugin) => {
                     lastName:user.lastName, 
                     countryCode: user.countryCode,
                     mobile: user.mobile,
-                    registrationNumber: registrationNumber
+                    registrationNumber: registrationNumber,
+                    applicationStep: user.ApplicationStep,
+                    testingStatus: user.TestingStatus,
+                    interviewStatus: user.InterviewStatus,
+                    postApplicationStep: user.PostApplicationStatus
                 }
             });
         }catch(error){

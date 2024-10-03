@@ -782,6 +782,27 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
     OtherInformation: Attribute.Component<'user.other-info'>;
     Documents: Attribute.Component<'user.uploads'>;
     registrationNumber: Attribute.String & Attribute.Unique;
+    ApplicationStep: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          min: 0;
+          max: 7;
+        },
+        number
+      > &
+      Attribute.DefaultTo<0>;
+    TestingStatus: Attribute.Enumeration<['Pending', 'Approved']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'Pending'>;
+    InterviewStatus: Attribute.Enumeration<
+      ['Pending', 'Approved', 'Completed']
+    > &
+      Attribute.Required &
+      Attribute.DefaultTo<'Pending'>;
+    PostApplicationStatus: Attribute.Enumeration<['Pending', 'Approved']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'Pending'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

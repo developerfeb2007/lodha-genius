@@ -119,6 +119,41 @@
     "registrationNumber": {
       "type": "string",
       "unique": true
+    },
+    "ApplicationStep": {
+      "type": "integer",
+      "default": 0,
+      "required": true,
+      "max": 7,
+      "min": 0
+    },
+    "TestingStatus": {
+      "type": "enumeration",
+      "enum": [
+        "Pending",
+        "Approved"
+      ],
+      "default": "Pending",
+      "required": true
+    },
+    "InterviewStatus": {
+      "type": "enumeration",
+      "enum": [
+        "Pending",
+        "Approved",
+        "Completed"
+      ],
+      "default": "Pending",
+      "required": true
+    },
+    "PostApplicationStatus": {
+      "type": "enumeration",
+      "enum": [
+        "Pending",
+        "Approved"
+      ],
+      "default": "Pending",
+      "required": true
     }
   }
 }
