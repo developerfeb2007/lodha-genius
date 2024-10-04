@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_global_po_sections",
+  "info": {
+    "displayName": "Programme Overview Section",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "ProgrammeOverview": {
+      "displayName": "POverview",
+      "type": "component",
+      "repeatable": true,
+      "component": "global.p-overview"
+    }
+  }
+}

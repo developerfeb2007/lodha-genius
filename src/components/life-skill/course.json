@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_life_skill_courses",
+  "info": {
+    "displayName": "Course"
+  },
+  "options": {},
+  "attributes": {
+    "Category": {
+      "type": "enumeration",
+      "enum": [
+        "For Grades 9 & 10",
+        "For Grades 11 & 12"
+      ],
+      "required": true
+    },
+    "Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "Alt": {
+      "type": "string"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Contents": {
+      "displayName": "Content",
+      "type": "component",
+      "repeatable": true,
+      "component": "life-skill.content"
+    }
+  }
+}

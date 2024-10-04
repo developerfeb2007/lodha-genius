@@ -984,6 +984,37 @@ export interface ApiCompletionYearCompletionYear extends Schema.CollectionType {
   };
 }
 
+export interface ApiDownloadResourceDownloadResource extends Schema.SingleType {
+  collectionName: 'download_resources';
+  info: {
+    singularName: 'download-resource';
+    pluralName: 'download-resources';
+    displayName: 'Download Resources';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Contents: Attribute.Component<'global.drs'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::download-resource.download-resource',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::download-resource.download-resource',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiFluencyFluency extends Schema.CollectionType {
   collectionName: 'fluencies';
   info: {
@@ -1107,6 +1138,40 @@ export interface ApiLanguageLanguage extends Schema.CollectionType {
   };
 }
 
+export interface ApiLifeSkillLifeSkill extends Schema.SingleType {
+  collectionName: 'life_skills';
+  info: {
+    singularName: 'life-skill';
+    pluralName: 'life-skills';
+    displayName: 'Life Skill Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    BannerSection: Attribute.Component<'global.banner-section', true>;
+    Content: Attribute.Text;
+    CourseSection: Attribute.Component<'life-skill.course', true>;
+    MetaDetails: Attribute.Component<'global.meta-details'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::life-skill.life-skill',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::life-skill.life-skill',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiProfessionProfession extends Schema.CollectionType {
   collectionName: 'professions';
   info: {
@@ -1129,6 +1194,37 @@ export interface ApiProfessionProfession extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::profession.profession',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiProgrammeOverviewProgrammeOverview
+  extends Schema.SingleType {
+  collectionName: 'programme_overviews';
+  info: {
+    singularName: 'programme-overview';
+    pluralName: 'programme-overviews';
+    displayName: 'Programme Overview';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    ProgrammeOverviewSection: Attribute.Component<'global.po-section'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::programme-overview.programme-overview',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::programme-overview.programme-overview',
       'oneToOne',
       'admin::user'
     > &
@@ -1159,6 +1255,37 @@ export interface ApiProgrammeSectionProgrammeSection extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::programme-section.programme-section',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiQuoteQuote extends Schema.SingleType {
+  collectionName: 'quotes';
+  info: {
+    singularName: 'quote';
+    pluralName: 'quotes';
+    displayName: 'Quotes';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Contents: Attribute.Component<'global.quotes', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::quote.quote',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::quote.quote',
       'oneToOne',
       'admin::user'
     > &
@@ -1306,12 +1433,16 @@ declare module '@strapi/types' {
       'api::application-page.application-page': ApiApplicationPageApplicationPage;
       'api::class.class': ApiClassClass;
       'api::completion-year.completion-year': ApiCompletionYearCompletionYear;
+      'api::download-resource.download-resource': ApiDownloadResourceDownloadResource;
       'api::fluency.fluency': ApiFluencyFluency;
       'api::gender.gender': ApiGenderGender;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::language.language': ApiLanguageLanguage;
+      'api::life-skill.life-skill': ApiLifeSkillLifeSkill;
       'api::profession.profession': ApiProfessionProfession;
+      'api::programme-overview.programme-overview': ApiProgrammeOverviewProgrammeOverview;
       'api::programme-section.programme-section': ApiProgrammeSectionProgrammeSection;
+      'api::quote.quote': ApiQuoteQuote;
       'api::relation.relation': ApiRelationRelation;
       'api::school-board.school-board': ApiSchoolBoardSchoolBoard;
       'api::source.source': ApiSourceSource;

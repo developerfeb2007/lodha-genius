@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_life_skill_contents",
+  "info": {
+    "displayName": "Course Content",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "Content": {
+      "type": "text"
+    }
+  }
+}

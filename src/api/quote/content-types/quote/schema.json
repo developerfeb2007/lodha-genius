@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "quotes",
+  "info": {
+    "singularName": "quote",
+    "pluralName": "quotes",
+    "displayName": "Quotes",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Contents": {
+      "displayName": "Quotes",
+      "type": "component",
+      "repeatable": true,
+      "component": "global.quotes"
+    }
+  }
+}

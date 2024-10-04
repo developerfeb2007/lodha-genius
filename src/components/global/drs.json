@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_global_drs",
+  "info": {
+    "displayName": "Download Resource",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "Resources": {
+      "displayName": "Resource",
+      "type": "component",
+      "repeatable": true,
+      "component": "global.resource"
+    }
+  }
+}

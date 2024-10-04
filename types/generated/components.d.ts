@@ -1,62 +1,5 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
-export interface GlobalProgramme extends Schema.Component {
-  collectionName: 'components_homepage_programmes';
-  info: {
-    displayName: 'Programme';
-    description: '';
-  };
-  attributes: {
-    Title: Attribute.String;
-    Description: Attribute.RichText;
-    URL: Attribute.String;
-  };
-}
-
-export interface GlobalProgSection extends Schema.Component {
-  collectionName: 'components_homepage_prog_sections';
-  info: {
-    displayName: 'Programme Section';
-    description: '';
-  };
-  attributes: {
-    Heading: Attribute.String;
-    Programme: Attribute.Component<'global.programme', true>;
-  };
-}
-
-export interface GlobalMetaDetails extends Schema.Component {
-  collectionName: 'components_global_meta_details';
-  info: {
-    displayName: 'Meta Details';
-    description: '';
-  };
-  attributes: {
-    Title: Attribute.String;
-    Description: Attribute.Text;
-    OGTitle: Attribute.String;
-    OGDescription: Attribute.Text;
-    OGImage: Attribute.Media<'images'>;
-  };
-}
-
-export interface GlobalBannerSection extends Schema.Component {
-  collectionName: 'components_homepage_banner_sections';
-  info: {
-    displayName: 'Banner Section';
-    description: '';
-  };
-  attributes: {
-    DesktopImage: Attribute.Media<'images'>;
-    MobileImage: Attribute.Media<'images'>;
-    Alt: Attribute.String;
-    Title: Attribute.String;
-    Heading: Attribute.String;
-    Description: Attribute.RichText;
-    URL: Attribute.String;
-  };
-}
-
 export interface UserUploads extends Schema.Component {
   collectionName: 'components_user_uploads';
   info: {
@@ -301,6 +244,35 @@ export interface UserAcademicRecord extends Schema.Component {
   };
 }
 
+export interface LifeSkillCourse extends Schema.Component {
+  collectionName: 'components_life_skill_courses';
+  info: {
+    displayName: 'Course';
+  };
+  attributes: {
+    Category: Attribute.Enumeration<
+      ['For Grades 9 & 10', 'For Grades 11 & 12']
+    > &
+      Attribute.Required;
+    Image: Attribute.Media<'images'> & Attribute.Required;
+    Alt: Attribute.String;
+    Title: Attribute.String;
+    Contents: Attribute.Component<'life-skill.content', true>;
+  };
+}
+
+export interface LifeSkillContent extends Schema.Component {
+  collectionName: 'components_life_skill_contents';
+  info: {
+    displayName: 'Course Content';
+    description: '';
+  };
+  attributes: {
+    Heading: Attribute.String;
+    Content: Attribute.Text;
+  };
+}
+
 export interface HomepageStuSection extends Schema.Component {
   collectionName: 'components_homepage_stu_sections';
   info: {
@@ -376,6 +348,137 @@ export interface HomepagePoSection extends Schema.Component {
   attributes: {
     Heading: Attribute.String;
     ProgrammeOverview: Attribute.Component<'homepage.programme-overview', true>;
+  };
+}
+
+export interface GlobalResource extends Schema.Component {
+  collectionName: 'components_global_resources';
+  info: {
+    displayName: 'Resource';
+  };
+  attributes: {
+    Name: Attribute.String;
+    File: Attribute.Media<'images' | 'videos' | 'audios' | 'files'>;
+  };
+}
+
+export interface GlobalQuotes extends Schema.Component {
+  collectionName: 'components_global_quotes';
+  info: {
+    displayName: 'Quotes';
+  };
+  attributes: {
+    Name: Attribute.String;
+    Designation: Attribute.String;
+    Image: Attribute.Media<'images'>;
+    Alt: Attribute.String;
+    Title: Attribute.String;
+    Quotes: Attribute.Text;
+  };
+}
+
+export interface GlobalProgramme extends Schema.Component {
+  collectionName: 'components_homepage_programmes';
+  info: {
+    displayName: 'Programme';
+    description: '';
+  };
+  attributes: {
+    Title: Attribute.String;
+    Description: Attribute.RichText;
+    URL: Attribute.String;
+  };
+}
+
+export interface GlobalProgSection extends Schema.Component {
+  collectionName: 'components_homepage_prog_sections';
+  info: {
+    displayName: 'Programme Section';
+    description: '';
+  };
+  attributes: {
+    Heading: Attribute.String;
+    Programme: Attribute.Component<'global.programme', true>;
+  };
+}
+
+export interface GlobalPoSection extends Schema.Component {
+  collectionName: 'components_global_po_sections';
+  info: {
+    displayName: 'Programme Overview Section';
+    description: '';
+  };
+  attributes: {
+    Heading: Attribute.String;
+    ProgrammeOverview: Attribute.Component<'global.p-overview', true>;
+  };
+}
+
+export interface GlobalPOverview extends Schema.Component {
+  collectionName: 'components_global_p_overviews';
+  info: {
+    displayName: 'Programme Overview';
+    description: '';
+  };
+  attributes: {
+    Subject: Attribute.String;
+    Image: Attribute.Media<'images'>;
+    Video: Attribute.Media<'videos'>;
+    Alt: Attribute.String;
+    Title: Attribute.String;
+    Description: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    URL: Attribute.String;
+    Color: Attribute.String;
+  };
+}
+
+export interface GlobalMetaDetails extends Schema.Component {
+  collectionName: 'components_global_meta_details';
+  info: {
+    displayName: 'Meta Details';
+    description: '';
+  };
+  attributes: {
+    Title: Attribute.String;
+    Description: Attribute.Text;
+    OGTitle: Attribute.String;
+    OGDescription: Attribute.Text;
+    OGImage: Attribute.Media<'images'>;
+  };
+}
+
+export interface GlobalDrs extends Schema.Component {
+  collectionName: 'components_global_drs';
+  info: {
+    displayName: 'Download Resource';
+    description: '';
+  };
+  attributes: {
+    Heading: Attribute.String;
+    Resources: Attribute.Component<'global.resource', true>;
+  };
+}
+
+export interface GlobalBannerSection extends Schema.Component {
+  collectionName: 'components_homepage_banner_sections';
+  info: {
+    displayName: 'Banner Section';
+    description: '';
+  };
+  attributes: {
+    DesktopImage: Attribute.Media<'images'>;
+    MobileImage: Attribute.Media<'images'>;
+    Alt: Attribute.String;
+    Title: Attribute.String;
+    Heading: Attribute.String;
+    Description: Attribute.RichText;
+    URL: Attribute.String;
   };
 }
 
@@ -618,10 +721,6 @@ export interface ApplicationAaSection extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
-      'global.programme': GlobalProgramme;
-      'global.prog-section': GlobalProgSection;
-      'global.meta-details': GlobalMetaDetails;
-      'global.banner-section': GlobalBannerSection;
       'user.uploads': UserUploads;
       'user.support': UserSupport;
       'user.school': UserSchool;
@@ -636,11 +735,22 @@ declare module '@strapi/types' {
       'user.contact': UserContact;
       'user.address': UserAddress;
       'user.academic-record': UserAcademicRecord;
+      'life-skill.course': LifeSkillCourse;
+      'life-skill.content': LifeSkillContent;
       'homepage.stu-section': HomepageStuSection;
       'homepage.st-section': HomepageStSection;
       'homepage.shaping-tomorrow': HomepageShapingTomorrow;
       'homepage.programme-overview': HomepageProgrammeOverview;
       'homepage.po-section': HomepagePoSection;
+      'global.resource': GlobalResource;
+      'global.quotes': GlobalQuotes;
+      'global.programme': GlobalProgramme;
+      'global.prog-section': GlobalProgSection;
+      'global.po-section': GlobalPoSection;
+      'global.p-overview': GlobalPOverview;
+      'global.meta-details': GlobalMetaDetails;
+      'global.drs': GlobalDrs;
+      'global.banner-section': GlobalBannerSection;
       'dropdown.source': DropdownSource;
       'dropdown.school-board': DropdownSchoolBoard;
       'dropdown.relation': DropdownRelation;
