@@ -773,7 +773,7 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
     firstName: Attribute.String;
     lastName: Attribute.String;
     countryCode: Attribute.String;
-    mobile: Attribute.String;
+    mobile: Attribute.String & Attribute.Required & Attribute.Unique;
     otp: Attribute.Integer & Attribute.Private;
     SchoolDetails: Attribute.Component<'user.school-details'>;
     AcademicRecord: Attribute.Component<'user.academic-record'>;
@@ -813,6 +813,43 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'plugin::users-permissions.user',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiAboutUsAboutUs extends Schema.SingleType {
+  collectionName: 'about_uses';
+  info: {
+    singularName: 'about-us';
+    pluralName: 'about-uses';
+    displayName: 'About Us Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    BannerSection: Attribute.Component<'global.banner-section', true>;
+    WriteUpSection: Attribute.Component<'about.write-up'>;
+    PartnershipSection: Attribute.Component<'about.partnership'>;
+    TeamSection: Attribute.Component<'about.team-section'>;
+    StrategicPartnershipSection: Attribute.Component<'about.s-p-section'>;
+    HappyToHelpSection: Attribute.Component<'about.happy'>;
+    MetaDetails: Attribute.Component<'global.meta-details'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::about-us.about-us',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::about-us.about-us',
       'oneToOne',
       'admin::user'
     > &
@@ -1088,9 +1125,9 @@ export interface ApiHomepageHomepage extends Schema.SingleType {
   attributes: {
     BannerSection: Attribute.Component<'global.banner-section', true>;
     ShapingTomorrowSection: Attribute.Component<'homepage.st-section'>;
-    ProgrammeOverviewSection: Attribute.Component<'homepage.po-section'>;
     StudentsSection: Attribute.Component<'homepage.stu-section'>;
     MetaDetails: Attribute.Component<'global.meta-details'>;
+    ProgrammeOverviewSection: Attribute.Component<'global.po-section'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1428,6 +1465,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::annual-income.annual-income': ApiAnnualIncomeAnnualIncome;
       'api::application-form.application-form': ApiApplicationFormApplicationForm;
       'api::application-page.application-page': ApiApplicationPageApplicationPage;

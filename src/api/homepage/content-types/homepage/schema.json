@@ -23,12 +23,6 @@
       "repeatable": false,
       "component": "homepage.st-section"
     },
-    "ProgrammeOverviewSection": {
-      "displayName": "Programme Overview Section",
-      "type": "component",
-      "repeatable": false,
-      "component": "homepage.po-section"
-    },
     "StudentsSection": {
       "type": "component",
       "repeatable": false,
@@ -38,6 +32,11 @@
       "type": "component",
       "repeatable": false,
       "component": "global.meta-details"
+    },
+    "ProgrammeOverviewSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.po-section"
     }
   }
 }

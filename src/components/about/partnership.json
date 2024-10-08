@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_about_partnerships",
+  "info": {
+    "displayName": "Partnership"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "Content": {
+      "type": "text"
+    },
+    "BGImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_about_happies",
+  "info": {
+    "displayName": "Happy"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Alt": {
+      "type": "string"
+    },
+    "Title": {
+      "type": "string"
+    }
+  }
+}

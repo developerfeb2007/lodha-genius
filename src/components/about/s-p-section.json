@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_about_s_p_sections",
+  "info": {
+    "displayName": "Strategic Partnership Section",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "StrategicPartnership": {
+      "displayName": "S P Sec",
+      "type": "component",
+      "repeatable": true,
+      "component": "about.s-p-sec"
+    }
+  }
+}

@@ -718,6 +718,105 @@ export interface ApplicationAaSection extends Schema.Component {
   };
 }
 
+export interface AboutWriteUp extends Schema.Component {
+  collectionName: 'components_about_write_ups';
+  info: {
+    displayName: 'Write up';
+  };
+  attributes: {
+    Heading: Attribute.String;
+    Content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+  };
+}
+
+export interface AboutTeam extends Schema.Component {
+  collectionName: 'components_about_teams';
+  info: {
+    displayName: 'Team';
+  };
+  attributes: {
+    Image: Attribute.Media<'images'>;
+    Alt: Attribute.String;
+    Title: Attribute.String;
+    Name: Attribute.String;
+    Designation: Attribute.String;
+  };
+}
+
+export interface AboutTeamSection extends Schema.Component {
+  collectionName: 'components_about_team_sections';
+  info: {
+    displayName: 'Team Section';
+  };
+  attributes: {
+    Heading: Attribute.String;
+    Team: Attribute.Component<'about.team', true>;
+  };
+}
+
+export interface AboutSPSection extends Schema.Component {
+  collectionName: 'components_about_s_p_sections';
+  info: {
+    displayName: 'Strategic Partnership Section';
+    description: '';
+  };
+  attributes: {
+    Heading: Attribute.String;
+    StrategicPartnership: Attribute.Component<'about.s-p-sec', true>;
+  };
+}
+
+export interface AboutSPSec extends Schema.Component {
+  collectionName: 'components_about_s_p_secs';
+  info: {
+    displayName: 'Strategic Partnership';
+    description: '';
+  };
+  attributes: {
+    Category: Attribute.Enumeration<
+      [
+        'Technology Partners',
+        'NGO Partners',
+        'Knowledge Partners',
+        'Philanthropic Partners'
+      ]
+    >;
+    Logo: Attribute.Media<'images'>;
+    Description: Attribute.Text;
+  };
+}
+
+export interface AboutPartnership extends Schema.Component {
+  collectionName: 'components_about_partnerships';
+  info: {
+    displayName: 'Partnership';
+  };
+  attributes: {
+    Heading: Attribute.String;
+    Content: Attribute.Text;
+    BGImage: Attribute.Media<'images'>;
+  };
+}
+
+export interface AboutHappy extends Schema.Component {
+  collectionName: 'components_about_happies';
+  info: {
+    displayName: 'Happy';
+  };
+  attributes: {
+    Heading: Attribute.String;
+    Image: Attribute.Media<'images'>;
+    Alt: Attribute.String;
+    Title: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -772,6 +871,13 @@ declare module '@strapi/types' {
       'application.af-section': ApplicationAfSection;
       'application.aa': ApplicationAa;
       'application.aa-section': ApplicationAaSection;
+      'about.write-up': AboutWriteUp;
+      'about.team': AboutTeam;
+      'about.team-section': AboutTeamSection;
+      'about.s-p-section': AboutSPSection;
+      'about.s-p-sec': AboutSPSec;
+      'about.partnership': AboutPartnership;
+      'about.happy': AboutHappy;
     }
   }
 }

@@ -75,7 +75,9 @@
       "type": "string"
     },
     "mobile": {
-      "type": "string"
+      "type": "string",
+      "unique": true,
+      "required": true
     },
     "otp": {
       "type": "integer",

@@ -1,0 +1,56 @@
+{
+  "kind": "singleType",
+  "collectionName": "about_uses",
+  "info": {
+    "singularName": "about-us",
+    "pluralName": "about-uses",
+    "displayName": "About Us Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "BannerSection": {
+      "type": "component",
+      "repeatable": true,
+      "component": "global.banner-section"
+    },
+    "WriteUpSection": {
+      "displayName": "Write up",
+      "type": "component",
+      "repeatable": false,
+      "component": "about.write-up"
+    },
+    "PartnershipSection": {
+      "displayName": "Partnership",
+      "type": "component",
+      "repeatable": false,
+      "component": "about.partnership"
+    },
+    "TeamSection": {
+      "displayName": "Team Section",
+      "type": "component",
+      "repeatable": false,
+      "component": "about.team-section"
+    },
+    "StrategicPartnershipSection": {
+      "displayName": "S P Section",
+      "type": "component",
+      "repeatable": false,
+      "component": "about.s-p-section"
+    },
+    "HappyToHelpSection": {
+      "displayName": "Happy",
+      "type": "component",
+      "repeatable": false,
+      "component": "about.happy"
+    },
+    "MetaDetails": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.meta-details"
+    }
+  }
+}
