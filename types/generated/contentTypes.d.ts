@@ -839,6 +839,8 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
     StrategicPartnershipSection: Attribute.Component<'about.s-p-section'>;
     HappyToHelpSection: Attribute.Component<'about.happy'>;
     MetaDetails: Attribute.Component<'global.meta-details'>;
+    QuotesSection: Attribute.Component<'about.quotes', true>;
+    DownloadResourcesSection: Attribute.Component<'about.d-r-section'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1021,37 +1023,6 @@ export interface ApiCompletionYearCompletionYear extends Schema.CollectionType {
   };
 }
 
-export interface ApiDownloadResourceDownloadResource extends Schema.SingleType {
-  collectionName: 'download_resources';
-  info: {
-    singularName: 'download-resource';
-    pluralName: 'download-resources';
-    displayName: 'Download Resources';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Contents: Attribute.Component<'global.drs'>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::download-resource.download-resource',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::download-resource.download-resource',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiFluencyFluency extends Schema.CollectionType {
   collectionName: 'fluencies';
   info: {
@@ -1127,7 +1098,6 @@ export interface ApiHomepageHomepage extends Schema.SingleType {
     ShapingTomorrowSection: Attribute.Component<'homepage.st-section'>;
     StudentsSection: Attribute.Component<'homepage.stu-section'>;
     MetaDetails: Attribute.Component<'global.meta-details'>;
-    ProgrammeOverviewSection: Attribute.Component<'global.po-section'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1299,37 +1269,6 @@ export interface ApiProgrammeSectionProgrammeSection extends Schema.SingleType {
   };
 }
 
-export interface ApiQuoteQuote extends Schema.SingleType {
-  collectionName: 'quotes';
-  info: {
-    singularName: 'quote';
-    pluralName: 'quotes';
-    displayName: 'Quotes';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Contents: Attribute.Component<'global.quotes', true>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::quote.quote',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::quote.quote',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiRelationRelation extends Schema.CollectionType {
   collectionName: 'relations';
   info: {
@@ -1471,7 +1410,6 @@ declare module '@strapi/types' {
       'api::application-page.application-page': ApiApplicationPageApplicationPage;
       'api::class.class': ApiClassClass;
       'api::completion-year.completion-year': ApiCompletionYearCompletionYear;
-      'api::download-resource.download-resource': ApiDownloadResourceDownloadResource;
       'api::fluency.fluency': ApiFluencyFluency;
       'api::gender.gender': ApiGenderGender;
       'api::homepage.homepage': ApiHomepageHomepage;
@@ -1480,7 +1418,6 @@ declare module '@strapi/types' {
       'api::profession.profession': ApiProfessionProfession;
       'api::programme-overview.programme-overview': ApiProgrammeOverviewProgrammeOverview;
       'api::programme-section.programme-section': ApiProgrammeSectionProgrammeSection;
-      'api::quote.quote': ApiQuoteQuote;
       'api::relation.relation': ApiRelationRelation;
       'api::school-board.school-board': ApiSchoolBoardSchoolBoard;
       'api::source.source': ApiSourceSource;

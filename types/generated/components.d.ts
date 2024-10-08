@@ -351,32 +351,6 @@ export interface HomepagePoSection extends Schema.Component {
   };
 }
 
-export interface GlobalResource extends Schema.Component {
-  collectionName: 'components_global_resources';
-  info: {
-    displayName: 'Resource';
-  };
-  attributes: {
-    Name: Attribute.String;
-    File: Attribute.Media<'images' | 'videos' | 'audios' | 'files'>;
-  };
-}
-
-export interface GlobalQuotes extends Schema.Component {
-  collectionName: 'components_global_quotes';
-  info: {
-    displayName: 'Quotes';
-  };
-  attributes: {
-    Name: Attribute.String;
-    Designation: Attribute.String;
-    Image: Attribute.Media<'images'>;
-    Alt: Attribute.String;
-    Title: Attribute.String;
-    Quotes: Attribute.Text;
-  };
-}
-
 export interface GlobalProgramme extends Schema.Component {
   collectionName: 'components_homepage_programmes';
   info: {
@@ -450,18 +424,6 @@ export interface GlobalMetaDetails extends Schema.Component {
     OGTitle: Attribute.String;
     OGDescription: Attribute.Text;
     OGImage: Attribute.Media<'images'>;
-  };
-}
-
-export interface GlobalDrs extends Schema.Component {
-  collectionName: 'components_global_drs';
-  info: {
-    displayName: 'Download Resource';
-    description: '';
-  };
-  attributes: {
-    Heading: Attribute.String;
-    Resources: Attribute.Component<'global.resource', true>;
   };
 }
 
@@ -792,6 +754,21 @@ export interface AboutSPSec extends Schema.Component {
   };
 }
 
+export interface AboutQuotes extends Schema.Component {
+  collectionName: 'components_about_quotes';
+  info: {
+    displayName: 'Quotes';
+  };
+  attributes: {
+    Name: Attribute.String;
+    Designation: Attribute.String;
+    Image: Attribute.Media<'images'>;
+    Alt: Attribute.String;
+    Title: Attribute.String;
+    Quotes: Attribute.Text;
+  };
+}
+
 export interface AboutPartnership extends Schema.Component {
   collectionName: 'components_about_partnerships';
   info: {
@@ -814,6 +791,30 @@ export interface AboutHappy extends Schema.Component {
     Image: Attribute.Media<'images'>;
     Alt: Attribute.String;
     Title: Attribute.String;
+  };
+}
+
+export interface AboutDRSection extends Schema.Component {
+  collectionName: 'components_about_d_r_sections';
+  info: {
+    displayName: 'Download Resources Section';
+    description: '';
+  };
+  attributes: {
+    Heading: Attribute.String;
+    Resources: Attribute.Component<'about.d-r-s', true>;
+  };
+}
+
+export interface AboutDRS extends Schema.Component {
+  collectionName: 'components_about_d_r_s';
+  info: {
+    displayName: 'Download Resources';
+    description: '';
+  };
+  attributes: {
+    Name: Attribute.String;
+    File: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
   };
 }
 
@@ -841,14 +842,11 @@ declare module '@strapi/types' {
       'homepage.shaping-tomorrow': HomepageShapingTomorrow;
       'homepage.programme-overview': HomepageProgrammeOverview;
       'homepage.po-section': HomepagePoSection;
-      'global.resource': GlobalResource;
-      'global.quotes': GlobalQuotes;
       'global.programme': GlobalProgramme;
       'global.prog-section': GlobalProgSection;
       'global.po-section': GlobalPoSection;
       'global.p-overview': GlobalPOverview;
       'global.meta-details': GlobalMetaDetails;
-      'global.drs': GlobalDrs;
       'global.banner-section': GlobalBannerSection;
       'dropdown.source': DropdownSource;
       'dropdown.school-board': DropdownSchoolBoard;
@@ -876,8 +874,11 @@ declare module '@strapi/types' {
       'about.team-section': AboutTeamSection;
       'about.s-p-section': AboutSPSection;
       'about.s-p-sec': AboutSPSec;
+      'about.quotes': AboutQuotes;
       'about.partnership': AboutPartnership;
       'about.happy': AboutHappy;
+      'about.d-r-section': AboutDRSection;
+      'about.d-r-s': AboutDRS;
     }
   }
 }

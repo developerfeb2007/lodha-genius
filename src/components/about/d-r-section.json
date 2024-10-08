@@ -1,7 +1,7 @@
 {
-  "collectionName": "components_global_drs",
+  "collectionName": "components_about_d_r_sections",
   "info": {
-    "displayName": "Download Resource",
+    "displayName": "Download Resources Section",
     "description": ""
   },
   "options": {},
@@ -10,10 +10,10 @@
       "type": "string"
     },
     "Resources": {
-      "displayName": "Resource",
+      "displayName": "D R S",
       "type": "component",
       "repeatable": true,
-      "component": "global.resource"
+      "component": "about.d-r-s"
     }
   }
 }

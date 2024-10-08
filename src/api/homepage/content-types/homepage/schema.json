@@ -32,11 +32,6 @@
       "type": "component",
       "repeatable": false,
       "component": "global.meta-details"
-    },
-    "ProgrammeOverviewSection": {
-      "type": "component",
-      "repeatable": false,
-      "component": "global.po-section"
     }
   }
 }

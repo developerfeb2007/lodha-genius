@@ -51,6 +51,18 @@
       "type": "component",
       "repeatable": false,
       "component": "global.meta-details"
+    },
+    "QuotesSection": {
+      "displayName": "Quotes",
+      "type": "component",
+      "repeatable": true,
+      "component": "about.quotes"
+    },
+    "DownloadResourcesSection": {
+      "displayName": "D R Section",
+      "type": "component",
+      "repeatable": false,
+      "component": "about.d-r-section"
     }
   }
 }
