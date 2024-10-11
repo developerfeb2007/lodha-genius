@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_maths_cmi_seminars",
+  "info": {
+    "displayName": "CMI Seminar"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Seminars": {
+      "displayName": "CMI Sem",
+      "type": "component",
+      "repeatable": true,
+      "component": "maths.cmi-sem"
+    }
+  }
+}

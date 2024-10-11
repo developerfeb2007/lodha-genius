@@ -1,0 +1,40 @@
+{
+  "kind": "singleType",
+  "collectionName": "seminars",
+  "info": {
+    "singularName": "seminar",
+    "pluralName": "seminars",
+    "displayName": "Seminar Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "BannerSection": {
+      "type": "component",
+      "repeatable": true,
+      "component": "global.banner-section"
+    },
+    "Content": {
+      "type": "text"
+    },
+    "SeminarSection": {
+      "type": "component",
+      "repeatable": true,
+      "component": "seminar.seminar"
+    },
+    "SpeakersSection": {
+      "displayName": "Speakers",
+      "type": "component",
+      "repeatable": true,
+      "component": "seminar.speakers"
+    },
+    "MetaDetails": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.meta-details"
+    }
+  }
+}

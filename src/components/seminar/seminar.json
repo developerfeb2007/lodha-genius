@@ -1,0 +1,45 @@
+{
+  "collectionName": "components_seminar_seminars",
+  "info": {
+    "displayName": "Seminar"
+  },
+  "options": {},
+  "attributes": {
+    "Category": {
+      "type": "enumeration",
+      "enum": [
+        "Recent seminar",
+        "Past seminar"
+      ]
+    },
+    "Heading": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Thumbnail": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Alt": {
+      "type": "string"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "YoutubeURL": {
+      "type": "string"
+    },
+    "Video": {
+      "allowedTypes": [
+        "videos"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

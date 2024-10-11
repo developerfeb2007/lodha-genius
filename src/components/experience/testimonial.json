@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_experience_testimonials",
+  "info": {
+    "displayName": "Testimonial",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Feedback": {
+      "type": "text"
+    },
+    "Photo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Alt": {
+      "type": "string"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Year": {
+      "type": "integer"
+    }
+  }
+}

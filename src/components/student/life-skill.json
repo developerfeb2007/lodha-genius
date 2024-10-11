@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_student_life_skills",
+  "info": {
+    "displayName": "Life Skill"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Skills": {
+      "displayName": "Skill",
+      "type": "component",
+      "repeatable": true,
+      "component": "student.skill"
+    }
+  }
+}

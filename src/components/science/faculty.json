@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_science_faculties",
+  "info": {
+    "displayName": "Faculty"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "Members": {
+      "displayName": "Faculty Mem",
+      "type": "component",
+      "repeatable": true,
+      "component": "science.faculty-mem"
+    }
+  }
+}

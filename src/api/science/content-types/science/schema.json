@@ -1,0 +1,34 @@
+{
+  "kind": "singleType",
+  "collectionName": "sciences",
+  "info": {
+    "singularName": "science",
+    "pluralName": "sciences",
+    "displayName": "Science Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "BannerSection": {
+      "type": "component",
+      "repeatable": true,
+      "component": "global.banner-section"
+    },
+    "Content": {
+      "type": "customField",
+      "options": {
+        "preset": "default"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "FacultyMembers": {
+      "displayName": "Faculty",
+      "type": "component",
+      "repeatable": false,
+      "component": "science.faculty"
+    }
+  }
+}

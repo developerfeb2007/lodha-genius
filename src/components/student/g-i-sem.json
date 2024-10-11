@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_student_g_i_sems",
+  "info": {
+    "displayName": "G I Sem"
+  },
+  "options": {},
+  "attributes": {
+    "Video": {
+      "allowedTypes": [
+        "videos"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Speaker": {
+      "type": "string"
+    }
+  }
+}

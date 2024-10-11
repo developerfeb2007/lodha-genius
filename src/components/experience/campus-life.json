@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_experience_campus_lives",
+  "info": {
+    "displayName": "Campus Life"
+  },
+  "options": {},
+  "attributes": {
+    "Content": {
+      "type": "customField",
+      "options": {
+        "preset": "default"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "CampusLife": {
+      "displayName": "Campus",
+      "type": "component",
+      "repeatable": true,
+      "component": "experience.campus"
+    }
+  }
+}

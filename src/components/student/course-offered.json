@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_student_course_offereds",
+  "info": {
+    "displayName": "Course Offered"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "Courses": {
+      "displayName": "Courses Off",
+      "type": "component",
+      "repeatable": true,
+      "component": "student.courses-off"
+    }
+  }
+}

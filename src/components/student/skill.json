@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_student_skills",
+  "info": {
+    "displayName": "Skill"
+  },
+  "options": {},
+  "attributes": {
+    "Topic": {
+      "type": "string"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Alt": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Faculty": {
+      "type": "string"
+    }
+  }
+}

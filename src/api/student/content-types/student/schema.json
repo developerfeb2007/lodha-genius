@@ -1,0 +1,51 @@
+{
+  "kind": "singleType",
+  "collectionName": "students",
+  "info": {
+    "singularName": "student",
+    "pluralName": "students",
+    "displayName": "Student",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "BannerSection": {
+      "type": "component",
+      "repeatable": true,
+      "component": "global.banner-section"
+    },
+    "GreatIdeasSeminarSection": {
+      "displayName": "G I Seminar",
+      "type": "component",
+      "repeatable": false,
+      "component": "student.g-i-seminar"
+    },
+    "CMISeminarSection": {
+      "displayName": "CMI Seminar",
+      "type": "component",
+      "repeatable": false,
+      "component": "student.cmi-seminar"
+    },
+    "LifeSkillSection": {
+      "displayName": "Life Skill",
+      "type": "component",
+      "repeatable": false,
+      "component": "student.life-skill"
+    },
+    "LearningModuleSection": {
+      "displayName": "C L Module",
+      "type": "component",
+      "repeatable": false,
+      "component": "student.c-l-module"
+    },
+    "CoursesOfferedSection": {
+      "displayName": "Course Offered",
+      "type": "component",
+      "repeatable": false,
+      "component": "student.course-offered"
+    }
+  }
+}

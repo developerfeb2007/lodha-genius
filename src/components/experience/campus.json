@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_experience_campuses",
+  "info": {
+    "displayName": "Campus"
+  },
+  "options": {},
+  "attributes": {
+    "TabName": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Alt": {
+      "type": "string"
+    },
+    "Title": {
+      "type": "string"
+    }
+  }
+}

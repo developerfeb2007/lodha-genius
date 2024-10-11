@@ -590,6 +590,45 @@ export interface PluginContentReleasesReleaseAction
   };
 }
 
+export interface PluginSlugifySlug extends Schema.CollectionType {
+  collectionName: 'slugs';
+  info: {
+    singularName: 'slug';
+    pluralName: 'slugs';
+    displayName: 'slug';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    slug: Attribute.Text;
+    count: Attribute.Integer;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::slugify.slug',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::slugify.slug',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginI18NLocale extends Schema.CollectionType {
   collectionName: 'i18n_locale';
   info: {
@@ -786,23 +825,30 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       Attribute.Required &
       Attribute.SetMinMax<
         {
-          min: 0;
+          min: 1;
           max: 7;
         },
         number
       > &
-      Attribute.DefaultTo<0>;
-    TestingStatus: Attribute.Enumeration<['Pending', 'Approved']> &
-      Attribute.Required &
-      Attribute.DefaultTo<'Pending'>;
-    InterviewStatus: Attribute.Enumeration<
-      ['Pending', 'Approved', 'Completed']
+      Attribute.DefaultTo<1>;
+    TestingStatus: Attribute.Enumeration<
+      ['Pending', 'Submitted', 'Approved', 'Rejected']
     > &
       Attribute.Required &
       Attribute.DefaultTo<'Pending'>;
-    PostApplicationStatus: Attribute.Enumeration<['Pending', 'Approved']> &
+    InterviewStatus: Attribute.Enumeration<
+      ['Pending', 'Submitted', 'Approved', 'Rejected']
+    > &
       Attribute.Required &
       Attribute.DefaultTo<'Pending'>;
+    PostApplicationStatus: Attribute.Enumeration<
+      ['Pending', 'Submitted', 'Approved', 'Rejected']
+    > &
+      Attribute.Required &
+      Attribute.DefaultTo<'Pending'>;
+    ApplicationStatus: Attribute.Enumeration<
+      ['Pending', 'Submitted', 'Approved', 'Rejected']
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -964,6 +1010,69 @@ export interface ApiApplicationPageApplicationPage extends Schema.SingleType {
   };
 }
 
+export interface ApiBlogBlog extends Schema.CollectionType {
+  collectionName: 'blogs';
+  info: {
+    singularName: 'blog';
+    pluralName: 'blogs';
+    displayName: 'Blog';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String;
+    Slug: Attribute.String;
+    PublishedDate: Attribute.Date;
+    DesktopBanner: Attribute.Media<'images'>;
+    MobileBanner: Attribute.Media<'images'>;
+    Content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiBlogPageBlogPage extends Schema.SingleType {
+  collectionName: 'blog_pages';
+  info: {
+    singularName: 'blog-page';
+    pluralName: 'blog-pages';
+    displayName: 'Blog Page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    MetaDetails: Attribute.Component<'global.meta-details'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::blog-page.blog-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::blog-page.blog-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiClassClass extends Schema.CollectionType {
   collectionName: 'classes';
   info: {
@@ -1019,6 +1128,72 @@ export interface ApiCompletionYearCompletionYear extends Schema.CollectionType {
       'oneToOne',
       'admin::user'
     > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiExperienceExperience extends Schema.SingleType {
+  collectionName: 'experiences';
+  info: {
+    singularName: 'experience';
+    pluralName: 'experiences';
+    displayName: 'Experience Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    BannerSection: Attribute.Component<'global.banner-section', true>;
+    Content: Attribute.Text;
+    SuccessStoriesSection: Attribute.Component<
+      'experience.success-stories',
+      true
+    >;
+    TestimonialSection: Attribute.Component<'experience.testimonial', true>;
+    CampusLifeSection: Attribute.Component<'experience.campus-life'>;
+    ScheduleSection: Attribute.Component<'experience.schedule'>;
+    RecentTripSection: Attribute.Component<'experience.recent-trip', true>;
+    MetaDetails: Attribute.Component<'global.meta-details'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::experience.experience',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::experience.experience',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiFaqFaq extends Schema.SingleType {
+  collectionName: 'faqs';
+  info: {
+    singularName: 'faq';
+    pluralName: 'faqs';
+    displayName: 'FAQ Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    BannerSection: Attribute.Component<'global.banner-section', true>;
+    FAQSection: Attribute.Component<'faq.faq', true>;
+    MetaDetails: Attribute.Component<'global.meta-details'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::faq.faq', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::faq.faq', 'oneToOne', 'admin::user'> &
       Attribute.Private;
   };
 }
@@ -1145,6 +1320,41 @@ export interface ApiLanguageLanguage extends Schema.CollectionType {
   };
 }
 
+export interface ApiLearningLearning extends Schema.SingleType {
+  collectionName: 'learnings';
+  info: {
+    singularName: 'learning';
+    pluralName: 'learnings';
+    displayName: 'Continued Learning Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    BannerSection: Attribute.Component<'global.banner-section', true>;
+    Content: Attribute.Text;
+    ModuleSection: Attribute.Component<'learning.module', true>;
+    CourseSection: Attribute.Component<'learning.course', true>;
+    MetaDetails: Attribute.Component<'global.meta-details'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::learning.learning',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::learning.learning',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiLifeSkillLifeSkill extends Schema.SingleType {
   collectionName: 'life_skills';
   info: {
@@ -1175,6 +1385,38 @@ export interface ApiLifeSkillLifeSkill extends Schema.SingleType {
       'oneToOne',
       'admin::user'
     > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMathMath extends Schema.SingleType {
+  collectionName: 'maths';
+  info: {
+    singularName: 'math';
+    pluralName: 'maths';
+    displayName: 'Mathematics Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    BannerSection: Attribute.Component<'global.banner-section', true>;
+    Content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    CMISeminarSection: Attribute.Component<'maths.cmi-seminar'>;
+    FacultyMembers: Attribute.Component<'maths.faculty-member'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::math.math', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::math.math', 'oneToOne', 'admin::user'> &
       Attribute.Private;
   };
 }
@@ -1327,6 +1569,80 @@ export interface ApiSchoolBoardSchoolBoard extends Schema.CollectionType {
   };
 }
 
+export interface ApiScienceScience extends Schema.SingleType {
+  collectionName: 'sciences';
+  info: {
+    singularName: 'science';
+    pluralName: 'sciences';
+    displayName: 'Science Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    BannerSection: Attribute.Component<'global.banner-section', true>;
+    Content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    FacultyMembers: Attribute.Component<'science.faculty'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::science.science',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::science.science',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSeminarSeminar extends Schema.SingleType {
+  collectionName: 'seminars';
+  info: {
+    singularName: 'seminar';
+    pluralName: 'seminars';
+    displayName: 'Seminar Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    BannerSection: Attribute.Component<'global.banner-section', true>;
+    Content: Attribute.Text;
+    SeminarSection: Attribute.Component<'seminar.seminar', true>;
+    SpeakersSection: Attribute.Component<'seminar.speakers', true>;
+    MetaDetails: Attribute.Component<'global.meta-details'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::seminar.seminar',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::seminar.seminar',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiSourceSource extends Schema.CollectionType {
   collectionName: 'sources';
   info: {
@@ -1386,6 +1702,42 @@ export interface ApiStateCityStateCity extends Schema.SingleType {
   };
 }
 
+export interface ApiStudentStudent extends Schema.SingleType {
+  collectionName: 'students';
+  info: {
+    singularName: 'student';
+    pluralName: 'students';
+    displayName: 'Student';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    BannerSection: Attribute.Component<'global.banner-section', true>;
+    GreatIdeasSeminarSection: Attribute.Component<'student.g-i-seminar'>;
+    CMISeminarSection: Attribute.Component<'student.cmi-seminar'>;
+    LifeSkillSection: Attribute.Component<'student.life-skill'>;
+    LearningModuleSection: Attribute.Component<'student.c-l-module'>;
+    CoursesOfferedSection: Attribute.Component<'student.course-offered'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::student.student',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::student.student',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1400,6 +1752,7 @@ declare module '@strapi/types' {
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
+      'plugin::slugify.slug': PluginSlugifySlug;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
@@ -1408,20 +1761,29 @@ declare module '@strapi/types' {
       'api::annual-income.annual-income': ApiAnnualIncomeAnnualIncome;
       'api::application-form.application-form': ApiApplicationFormApplicationForm;
       'api::application-page.application-page': ApiApplicationPageApplicationPage;
+      'api::blog.blog': ApiBlogBlog;
+      'api::blog-page.blog-page': ApiBlogPageBlogPage;
       'api::class.class': ApiClassClass;
       'api::completion-year.completion-year': ApiCompletionYearCompletionYear;
+      'api::experience.experience': ApiExperienceExperience;
+      'api::faq.faq': ApiFaqFaq;
       'api::fluency.fluency': ApiFluencyFluency;
       'api::gender.gender': ApiGenderGender;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::language.language': ApiLanguageLanguage;
+      'api::learning.learning': ApiLearningLearning;
       'api::life-skill.life-skill': ApiLifeSkillLifeSkill;
+      'api::math.math': ApiMathMath;
       'api::profession.profession': ApiProfessionProfession;
       'api::programme-overview.programme-overview': ApiProgrammeOverviewProgrammeOverview;
       'api::programme-section.programme-section': ApiProgrammeSectionProgrammeSection;
       'api::relation.relation': ApiRelationRelation;
       'api::school-board.school-board': ApiSchoolBoardSchoolBoard;
+      'api::science.science': ApiScienceScience;
+      'api::seminar.seminar': ApiSeminarSeminar;
       'api::source.source': ApiSourceSource;
       'api::state-city.state-city': ApiStateCityStateCity;
+      'api::student.student': ApiStudentStudent;
     }
   }
 }

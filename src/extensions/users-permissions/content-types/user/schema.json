@@ -124,16 +124,18 @@
     },
     "ApplicationStep": {
       "type": "integer",
-      "default": 0,
+      "default": 1,
       "required": true,
       "max": 7,
-      "min": 0
+      "min": 1
     },
     "TestingStatus": {
       "type": "enumeration",
       "enum": [
         "Pending",
-        "Approved"
+        "Submitted",
+        "Approved",
+        "Rejected"
       ],
       "default": "Pending",
       "required": true
@@ -142,8 +144,9 @@
       "type": "enumeration",
       "enum": [
         "Pending",
+        "Submitted",
         "Approved",
-        "Completed"
+        "Rejected"
       ],
       "default": "Pending",
       "required": true
@@ -152,10 +155,21 @@
       "type": "enumeration",
       "enum": [
         "Pending",
-        "Approved"
+        "Submitted",
+        "Approved",
+        "Rejected"
       ],
       "default": "Pending",
       "required": true
+    },
+    "ApplicationStatus": {
+      "type": "enumeration",
+      "enum": [
+        "Pending",
+        "Submitted",
+        "Approved",
+        "Rejected"
+      ]
     }
   }
 }

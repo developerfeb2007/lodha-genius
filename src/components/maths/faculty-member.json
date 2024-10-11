@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_maths_faculty_members",
+  "info": {
+    "displayName": "Faculty Member"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "Members": {
+      "displayName": "Faculty Mem",
+      "type": "component",
+      "repeatable": true,
+      "component": "maths.faculty-mem"
+    }
+  }
+}

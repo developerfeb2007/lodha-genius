@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_student_courses_offs",
+  "info": {
+    "displayName": "Courses Off"
+  },
+  "options": {},
+  "attributes": {
+    "Alt": {
+      "type": "string"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

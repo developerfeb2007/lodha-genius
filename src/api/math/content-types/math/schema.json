@@ -1,0 +1,40 @@
+{
+  "kind": "singleType",
+  "collectionName": "maths",
+  "info": {
+    "singularName": "math",
+    "pluralName": "maths",
+    "displayName": "Mathematics Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "BannerSection": {
+      "type": "component",
+      "repeatable": true,
+      "component": "global.banner-section"
+    },
+    "Content": {
+      "type": "customField",
+      "options": {
+        "preset": "default"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "CMISeminarSection": {
+      "displayName": "CMI Seminar",
+      "type": "component",
+      "repeatable": false,
+      "component": "maths.cmi-seminar"
+    },
+    "FacultyMembers": {
+      "displayName": "Faculty Member",
+      "type": "component",
+      "repeatable": false,
+      "component": "maths.faculty-member"
+    }
+  }
+}

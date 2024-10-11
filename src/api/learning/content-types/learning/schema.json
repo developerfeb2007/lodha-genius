@@ -1,0 +1,41 @@
+{
+  "kind": "singleType",
+  "collectionName": "learnings",
+  "info": {
+    "singularName": "learning",
+    "pluralName": "learnings",
+    "displayName": "Continued Learning Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "BannerSection": {
+      "type": "component",
+      "repeatable": true,
+      "component": "global.banner-section"
+    },
+    "Content": {
+      "type": "text"
+    },
+    "ModuleSection": {
+      "displayName": "Module",
+      "type": "component",
+      "repeatable": true,
+      "component": "learning.module"
+    },
+    "CourseSection": {
+      "displayName": "Course",
+      "type": "component",
+      "repeatable": true,
+      "component": "learning.course"
+    },
+    "MetaDetails": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.meta-details"
+    }
+  }
+}

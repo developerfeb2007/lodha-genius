@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_student_g_i_seminars",
+  "info": {
+    "displayName": "G I Seminar"
+  },
+  "options": {},
+  "attributes": {
+    "Seminars": {
+      "displayName": "G I Sem",
+      "type": "component",
+      "repeatable": true,
+      "component": "student.g-i-sem"
+    },
+    "Heading": {
+      "type": "string"
+    }
+  }
+}

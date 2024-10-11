@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_science_faculty_mems",
+  "info": {
+    "displayName": "Faculty Mem",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Category": {
+      "type": "enumeration",
+      "enum": [
+        "For Grades 9 & 10",
+        "For Grades 11 & 12"
+      ]
+    },
+    "Photo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Alt": {
+      "type": "string"
+    },
+    "Name": {
+      "type": "string"
+    },
+    "Designation": {
+      "type": "string"
+    },
+    "Workplace": {
+      "type": "string"
+    }
+  }
+}

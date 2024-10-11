@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_maths_faculty_mems",
+  "info": {
+    "displayName": "Faculty Mem"
+  },
+  "options": {},
+  "attributes": {
+    "Category": {
+      "type": "enumeration",
+      "enum": [
+        "For Grades 9 & 10",
+        "For Grades 11 & 12"
+      ]
+    },
+    "Photo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Alt": {
+      "type": "string"
+    },
+    "Name": {
+      "type": "string"
+    },
+    "FacultyDetail": {
+      "type": "customField",
+      "options": {
+        "preset": "default"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    }
+  }
+}

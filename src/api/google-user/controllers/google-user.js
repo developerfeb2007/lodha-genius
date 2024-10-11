@@ -89,6 +89,7 @@ module.exports = {
                 mobile: user.mobile,
                 registrationNumber: registrationNumber,
                 applicationStep: user.ApplicationStep,
+                applicationStatus: user.ApplicationStatus,
                 testingStatus: user.TestingStatus,
                 interviewStatus: user.InterviewStatus,
                 postApplicationStep: user.PostApplicationStatus

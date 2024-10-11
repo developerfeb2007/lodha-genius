@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_experience_mornings",
+  "info": {
+    "displayName": "Session",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    }
+  }
+}

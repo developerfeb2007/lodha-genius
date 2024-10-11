@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_student_c_l_modules",
+  "info": {
+    "displayName": "C L Module"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "Modules": {
+      "displayName": "C L Mod",
+      "type": "component",
+      "repeatable": true,
+      "component": "student.c-l-mod"
+    }
+  }
+}
