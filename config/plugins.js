@@ -36,5 +36,8 @@ module.exports = ({ env }) => ({
         },
       },
     },
+    "media-prefix": {
+      enabled: true,
+    },
   });
   
