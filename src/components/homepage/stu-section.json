@@ -9,18 +9,16 @@
     "Heading": {
       "type": "string"
     },
-    "Description": {
-      "type": "richtext"
-    },
     "URL": {
       "type": "string"
     },
     "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "Alt": {
       "type": "string"
@@ -29,17 +27,25 @@
       "type": "string"
     },
     "BackgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "BGAlt": {
       "type": "string"
     },
     "BGTitle": {
       "type": "string"
+    },
+    "Description": {
+      "type": "customField",
+      "options": {
+        "preset": "default"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
     }
   }
 }

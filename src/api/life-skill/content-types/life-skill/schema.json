@@ -17,9 +17,6 @@
       "repeatable": true,
       "component": "global.banner-section"
     },
-    "Content": {
-      "type": "text"
-    },
     "CourseSection": {
       "type": "component",
       "repeatable": true,
@@ -29,6 +26,13 @@
       "type": "component",
       "repeatable": false,
       "component": "global.meta-details"
+    },
+    "Content": {
+      "type": "customField",
+      "options": {
+        "preset": "default"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
     }
   }
 }

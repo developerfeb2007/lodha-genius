@@ -31,14 +31,18 @@
     "Title": {
       "type": "string"
     },
-    "Description": {
-      "type": "richtext"
-    },
     "URL": {
       "type": "string"
     },
     "Color": {
       "type": "string"
+    },
+    "Description": {
+      "type": "customField",
+      "options": {
+        "preset": "default"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
     }
   }
 }

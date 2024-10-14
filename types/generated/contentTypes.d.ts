@@ -1206,7 +1206,6 @@ export interface ApiExperienceExperience extends Schema.SingleType {
   };
   attributes: {
     BannerSection: Attribute.Component<'global.banner-section', true>;
-    Content: Attribute.Text;
     SuccessStoriesSection: Attribute.Component<
       'experience.success-stories',
       true
@@ -1216,6 +1215,13 @@ export interface ApiExperienceExperience extends Schema.SingleType {
     ScheduleSection: Attribute.Component<'experience.schedule'>;
     RecentTripSection: Attribute.Component<'experience.recent-trip', true>;
     MetaDetails: Attribute.Component<'global.meta-details'>;
+    Content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1423,10 +1429,16 @@ export interface ApiLearningLearning extends Schema.SingleType {
   };
   attributes: {
     BannerSection: Attribute.Component<'global.banner-section', true>;
-    Content: Attribute.Text;
     ModuleSection: Attribute.Component<'learning.module', true>;
     CourseSection: Attribute.Component<'learning.course', true>;
     MetaDetails: Attribute.Component<'global.meta-details'>;
+    Content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1458,9 +1470,15 @@ export interface ApiLifeSkillLifeSkill extends Schema.SingleType {
   };
   attributes: {
     BannerSection: Attribute.Component<'global.banner-section', true>;
-    Content: Attribute.Text;
     CourseSection: Attribute.Component<'life-skill.course', true>;
     MetaDetails: Attribute.Component<'global.meta-details'>;
+    Content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1577,6 +1595,7 @@ export interface ApiProgrammeSectionProgrammeSection extends Schema.SingleType {
     singularName: 'programme-section';
     pluralName: 'programme-sections';
     displayName: 'Programme Section';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1711,10 +1730,16 @@ export interface ApiSeminarSeminar extends Schema.SingleType {
   };
   attributes: {
     BannerSection: Attribute.Component<'global.banner-section', true>;
-    Content: Attribute.Text;
     SeminarSection: Attribute.Component<'seminar.seminar', true>;
     SpeakersSection: Attribute.Component<'seminar.speakers', true>;
     MetaDetails: Attribute.Component<'global.meta-details'>;
+    Content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

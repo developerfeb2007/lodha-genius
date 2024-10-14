@@ -68,11 +68,11 @@ module.exports = (plugin) => {
                     countryCode: user.countryCode,
                     mobile: user.mobile,
                     registrationNumber: registrationNumber,
-                    applicationStep: user.ApplicationStep,
-                    applicationStatus: user.ApplicationStatus,
-                    testingStatus: user.TestingStatus,
-                    interviewStatus: user.InterviewStatus,
-                    postApplicationStep: user.PostApplicationStatus
+                    ApplicationStep: user.ApplicationStep,
+                    ApplicationStatus: user.ApplicationStatus,
+                    TestingStatus: user.TestingStatus,
+                    InterviewStatus: user.InterviewStatus,
+                    PostApplicationStatus: user.PostApplicationStatus
                 }
             });
         }catch(error){

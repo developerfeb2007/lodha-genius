@@ -4,7 +4,8 @@
   "info": {
     "singularName": "programme-section",
     "pluralName": "programme-sections",
-    "displayName": "Programme Section"
+    "displayName": "Programme Section",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true

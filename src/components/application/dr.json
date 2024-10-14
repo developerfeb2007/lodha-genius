@@ -1,7 +1,8 @@
 {
   "collectionName": "components_application_drs",
   "info": {
-    "displayName": "Documents Required"
+    "displayName": "Documents Required",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -9,7 +10,11 @@
       "type": "string"
     },
     "Description": {
-      "type": "richtext"
+      "type": "customField",
+      "options": {
+        "preset": "default"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
     }
   }
 }

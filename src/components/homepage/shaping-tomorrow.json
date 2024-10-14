@@ -9,9 +9,6 @@
     "Name": {
       "type": "string"
     },
-    "Description": {
-      "type": "richtext"
-    },
     "Image": {
       "type": "media",
       "multiple": false,
@@ -36,6 +33,13 @@
       "allowedTypes": [
         "videos"
       ]
+    },
+    "Description": {
+      "type": "customField",
+      "options": {
+        "preset": "default"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
     }
   }
 }
