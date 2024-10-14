@@ -13,11 +13,10 @@ module.exports = {
       
         if (states && states.Attachment && states.Attachment.url) {
             const fileUrl = states.Attachment.url;
-            const filePath = `./public${fileUrl}`;
-      
+            // const filePath = `./public${fileUrl}`;
       
             // Read and parse the JSON file
-            const rawData = fs.readFileSync(filePath, 'utf8');
+            const rawData = fs.readFileSync(fileUrl, 'utf8');
             let parsedData;
             try {
                 parsedData = JSON.parse(rawData);

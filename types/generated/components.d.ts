@@ -308,102 +308,6 @@ export interface UserAcademicRecord extends Schema.Component {
   };
 }
 
-export interface SeminarSpeakers extends Schema.Component {
-  collectionName: 'components_seminar_speakers';
-  info: {
-    displayName: 'Speakers';
-  };
-  attributes: {
-    Name: Attribute.String;
-    Designation: Attribute.Text;
-    Photo: Attribute.Media<'images'>;
-    Alt: Attribute.String;
-    Title: Attribute.String;
-    Profile: Attribute.RichText &
-      Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'default';
-        }
-      >;
-  };
-}
-
-export interface SeminarSeminar extends Schema.Component {
-  collectionName: 'components_seminar_seminars';
-  info: {
-    displayName: 'Seminar';
-  };
-  attributes: {
-    Category: Attribute.Enumeration<['Recent seminar', 'Past seminar']>;
-    Heading: Attribute.String;
-    Description: Attribute.Text;
-    Thumbnail: Attribute.Media<'images'>;
-    Alt: Attribute.String;
-    Title: Attribute.String;
-    YoutubeURL: Attribute.String;
-    Video: Attribute.Media<'videos'>;
-  };
-}
-
-export interface LifeSkillCourse extends Schema.Component {
-  collectionName: 'components_life_skill_courses';
-  info: {
-    displayName: 'Course';
-  };
-  attributes: {
-    Category: Attribute.Enumeration<
-      ['For Grades 9 & 10', 'For Grades 11 & 12']
-    > &
-      Attribute.Required;
-    Image: Attribute.Media<'images'> & Attribute.Required;
-    Alt: Attribute.String;
-    Title: Attribute.String;
-    Contents: Attribute.Component<'life-skill.content', true>;
-  };
-}
-
-export interface LifeSkillContent extends Schema.Component {
-  collectionName: 'components_life_skill_contents';
-  info: {
-    displayName: 'Course Content';
-    description: '';
-  };
-  attributes: {
-    Heading: Attribute.String;
-    Content: Attribute.Text;
-  };
-}
-
-export interface ScienceFaculty extends Schema.Component {
-  collectionName: 'components_science_faculties';
-  info: {
-    displayName: 'Faculty';
-  };
-  attributes: {
-    Heading: Attribute.String;
-    Members: Attribute.Component<'science.faculty-mem', true>;
-  };
-}
-
-export interface ScienceFacultyMem extends Schema.Component {
-  collectionName: 'components_science_faculty_mems';
-  info: {
-    displayName: 'Faculty Mem';
-    description: '';
-  };
-  attributes: {
-    Category: Attribute.Enumeration<
-      ['For Grades 9 & 10', 'For Grades 11 & 12']
-    >;
-    Photo: Attribute.Media<'images'>;
-    Alt: Attribute.String;
-    Name: Attribute.String;
-    Designation: Attribute.String;
-    Workplace: Attribute.String;
-  };
-}
-
 export interface StudentSkill extends Schema.Component {
   collectionName: 'components_student_skills';
   info: {
@@ -530,6 +434,73 @@ export interface StudentCLMod extends Schema.Component {
   };
 }
 
+export interface SeminarSpeakers extends Schema.Component {
+  collectionName: 'components_seminar_speakers';
+  info: {
+    displayName: 'Speakers';
+  };
+  attributes: {
+    Name: Attribute.String;
+    Designation: Attribute.Text;
+    Photo: Attribute.Media<'images'>;
+    Alt: Attribute.String;
+    Title: Attribute.String;
+    Profile: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+  };
+}
+
+export interface SeminarSeminar extends Schema.Component {
+  collectionName: 'components_seminar_seminars';
+  info: {
+    displayName: 'Seminar';
+  };
+  attributes: {
+    Category: Attribute.Enumeration<['Recent seminar', 'Past seminar']>;
+    Heading: Attribute.String;
+    Description: Attribute.Text;
+    Thumbnail: Attribute.Media<'images'>;
+    Alt: Attribute.String;
+    Title: Attribute.String;
+    YoutubeURL: Attribute.String;
+    Video: Attribute.Media<'videos'>;
+  };
+}
+
+export interface ScienceFaculty extends Schema.Component {
+  collectionName: 'components_science_faculties';
+  info: {
+    displayName: 'Faculty';
+  };
+  attributes: {
+    Heading: Attribute.String;
+    Members: Attribute.Component<'science.faculty-mem', true>;
+  };
+}
+
+export interface ScienceFacultyMem extends Schema.Component {
+  collectionName: 'components_science_faculty_mems';
+  info: {
+    displayName: 'Faculty Mem';
+    description: '';
+  };
+  attributes: {
+    Category: Attribute.Enumeration<
+      ['For Grades 9 & 10', 'For Grades 11 & 12']
+    >;
+    Photo: Attribute.Media<'images'>;
+    Alt: Attribute.String;
+    Name: Attribute.String;
+    Designation: Attribute.String;
+    Workplace: Attribute.String;
+  };
+}
+
 export interface MathsFacultyMember extends Schema.Component {
   collectionName: 'components_maths_faculty_members';
   info: {
@@ -590,6 +561,35 @@ export interface MathsCmiSem extends Schema.Component {
           preset: 'default';
         }
       >;
+  };
+}
+
+export interface LifeSkillCourse extends Schema.Component {
+  collectionName: 'components_life_skill_courses';
+  info: {
+    displayName: 'Course';
+  };
+  attributes: {
+    Category: Attribute.Enumeration<
+      ['For Grades 9 & 10', 'For Grades 11 & 12']
+    > &
+      Attribute.Required;
+    Image: Attribute.Media<'images'> & Attribute.Required;
+    Alt: Attribute.String;
+    Title: Attribute.String;
+    Contents: Attribute.Component<'life-skill.content', true>;
+  };
+}
+
+export interface LifeSkillContent extends Schema.Component {
+  collectionName: 'components_life_skill_contents';
+  info: {
+    displayName: 'Course Content';
+    description: '';
+  };
+  attributes: {
+    Heading: Attribute.String;
+    Content: Attribute.Text;
   };
 }
 
@@ -1360,12 +1360,6 @@ declare module '@strapi/types' {
       'user.campus': UserCampus;
       'user.address': UserAddress;
       'user.academic-record': UserAcademicRecord;
-      'seminar.speakers': SeminarSpeakers;
-      'seminar.seminar': SeminarSeminar;
-      'life-skill.course': LifeSkillCourse;
-      'life-skill.content': LifeSkillContent;
-      'science.faculty': ScienceFaculty;
-      'science.faculty-mem': ScienceFacultyMem;
       'student.skill': StudentSkill;
       'student.life-skill': StudentLifeSkill;
       'student.g-i-seminar': StudentGISeminar;
@@ -1376,10 +1370,16 @@ declare module '@strapi/types' {
       'student.cmi-sem': StudentCmiSem;
       'student.c-l-module': StudentCLModule;
       'student.c-l-mod': StudentCLMod;
+      'seminar.speakers': SeminarSpeakers;
+      'seminar.seminar': SeminarSeminar;
+      'science.faculty': ScienceFaculty;
+      'science.faculty-mem': ScienceFacultyMem;
       'maths.faculty-member': MathsFacultyMember;
       'maths.faculty-mem': MathsFacultyMem;
       'maths.cmi-seminar': MathsCmiSeminar;
       'maths.cmi-sem': MathsCmiSem;
+      'life-skill.course': LifeSkillCourse;
+      'life-skill.content': LifeSkillContent;
       'learning.module': LearningModule;
       'learning.course': LearningCourse;
       'homepage.stu-section': HomepageStuSection;
