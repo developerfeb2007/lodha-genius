@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_user_post_applications",
+  "info": {
+    "displayName": "Post Application"
+  },
+  "options": {},
+  "attributes": {
+    "PrepareForCampus": {
+      "displayName": "Campus",
+      "type": "component",
+      "repeatable": false,
+      "component": "user.campus"
+    },
+    "ContactInformation": {
+      "displayName": "Contact Info",
+      "type": "component",
+      "repeatable": false,
+      "component": "user.contact-info"
+    }
+  }
+}

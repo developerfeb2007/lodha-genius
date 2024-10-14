@@ -170,6 +170,18 @@
         "Approved",
         "Rejected"
       ]
+    },
+    "InterviewDetails": {
+      "displayName": "Interview",
+      "type": "component",
+      "repeatable": false,
+      "component": "user.interview"
+    },
+    "PostApplicationAcceptance": {
+      "displayName": "Post Application",
+      "type": "component",
+      "repeatable": false,
+      "component": "user.post-application"
     }
   }
 }

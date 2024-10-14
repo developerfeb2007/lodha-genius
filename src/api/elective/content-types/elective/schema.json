@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "electives",
+  "info": {
+    "singularName": "elective",
+    "pluralName": "electives",
+    "displayName": "Elective Subject",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Value": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

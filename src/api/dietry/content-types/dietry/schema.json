@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dietries",
+  "info": {
+    "singularName": "dietry",
+    "pluralName": "dietries",
+    "displayName": "Dietry"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Value": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

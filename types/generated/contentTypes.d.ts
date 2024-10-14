@@ -849,6 +849,8 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
     ApplicationStatus: Attribute.Enumeration<
       ['Pending', 'Submitted', 'Approved', 'Rejected']
     >;
+    InterviewDetails: Attribute.Component<'user.interview'>;
+    PostApplicationAcceptance: Attribute.Component<'user.post-application'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1132,6 +1134,65 @@ export interface ApiCompletionYearCompletionYear extends Schema.CollectionType {
   };
 }
 
+export interface ApiDietryDietry extends Schema.CollectionType {
+  collectionName: 'dietries';
+  info: {
+    singularName: 'dietry';
+    pluralName: 'dietries';
+    displayName: 'Dietry';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    Value: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::dietry.dietry',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::dietry.dietry',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiElectiveElective extends Schema.CollectionType {
+  collectionName: 'electives';
+  info: {
+    singularName: 'elective';
+    pluralName: 'electives';
+    displayName: 'Elective Subject';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    Value: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::elective.elective',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::elective.elective',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiExperienceExperience extends Schema.SingleType {
   collectionName: 'experiences';
   info: {
@@ -1313,6 +1374,35 @@ export interface ApiLanguageLanguage extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::language.language',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiLaptopLaptop extends Schema.CollectionType {
+  collectionName: 'laptops';
+  info: {
+    singularName: 'laptop';
+    pluralName: 'laptops';
+    displayName: 'Laptop Type';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    Value: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::laptop.laptop',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::laptop.laptop',
       'oneToOne',
       'admin::user'
     > &
@@ -1643,6 +1733,28 @@ export interface ApiSeminarSeminar extends Schema.SingleType {
   };
 }
 
+export interface ApiSizeSize extends Schema.CollectionType {
+  collectionName: 'sizes';
+  info: {
+    singularName: 'size';
+    pluralName: 'sizes';
+    displayName: 'Clothing Size';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    Value: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::size.size', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::size.size', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 export interface ApiSourceSource extends Schema.CollectionType {
   collectionName: 'sources';
   info: {
@@ -1765,12 +1877,15 @@ declare module '@strapi/types' {
       'api::blog-page.blog-page': ApiBlogPageBlogPage;
       'api::class.class': ApiClassClass;
       'api::completion-year.completion-year': ApiCompletionYearCompletionYear;
+      'api::dietry.dietry': ApiDietryDietry;
+      'api::elective.elective': ApiElectiveElective;
       'api::experience.experience': ApiExperienceExperience;
       'api::faq.faq': ApiFaqFaq;
       'api::fluency.fluency': ApiFluencyFluency;
       'api::gender.gender': ApiGenderGender;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::language.language': ApiLanguageLanguage;
+      'api::laptop.laptop': ApiLaptopLaptop;
       'api::learning.learning': ApiLearningLearning;
       'api::life-skill.life-skill': ApiLifeSkillLifeSkill;
       'api::math.math': ApiMathMath;
@@ -1781,6 +1896,7 @@ declare module '@strapi/types' {
       'api::school-board.school-board': ApiSchoolBoardSchoolBoard;
       'api::science.science': ApiScienceScience;
       'api::seminar.seminar': ApiSeminarSeminar;
+      'api::size.size': ApiSizeSize;
       'api::source.source': ApiSourceSource;
       'api::state-city.state-city': ApiStateCityStateCity;
       'api::student.student': ApiStudentStudent;

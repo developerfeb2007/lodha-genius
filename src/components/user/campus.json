@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_user_campuses",
+  "info": {
+    "displayName": "Campus"
+  },
+  "options": {},
+  "attributes": {
+    "ElectiveSubject": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::elective.elective"
+    },
+    "ClothingSize": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::size.size"
+    },
+    "LaptopType": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::laptop.laptop"
+    },
+    "DietryRequirement": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::dietry.dietry"
+    }
+  }
+}

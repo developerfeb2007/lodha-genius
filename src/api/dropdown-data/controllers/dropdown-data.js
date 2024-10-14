@@ -44,6 +44,22 @@ module.exports = {
             select: ['id', 'value'],
             orderBy: { createdAt: 'ASC' },
         });
+        const elective_subject = await strapi.db.query('api::elective.elective').findMany({
+            select: ['id', 'value'],
+            orderBy: { createdAt: 'ASC' },
+        });
+        const clothing_size = await strapi.db.query('api::size.size').findMany({
+            select: ['id', 'value'],
+            orderBy: { createdAt: 'ASC' },
+        });
+        const laptop_type = await strapi.db.query('api::laptop.laptop').findMany({
+            select: ['id', 'value'],
+            orderBy: { createdAt: 'ASC' },
+        });
+        const dietry = await strapi.db.query('api::dietry.dietry').findMany({
+            select: ['id', 'value'],
+            orderBy: { createdAt: 'ASC' },
+        });
 
         const combinedData = {
             data: {
@@ -56,7 +72,11 @@ module.exports = {
                 profesions,
                 relations,
                 annual_incomes,
-                sources
+                sources,
+                elective_subject,
+                clothing_size,
+                laptop_type,
+                dietry
             }
             
         };

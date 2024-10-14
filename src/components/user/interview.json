@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_user_interviews",
+  "info": {
+    "displayName": "Interview"
+  },
+  "options": {},
+  "attributes": {
+    "EventLink": {
+      "type": "string"
+    },
+    "InviteeLink": {
+      "type": "string"
+    }
+  }
+}

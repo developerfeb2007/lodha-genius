@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_user_contact_infos",
+  "info": {
+    "displayName": "Contact Info"
+  },
+  "options": {},
+  "attributes": {
+    "CountryCode": {
+      "type": "string"
+    },
+    "Mobile": {
+      "type": "string"
+    },
+    "Email": {
+      "type": "email"
+    },
+    "OtherSupport": {
+      "type": "text"
+    }
+  }
+}
