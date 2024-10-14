@@ -14,9 +14,11 @@ module.exports = {
         if (states && states.Attachment && states.Attachment.url) {
             const fileUrl = states.Attachment.url;
             // const filePath = `./public${fileUrl}`;
+            const relativeFilePath = fileUrl.replace(strapi.config.server.url, '');
+            const filePath = `./public${relativeFilePath}`;
       
             // Read and parse the JSON file
-            const rawData = fs.readFileSync(fileUrl, 'utf8');
+            const rawData = fs.readFileSync(filePath, 'utf8');
             let parsedData;
             try {
                 parsedData = JSON.parse(rawData);
