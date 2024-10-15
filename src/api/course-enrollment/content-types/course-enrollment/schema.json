@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "course_enrollments",
+  "info": {
+    "singularName": "course-enrollment",
+    "pluralName": "course-enrollments",
+    "displayName": "Course Enrollment"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Value": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

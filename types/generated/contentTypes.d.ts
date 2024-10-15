@@ -851,6 +851,7 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
     >;
     InterviewDetails: Attribute.Component<'user.interview'>;
     PostApplicationAcceptance: Attribute.Component<'user.post-application'>;
+    CourseCompletion: Attribute.Component<'user.course-com'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1134,6 +1135,36 @@ export interface ApiCompletionYearCompletionYear extends Schema.CollectionType {
   };
 }
 
+export interface ApiCourseEnrollmentCourseEnrollment
+  extends Schema.CollectionType {
+  collectionName: 'course_enrollments';
+  info: {
+    singularName: 'course-enrollment';
+    pluralName: 'course-enrollments';
+    displayName: 'Course Enrollment';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    Value: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::course-enrollment.course-enrollment',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::course-enrollment.course-enrollment',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiDietryDietry extends Schema.CollectionType {
   collectionName: 'dietries';
   info: {
@@ -1351,6 +1382,35 @@ export interface ApiHomepageHomepage extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::homepage.homepage',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiInternshipInternship extends Schema.CollectionType {
+  collectionName: 'internships';
+  info: {
+    singularName: 'internship';
+    pluralName: 'internships';
+    displayName: 'Internship';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    Value: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::internship.internship',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::internship.internship',
       'oneToOne',
       'admin::user'
     > &
@@ -1620,6 +1680,35 @@ export interface ApiProgrammeSectionProgrammeSection extends Schema.SingleType {
   };
 }
 
+export interface ApiProjectProject extends Schema.CollectionType {
+  collectionName: 'projects';
+  info: {
+    singularName: 'project';
+    pluralName: 'projects';
+    displayName: 'Project';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    Value: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::project.project',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::project.project',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiRelationRelation extends Schema.CollectionType {
   collectionName: 'relations';
   info: {
@@ -1642,6 +1731,35 @@ export interface ApiRelationRelation extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::relation.relation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiResearchResearch extends Schema.CollectionType {
+  collectionName: 'researches';
+  info: {
+    singularName: 'research';
+    pluralName: 'researches';
+    displayName: 'Research';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    Value: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::research.research',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::research.research',
       'oneToOne',
       'admin::user'
     > &
@@ -1902,6 +2020,7 @@ declare module '@strapi/types' {
       'api::blog-page.blog-page': ApiBlogPageBlogPage;
       'api::class.class': ApiClassClass;
       'api::completion-year.completion-year': ApiCompletionYearCompletionYear;
+      'api::course-enrollment.course-enrollment': ApiCourseEnrollmentCourseEnrollment;
       'api::dietry.dietry': ApiDietryDietry;
       'api::elective.elective': ApiElectiveElective;
       'api::experience.experience': ApiExperienceExperience;
@@ -1909,6 +2028,7 @@ declare module '@strapi/types' {
       'api::fluency.fluency': ApiFluencyFluency;
       'api::gender.gender': ApiGenderGender;
       'api::homepage.homepage': ApiHomepageHomepage;
+      'api::internship.internship': ApiInternshipInternship;
       'api::language.language': ApiLanguageLanguage;
       'api::laptop.laptop': ApiLaptopLaptop;
       'api::learning.learning': ApiLearningLearning;
@@ -1917,7 +2037,9 @@ declare module '@strapi/types' {
       'api::profession.profession': ApiProfessionProfession;
       'api::programme-overview.programme-overview': ApiProgrammeOverviewProgrammeOverview;
       'api::programme-section.programme-section': ApiProgrammeSectionProgrammeSection;
+      'api::project.project': ApiProjectProject;
       'api::relation.relation': ApiRelationRelation;
+      'api::research.research': ApiResearchResearch;
       'api::school-board.school-board': ApiSchoolBoardSchoolBoard;
       'api::science.science': ApiScienceScience;
       'api::seminar.seminar': ApiSeminarSeminar;

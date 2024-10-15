@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_user_courses",
+  "info": {
+    "displayName": "Course"
+  },
+  "options": {},
+  "attributes": {
+    "SelectedCourse": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::course-enrollment.course-enrollment"
+    },
+    "CourseName": {
+      "type": "string"
+    },
+    "Certificate": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

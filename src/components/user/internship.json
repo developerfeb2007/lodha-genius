@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_user_internships",
+  "info": {
+    "displayName": "Internship"
+  },
+  "options": {},
+  "attributes": {
+    "SelectedGrade": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::class.class"
+    },
+    "SelectedInternship": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::internship.internship"
+    },
+    "InternshipName": {
+      "type": "string"
+    },
+    "Certificate": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

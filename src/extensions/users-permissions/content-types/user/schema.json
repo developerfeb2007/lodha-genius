@@ -182,6 +182,12 @@
       "type": "component",
       "repeatable": false,
       "component": "user.post-application"
+    },
+    "CourseCompletion": {
+      "displayName": "Course Com",
+      "type": "component",
+      "repeatable": false,
+      "component": "user.course-com"
     }
   }
 }

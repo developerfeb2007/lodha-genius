@@ -42,6 +42,42 @@ module.exports = {
                 return ctx.badRequest('Consent letter type must be pdf, jpg, jpeg, or png.');
             }
         }
+        if(files.CourseCertificate){
+          const courseCertificateType = files.CourseCertificate.type;
+            if (files.CourseCertificate.size > documentSizeLimit) {
+                return ctx.badRequest('Course certificate size should not exceed 10 MB.');
+            }
+            if (!allowedDocumentTypes.includes(courseCertificateType)) {
+                return ctx.badRequest('Course certificate type must be pdf, jpg, jpeg, or png.');
+            }
+        }
+        if(files.ProjectCertificate){
+          const projectCertificateType = files.ProjectCertificate.type;
+            if (files.ProjectCertificate.size > documentSizeLimit) {
+                return ctx.badRequest('Project certificate size should not exceed 10 MB.');
+            }
+            if (!allowedDocumentTypes.includes(projectCertificateType)) {
+                return ctx.badRequest('Project certificate type must be pdf, jpg, jpeg, or png.');
+            }
+        }
+        if(files.ResearchCertificate){
+          const researchCertificateType = files.ResearchCertificate.type;
+            if (files.ResearchCertificate.size > documentSizeLimit) {
+                return ctx.badRequest('Research certificate size should not exceed 10 MB.');
+            }
+            if (!allowedDocumentTypes.includes(researchCertificateType)) {
+                return ctx.badRequest('Research certificate type must be pdf, jpg, jpeg, or png.');
+            }
+        }
+        if(files.InternshipCertificate){
+          const internshipCertificateType = files.InternshipCertificate.type;
+            if (files.InternshipCertificate.size > documentSizeLimit) {
+                return ctx.badRequest('Internship certificate size should not exceed 10 MB.');
+            }
+            if (!allowedDocumentTypes.includes(internshipCertificateType)) {
+                return ctx.badRequest('Internship certificate type must be pdf, jpg, jpeg, or png.');
+            }
+        }
     
         try {
             const parentFolderId = await getFolderId('Documents');
@@ -89,6 +125,66 @@ module.exports = {
                 data.consentLetter = {
                   id: uploadedConsentLetter[0].id,
                   url: uploadedConsentLetter[0].url,
+                };
+            }
+
+            if(files.CourseCertificate){
+              
+              const courseFolderId = await getFolderId('CourseCertificates', parentFolderId);
+              const uploadedCourseCertificate = await strapi.plugins['upload'].services.upload.upload({
+                  files: files.CourseCertificate,
+                  data: {fileInfo: {folder: courseFolderId}},
+                });
+  
+                data.course = {
+                  id: uploadedCourseCertificate[0].id,
+                  url: uploadedCourseCertificate[0].url,
+                  name: uploadedCourseCertificate[0].name,
+                };
+            }
+
+            if(files.ProjectCertificate){
+              
+              const projectFolderId = await getFolderId('ProjectCertificates', parentFolderId);
+              const uploadedProjectCertificate = await strapi.plugins['upload'].services.upload.upload({
+                  files: files.ProjectCertificate,
+                  data: {fileInfo: {folder: projectFolderId}},
+                });
+  
+                data.project = {
+                  id: uploadedProjectCertificate[0].id,
+                  url: uploadedProjectCertificate[0].url,
+                  name: uploadedProjectCertificate[0].name
+                };
+            }
+
+            if(files.ResearchCertificate){
+              
+              const researchFolderId = await getFolderId('ResearchCertificates', parentFolderId);
+              const uploadedResearchCertificate = await strapi.plugins['upload'].services.upload.upload({
+                  files: files.ResearchCertificate,
+                  data: {fileInfo: {folder: researchFolderId}},
+                });
+  
+                data.research = {
+                  id: uploadedResearchCertificate[0].id,
+                  url: uploadedResearchCertificate[0].url,
+                  name: uploadedResearchCertificate[0].name,
+                };
+            }
+
+            if(files.InternshipCertificate){
+              
+              const internshipFolderId = await getFolderId('InternshipCertificates', parentFolderId);
+              const uploadedInternshipCertificate = await strapi.plugins['upload'].services.upload.upload({
+                  files: files.InternshipCertificate,
+                  data: {fileInfo: {folder: internshipFolderId}},
+                });
+  
+                data.internship = {
+                  id: uploadedInternshipCertificate[0].id,
+                  url: uploadedInternshipCertificate[0].url,
+                  name: uploadedInternshipCertificate[0].name,
                 };
             }
           

@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_user_course_coms",
+  "info": {
+    "displayName": "Course Com"
+  },
+  "options": {},
+  "attributes": {
+    "CourseCompleted": {
+      "displayName": "Course",
+      "type": "component",
+      "repeatable": true,
+      "component": "user.course"
+    },
+    "ProjectCompleted": {
+      "displayName": "Project",
+      "type": "component",
+      "repeatable": true,
+      "component": "user.project"
+    },
+    "ResearchCompleted": {
+      "displayName": "Research",
+      "type": "component",
+      "repeatable": true,
+      "component": "user.research"
+    },
+    "InternshipCompleted": {
+      "displayName": "Internship",
+      "type": "component",
+      "repeatable": true,
+      "component": "user.internship"
+    }
+  }
+}

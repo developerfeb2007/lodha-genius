@@ -60,6 +60,22 @@ module.exports = {
             select: ['id', 'value'],
             orderBy: { createdAt: 'ASC' },
         });
+        const course = await strapi.db.query('api::course-enrollment.course-enrollment').findMany({
+            select: ['id', 'value'],
+            orderBy: { createdAt: 'ASC' },
+        });
+        const project = await strapi.db.query('api::project.project').findMany({
+            select: ['id', 'value'],
+            orderBy: { createdAt: 'ASC' },
+        });
+        const research = await strapi.db.query('api::research.research').findMany({
+            select: ['id', 'value'],
+            orderBy: { createdAt: 'ASC' },
+        });
+        const internship = await strapi.db.query('api::internship.internship').findMany({
+            select: ['id', 'value'],
+            orderBy: { createdAt: 'ASC' },
+        });
 
         const combinedData = {
             data: {
@@ -76,7 +92,11 @@ module.exports = {
                 elective_subject,
                 clothing_size,
                 laptop_type,
-                dietry
+                dietry,
+                course,
+                project,
+                research,
+                internship
             }
             
         };

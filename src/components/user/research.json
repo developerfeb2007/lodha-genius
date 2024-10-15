@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_user_research",
+  "info": {
+    "displayName": "Research"
+  },
+  "options": {},
+  "attributes": {
+    "SelectedResearch": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::research.research"
+    },
+    "ResearchName": {
+      "type": "string"
+    },
+    "Certificate": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

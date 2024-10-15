@@ -62,6 +62,38 @@ export interface UserSchoolDetails extends Schema.Component {
   };
 }
 
+export interface UserResearch extends Schema.Component {
+  collectionName: 'components_user_research';
+  info: {
+    displayName: 'Research';
+  };
+  attributes: {
+    SelectedResearch: Attribute.Relation<
+      'user.research',
+      'oneToOne',
+      'api::research.research'
+    >;
+    ResearchName: Attribute.String;
+    Certificate: Attribute.Media<'images' | 'files'> & Attribute.Required;
+  };
+}
+
+export interface UserProject extends Schema.Component {
+  collectionName: 'components_user_projects';
+  info: {
+    displayName: 'Project';
+  };
+  attributes: {
+    SelectedProject: Attribute.Relation<
+      'user.project',
+      'oneToOne',
+      'api::project.project'
+    >;
+    ProjectName: Attribute.String;
+    Certificate: Attribute.Media<'images' | 'files'> & Attribute.Required;
+  };
+}
+
 export interface UserPostApplication extends Schema.Component {
   collectionName: 'components_user_post_applications';
   info: {
@@ -136,6 +168,27 @@ export interface UserInterview extends Schema.Component {
   };
 }
 
+export interface UserInternship extends Schema.Component {
+  collectionName: 'components_user_internships';
+  info: {
+    displayName: 'Internship';
+  };
+  attributes: {
+    SelectedGrade: Attribute.Relation<
+      'user.internship',
+      'oneToOne',
+      'api::class.class'
+    >;
+    SelectedInternship: Attribute.Relation<
+      'user.internship',
+      'oneToOne',
+      'api::internship.internship'
+    >;
+    InternshipName: Attribute.String;
+    Certificate: Attribute.Media<'images' | 'files'> & Attribute.Required;
+  };
+}
+
 export interface UserGuardian2 extends Schema.Component {
   collectionName: 'components_user_guardian2s';
   info: {
@@ -203,6 +256,35 @@ export interface UserGuardianDetails extends Schema.Component {
   attributes: {
     Guardian1: Attribute.Component<'user.guardian1'>;
     Guardian2: Attribute.Component<'user.guardian2'>;
+  };
+}
+
+export interface UserCourse extends Schema.Component {
+  collectionName: 'components_user_courses';
+  info: {
+    displayName: 'Course';
+  };
+  attributes: {
+    SelectedCourse: Attribute.Relation<
+      'user.course',
+      'oneToOne',
+      'api::course-enrollment.course-enrollment'
+    >;
+    CourseName: Attribute.String;
+    Certificate: Attribute.Media<'images' | 'files'> & Attribute.Required;
+  };
+}
+
+export interface UserCourseCom extends Schema.Component {
+  collectionName: 'components_user_course_coms';
+  info: {
+    displayName: 'Course Com';
+  };
+  attributes: {
+    CourseCompleted: Attribute.Component<'user.course', true>;
+    ProjectCompleted: Attribute.Component<'user.project', true>;
+    ResearchCompleted: Attribute.Component<'user.research', true>;
+    InternshipCompleted: Attribute.Component<'user.internship', true>;
   };
 }
 
@@ -1346,15 +1428,20 @@ declare module '@strapi/types' {
       'user.support': UserSupport;
       'user.school': UserSchool;
       'user.school-details': UserSchoolDetails;
+      'user.research': UserResearch;
+      'user.project': UserProject;
       'user.post-application': UserPostApplication;
       'user.poc': UserPoc;
       'user.personal': UserPersonal;
       'user.other': UserOther;
       'user.other-info': UserOtherInfo;
       'user.interview': UserInterview;
+      'user.internship': UserInternship;
       'user.guardian2': UserGuardian2;
       'user.guardian1': UserGuardian1;
       'user.guardian-details': UserGuardianDetails;
+      'user.course': UserCourse;
+      'user.course-com': UserCourseCom;
       'user.contact': UserContact;
       'user.contact-info': UserContactInfo;
       'user.campus': UserCampus;
