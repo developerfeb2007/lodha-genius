@@ -29,6 +29,23 @@
       "type": "component",
       "repeatable": false,
       "component": "science.faculty"
+    },
+    "MetaDetails": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.meta-details"
+    },
+    "CourseSection": {
+      "displayName": "Course Section",
+      "type": "component",
+      "repeatable": false,
+      "component": "science.course-section"
+    },
+    "Tabs": {
+      "displayName": "Tabs",
+      "type": "component",
+      "repeatable": true,
+      "component": "science.tabs"
     }
   }
 }

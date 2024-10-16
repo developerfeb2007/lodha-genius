@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "faculties",
+  "info": {
+    "singularName": "faculty",
+    "pluralName": "faculties",
+    "displayName": "Faculty"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Photo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Alt": {
+      "type": "string"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Name": {
+      "type": "string"
+    },
+    "Designation": {
+      "type": "string"
+    },
+    "Workplace": {
+      "type": "string"
+    },
+    "Specialist": {
+      "type": "string"
+    },
+    "Profile": {
+      "type": "customField",
+      "options": {
+        "preset": "default"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    }
+  }
+}

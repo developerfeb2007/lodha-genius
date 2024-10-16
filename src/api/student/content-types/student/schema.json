@@ -4,7 +4,7 @@
   "info": {
     "singularName": "student",
     "pluralName": "students",
-    "displayName": "Student",
+    "displayName": "For Student Page",
     "description": ""
   },
   "options": {
@@ -46,6 +46,11 @@
       "type": "component",
       "repeatable": false,
       "component": "student.course-offered"
+    },
+    "MetaDetails": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.meta-details"
     }
   }
 }

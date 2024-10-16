@@ -13,25 +13,10 @@
         "For Grades 11 & 12"
       ]
     },
-    "Photo": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
-    "Alt": {
-      "type": "string"
-    },
-    "Name": {
-      "type": "string"
-    },
-    "Designation": {
-      "type": "string"
-    },
-    "Workplace": {
-      "type": "string"
+    "Faculties": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::faculty.faculty"
     }
   }
 }

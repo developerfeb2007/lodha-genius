@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_science_course_sections",
+  "info": {
+    "displayName": "Course Section"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "string"
+    }
+  }
+}

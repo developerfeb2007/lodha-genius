@@ -1,14 +1,12 @@
 {
   "collectionName": "components_student_life_skills",
   "info": {
-    "displayName": "Life Skill"
+    "displayName": "Life Skill",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "Heading": {
-      "type": "string"
-    },
-    "Title": {
       "type": "string"
     },
     "Skills": {
@@ -16,6 +14,9 @@
       "type": "component",
       "repeatable": true,
       "component": "student.skill"
+    },
+    "Description": {
+      "type": "string"
     }
   }
 }

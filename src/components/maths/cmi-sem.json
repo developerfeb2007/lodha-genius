@@ -1,16 +1,18 @@
 {
   "collectionName": "components_maths_cmi_sems",
   "info": {
-    "displayName": "CMI Sem"
+    "displayName": "CMI Sem",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "Video": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "videos"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "Title": {
       "type": "string"
@@ -21,6 +23,22 @@
         "preset": "default"
       },
       "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "Thumbnail": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Alt": {
+      "type": "string"
+    },
+    "YoutubeURL": {
+      "type": "string"
+    },
+    "Topic": {
+      "type": "string"
     }
   }
 }

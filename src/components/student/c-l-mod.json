@@ -1,25 +1,27 @@
 {
   "collectionName": "components_student_c_l_mods",
   "info": {
-    "displayName": "C L Mod"
+    "displayName": "C L Mod",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "Logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "Alt": {
       "type": "string"
     },
-    "Title": {
-      "type": "string"
-    },
     "Description": {
       "type": "text"
+    },
+    "Topic": {
+      "type": "string"
     }
   }
 }

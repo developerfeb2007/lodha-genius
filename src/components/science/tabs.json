@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_science_tabs",
+  "info": {
+    "displayName": "Tabs"
+  },
+  "options": {},
+  "attributes": {
+    "Category": {
+      "type": "enumeration",
+      "enum": [
+        "For Grades 9 & 10",
+        "For Grades 11 & 12"
+      ]
+    },
+    "TabName": {
+      "type": "string"
+    }
+  }
+}

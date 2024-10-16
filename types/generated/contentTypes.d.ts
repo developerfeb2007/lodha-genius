@@ -1135,6 +1135,53 @@ export interface ApiCompletionYearCompletionYear extends Schema.CollectionType {
   };
 }
 
+export interface ApiCourseCourse extends Schema.CollectionType {
+  collectionName: 'courses';
+  info: {
+    singularName: 'course';
+    pluralName: 'courses';
+    displayName: 'Courses';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Category: Attribute.Enumeration<
+      ['For Grades 9 & 10', 'For Grades 11 & 12']
+    >;
+    Image: Attribute.Media<'images'>;
+    Alt: Attribute.String;
+    Title: Attribute.String;
+    Topic: Attribute.String;
+    Description: Attribute.Text;
+    Faculty: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    File: Attribute.Media<'files' | 'images'>;
+    Track: Attribute.Enumeration<['Mathematics', 'Science']>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::course.course',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::course.course',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCourseEnrollmentCourseEnrollment
   extends Schema.CollectionType {
   collectionName: 'course_enrollments';
@@ -1264,6 +1311,49 @@ export interface ApiExperienceExperience extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::experience.experience',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiFacultyFaculty extends Schema.CollectionType {
+  collectionName: 'faculties';
+  info: {
+    singularName: 'faculty';
+    pluralName: 'faculties';
+    displayName: 'Faculty';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Photo: Attribute.Media<'images'>;
+    Alt: Attribute.String;
+    Title: Attribute.String;
+    Name: Attribute.String;
+    Designation: Attribute.String;
+    Workplace: Attribute.String;
+    Specialist: Attribute.String;
+    Profile: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::faculty.faculty',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::faculty.faculty',
       'oneToOne',
       'admin::user'
     > &
@@ -1579,6 +1669,8 @@ export interface ApiMathMath extends Schema.SingleType {
       >;
     CMISeminarSection: Attribute.Component<'maths.cmi-seminar'>;
     FacultyMembers: Attribute.Component<'maths.faculty-member'>;
+    MetaDetails: Attribute.Component<'global.meta-details'>;
+    CourseSection: Attribute.Component<'maths.course-section'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1817,6 +1909,9 @@ export interface ApiScienceScience extends Schema.SingleType {
         }
       >;
     FacultyMembers: Attribute.Component<'science.faculty'>;
+    MetaDetails: Attribute.Component<'global.meta-details'>;
+    CourseSection: Attribute.Component<'science.course-section'>;
+    Tabs: Attribute.Component<'science.tabs', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1962,7 +2057,7 @@ export interface ApiStudentStudent extends Schema.SingleType {
   info: {
     singularName: 'student';
     pluralName: 'students';
-    displayName: 'Student';
+    displayName: 'For Student Page';
     description: '';
   };
   options: {
@@ -1975,6 +2070,7 @@ export interface ApiStudentStudent extends Schema.SingleType {
     LifeSkillSection: Attribute.Component<'student.life-skill'>;
     LearningModuleSection: Attribute.Component<'student.c-l-module'>;
     CoursesOfferedSection: Attribute.Component<'student.course-offered'>;
+    MetaDetails: Attribute.Component<'global.meta-details'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2020,10 +2116,12 @@ declare module '@strapi/types' {
       'api::blog-page.blog-page': ApiBlogPageBlogPage;
       'api::class.class': ApiClassClass;
       'api::completion-year.completion-year': ApiCompletionYearCompletionYear;
+      'api::course.course': ApiCourseCourse;
       'api::course-enrollment.course-enrollment': ApiCourseEnrollmentCourseEnrollment;
       'api::dietry.dietry': ApiDietryDietry;
       'api::elective.elective': ApiElectiveElective;
       'api::experience.experience': ApiExperienceExperience;
+      'api::faculty.faculty': ApiFacultyFaculty;
       'api::faq.faq': ApiFaqFaq;
       'api::fluency.fluency': ApiFluencyFluency;
       'api::gender.gender': ApiGenderGender;
