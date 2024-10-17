@@ -17,12 +17,6 @@
       "repeatable": true,
       "component": "global.banner-section"
     },
-    "WriteUpSection": {
-      "displayName": "Write up",
-      "type": "component",
-      "repeatable": false,
-      "component": "about.write-up"
-    },
     "PartnershipSection": {
       "displayName": "Partnership",
       "type": "component",
@@ -52,17 +46,24 @@
       "repeatable": false,
       "component": "global.meta-details"
     },
-    "QuotesSection": {
-      "displayName": "Quotes",
-      "type": "component",
-      "repeatable": true,
-      "component": "about.quotes"
-    },
     "DownloadResourcesSection": {
       "displayName": "D R Section",
       "type": "component",
       "repeatable": false,
       "component": "about.d-r-section"
+    },
+    "Content": {
+      "type": "customField",
+      "options": {
+        "preset": "default"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "QuotesSection": {
+      "displayName": "Quotes Section",
+      "type": "component",
+      "repeatable": false,
+      "component": "about.quotes-section"
     }
   }
 }

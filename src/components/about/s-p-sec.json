@@ -25,6 +25,12 @@
     },
     "Description": {
       "type": "text"
+    },
+    "Name": {
+      "type": "string"
+    },
+    "Alt": {
+      "type": "string"
     }
   }
 }

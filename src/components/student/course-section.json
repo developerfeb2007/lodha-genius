@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_student_course_sections",
+  "info": {
+    "displayName": "Course Section"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "CourseHeading": {
+      "displayName": "Course",
+      "type": "component",
+      "repeatable": true,
+      "component": "student.course"
+    }
+  }
+}

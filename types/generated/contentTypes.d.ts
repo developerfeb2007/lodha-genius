@@ -882,14 +882,20 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
   };
   attributes: {
     BannerSection: Attribute.Component<'global.banner-section', true>;
-    WriteUpSection: Attribute.Component<'about.write-up'>;
     PartnershipSection: Attribute.Component<'about.partnership'>;
     TeamSection: Attribute.Component<'about.team-section'>;
     StrategicPartnershipSection: Attribute.Component<'about.s-p-section'>;
     HappyToHelpSection: Attribute.Component<'about.happy'>;
     MetaDetails: Attribute.Component<'global.meta-details'>;
-    QuotesSection: Attribute.Component<'about.quotes', true>;
     DownloadResourcesSection: Attribute.Component<'about.d-r-section'>;
+    Content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    QuotesSection: Attribute.Component<'about.quotes-section'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2071,6 +2077,7 @@ export interface ApiStudentStudent extends Schema.SingleType {
     LearningModuleSection: Attribute.Component<'student.c-l-module'>;
     CoursesOfferedSection: Attribute.Component<'student.course-offered'>;
     MetaDetails: Attribute.Component<'global.meta-details'>;
+    CourseSection: Attribute.Component<'student.course-section'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

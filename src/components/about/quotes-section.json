@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_about_quotes_sections",
+  "info": {
+    "displayName": "Quotes Section"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "QuotesContent": {
+      "type": "component",
+      "repeatable": true,
+      "component": "about.quotes"
+    }
+  }
+}

@@ -51,6 +51,12 @@
       "type": "component",
       "repeatable": false,
       "component": "global.meta-details"
+    },
+    "CourseSection": {
+      "displayName": "Course Section",
+      "type": "component",
+      "repeatable": false,
+      "component": "student.course-section"
     }
   }
 }

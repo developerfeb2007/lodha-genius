@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_student_courses",
+  "info": {
+    "displayName": "Course"
+  },
+  "options": {},
+  "attributes": {
+    "Category": {
+      "type": "enumeration",
+      "enum": [
+        "For Grades 9 & 10",
+        "For Grades 11 & 12"
+      ]
+    },
+    "Heading": {
+      "type": "string"
+    },
+    "Track": {
+      "type": "enumeration",
+      "enum": [
+        "Mathematics",
+        "Science"
+      ]
+    }
+  }
+}
