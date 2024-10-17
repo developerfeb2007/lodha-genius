@@ -17,17 +17,6 @@
       "repeatable": true,
       "component": "global.banner-section"
     },
-    "SeminarSection": {
-      "type": "component",
-      "repeatable": true,
-      "component": "seminar.seminar"
-    },
-    "SpeakersSection": {
-      "displayName": "Speakers",
-      "type": "component",
-      "repeatable": true,
-      "component": "seminar.speakers"
-    },
     "MetaDetails": {
       "type": "component",
       "repeatable": false,
@@ -39,6 +28,23 @@
         "preset": "default"
       },
       "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "RecentSeminar": {
+      "displayName": "Seminar",
+      "type": "component",
+      "repeatable": false,
+      "component": "global.seminar"
+    },
+    "PastSeminar": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.seminar"
+    },
+    "SpeakersSection": {
+      "displayName": "Speaker Section",
+      "type": "component",
+      "repeatable": false,
+      "component": "seminar.speaker-section"
     }
   }
 }

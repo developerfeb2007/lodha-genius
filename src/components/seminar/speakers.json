@@ -1,7 +1,8 @@
 {
   "collectionName": "components_seminar_speakers",
   "info": {
-    "displayName": "Speakers"
+    "displayName": "Speakers",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -12,11 +13,12 @@
       "type": "text"
     },
     "Photo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "Alt": {
       "type": "string"
@@ -30,6 +32,9 @@
         "preset": "default"
       },
       "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "Workplace": {
+      "type": "string"
     }
   }
 }

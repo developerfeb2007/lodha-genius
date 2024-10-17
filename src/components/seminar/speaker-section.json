@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_seminar_speaker_sections",
+  "info": {
+    "displayName": "Speaker Section"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "Speakers": {
+      "type": "component",
+      "repeatable": true,
+      "component": "seminar.speakers"
+    }
+  }
+}

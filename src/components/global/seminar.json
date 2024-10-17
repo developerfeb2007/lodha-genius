@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_global_seminars",
+  "info": {
+    "displayName": "Seminar",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "Seminars": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::semi-nar.semi-nar"
+    }
+  }
+}

@@ -1936,6 +1936,49 @@ export interface ApiScienceScience extends Schema.SingleType {
   };
 }
 
+export interface ApiSemiNarSemiNar extends Schema.CollectionType {
+  collectionName: 'semi_nars';
+  info: {
+    singularName: 'semi-nar';
+    pluralName: 'semi-nars';
+    displayName: 'Seminars';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Thumbnail: Attribute.Media<'images'>;
+    Alt: Attribute.String;
+    Title: Attribute.String;
+    Topic: Attribute.String;
+    Speaker: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    YoutubeURL: Attribute.String;
+    Video: Attribute.Media<'videos'>;
+    Description: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::semi-nar.semi-nar',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::semi-nar.semi-nar',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiSeminarSeminar extends Schema.SingleType {
   collectionName: 'seminars';
   info: {
@@ -1949,8 +1992,6 @@ export interface ApiSeminarSeminar extends Schema.SingleType {
   };
   attributes: {
     BannerSection: Attribute.Component<'global.banner-section', true>;
-    SeminarSection: Attribute.Component<'seminar.seminar', true>;
-    SpeakersSection: Attribute.Component<'seminar.speakers', true>;
     MetaDetails: Attribute.Component<'global.meta-details'>;
     Content: Attribute.RichText &
       Attribute.CustomField<
@@ -1959,6 +2000,9 @@ export interface ApiSeminarSeminar extends Schema.SingleType {
           preset: 'default';
         }
       >;
+    RecentSeminar: Attribute.Component<'global.seminar'>;
+    PastSeminar: Attribute.Component<'global.seminar'>;
+    SpeakersSection: Attribute.Component<'seminar.speaker-section'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2147,6 +2191,7 @@ declare module '@strapi/types' {
       'api::research.research': ApiResearchResearch;
       'api::school-board.school-board': ApiSchoolBoardSchoolBoard;
       'api::science.science': ApiScienceScience;
+      'api::semi-nar.semi-nar': ApiSemiNarSemiNar;
       'api::seminar.seminar': ApiSeminarSeminar;
       'api::size.size': ApiSizeSize;
       'api::source.source': ApiSourceSource;
