@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "content_drivens",
+  "info": {
+    "singularName": "content-driven",
+    "pluralName": "content-drivens",
+    "displayName": "Content Driven"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Content": {
+      "type": "customField",
+      "options": {
+        "preset": "default"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "MetaDetails": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.meta-details"
+    },
+    "Slug": {
+      "type": "string"
+    }
+  }
+}

@@ -91,6 +91,62 @@ module.exports = (plugin) => {
       }
     });
 
+    plugin.controllers.auth.resendOTP = async (ctx) => {
+        try{
+            const { email } = ctx.request.body;
+            if(!email){
+                return ctx.badRequest("Email is required!");
+            }
+            const user = await strapi.db.query("plugin::users-permissions.user").findOne({
+                where: {
+                    email,
+                    otp: { $notNull: true }
+                }
+            });
+            if(!user){
+                return ctx.badRequest("User not found");
+            }
+
+            const otp = Math.floor(1000 + Math.random() * 9000);
+            await strapi.entityService.update(
+                "plugin::users-permissions.user",
+                user.id,
+                {
+                    data: {
+                        otp,
+                        confirmed: 0,
+                    }
+                }
+            );
+            
+            await strapi.plugins['email'].services.email.send({
+                to: user.email,
+                subject: 'OTP Verification',
+                html: `<p>Welcome to Lodha family</p>
+                        <p>Here is the otp to verify your account - </p>
+                        <h4>`+ otp +`</h4>`,
+            })
+            
+            ctx.send({
+                message: 'An OTP has been sent to your email.'
+            });
+
+        }catch(error){
+            return ctx.badRequest(error);
+        }
+    };
+
+    plugin.routes['content-api'].routes.push({
+      method: 'POST',
+      path: '/auth/resend-otp',
+      handler: 'auth.resendOTP',
+      config:{
+        middlewares: ['plugin::users-permissions.rateLimit'],
+        prefix: "",
+        auth: false,
+      }
+    });
+
     const originalAuthRegister = plugin.controllers.auth.register;
 
     plugin.controllers.auth.register = async (ctx) => {
@@ -113,7 +169,7 @@ module.exports = (plugin) => {
                 subject: 'OTP Verification',
                 html: `<p>Welcome to Lodha family</p>
                         <p>Here is the otp to verify your account - </p>
-                        <h4>`+ otp +`</h2>`,
+                        <h4>`+ otp +`</h4>`,
             })
             
             ctx.send({

@@ -1141,6 +1141,45 @@ export interface ApiCompletionYearCompletionYear extends Schema.CollectionType {
   };
 }
 
+export interface ApiContentDrivenContentDriven extends Schema.CollectionType {
+  collectionName: 'content_drivens';
+  info: {
+    singularName: 'content-driven';
+    pluralName: 'content-drivens';
+    displayName: 'Content Driven';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String;
+    Content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    MetaDetails: Attribute.Component<'global.meta-details'>;
+    Slug: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::content-driven.content-driven',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::content-driven.content-driven',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCourseCourse extends Schema.CollectionType {
   collectionName: 'courses';
   info: {
@@ -1270,6 +1309,41 @@ export interface ApiElectiveElective extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::elective.elective',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiEnquiryEnquiry extends Schema.CollectionType {
+  collectionName: 'enquiries';
+  info: {
+    singularName: 'enquiry';
+    pluralName: 'enquiries';
+    displayName: 'Enquiry Form';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    FirstName: Attribute.String;
+    LastName: Attribute.String;
+    Email: Attribute.Email;
+    Role: Attribute.String;
+    Query: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::enquiry.enquiry',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::enquiry.enquiry',
       'oneToOne',
       'admin::user'
     > &
@@ -2167,10 +2241,12 @@ declare module '@strapi/types' {
       'api::blog-page.blog-page': ApiBlogPageBlogPage;
       'api::class.class': ApiClassClass;
       'api::completion-year.completion-year': ApiCompletionYearCompletionYear;
+      'api::content-driven.content-driven': ApiContentDrivenContentDriven;
       'api::course.course': ApiCourseCourse;
       'api::course-enrollment.course-enrollment': ApiCourseEnrollmentCourseEnrollment;
       'api::dietry.dietry': ApiDietryDietry;
       'api::elective.elective': ApiElectiveElective;
+      'api::enquiry.enquiry': ApiEnquiryEnquiry;
       'api::experience.experience': ApiExperienceExperience;
       'api::faculty.faculty': ApiFacultyFaculty;
       'api::faq.faq': ApiFaqFaq;

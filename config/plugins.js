@@ -33,6 +33,10 @@ module.exports = ({ env }) => ({
             field: 'Slug',
             references: 'Title',
           },
+          "content-driven": {
+            field: 'Slug',
+            references: 'Title',
+          }
         },
       },
     },

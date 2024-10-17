@@ -1002,10 +1002,18 @@ export interface FaqQuestionAnswer extends Schema.Component {
   collectionName: 'components_faq_question_answers';
   info: {
     displayName: 'Question Answer';
+    description: '';
   };
   attributes: {
     Question: Attribute.String;
-    Answer: Attribute.Text;
+    Answer: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    HashSlug: Attribute.String;
   };
 }
 
@@ -1407,6 +1415,7 @@ export interface AboutTeam extends Schema.Component {
   collectionName: 'components_about_teams';
   info: {
     displayName: 'Team';
+    description: '';
   };
   attributes: {
     Image: Attribute.Media<'images'>;
@@ -1414,6 +1423,13 @@ export interface AboutTeam extends Schema.Component {
     Title: Attribute.String;
     Name: Attribute.String;
     Designation: Attribute.String;
+    Profile: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
   };
 }
 
