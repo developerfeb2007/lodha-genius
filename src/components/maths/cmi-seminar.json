@@ -9,14 +9,13 @@
     "Heading": {
       "type": "string"
     },
-    "Seminars": {
-      "displayName": "CMI Sem",
-      "type": "component",
-      "repeatable": true,
-      "component": "maths.cmi-sem"
-    },
     "Description": {
       "type": "string"
+    },
+    "Seminars": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::semi-nar.semi-nar"
     }
   }
 }

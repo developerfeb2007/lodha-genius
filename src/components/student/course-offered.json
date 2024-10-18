@@ -1,7 +1,8 @@
 {
   "collectionName": "components_student_course_offereds",
   "info": {
-    "displayName": "Course Offered"
+    "displayName": "Course Offered",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -9,10 +10,9 @@
       "type": "string"
     },
     "Courses": {
-      "displayName": "Courses Off",
-      "type": "component",
-      "repeatable": true,
-      "component": "student.courses-off"
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::course.course"
     }
   }
 }

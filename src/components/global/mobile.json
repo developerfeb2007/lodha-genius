@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_global_mobiles",
+  "info": {
+    "displayName": "Mobile"
+  },
+  "options": {},
+  "attributes": {
+    "Mobile": {
+      "type": "string"
+    }
+  }
+}

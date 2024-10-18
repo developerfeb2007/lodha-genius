@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_global_subquestions",
+  "info": {
+    "displayName": "Subquestion"
+  },
+  "options": {},
+  "attributes": {
+    "Question": {
+      "type": "string"
+    },
+    "Link": {
+      "type": "string"
+    },
+    "Class": {
+      "type": "string"
+    }
+  }
+}

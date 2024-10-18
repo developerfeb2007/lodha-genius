@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "blog_lists",
+  "info": {
+    "singularName": "blog-list",
+    "pluralName": "blog-lists",
+    "displayName": "Blog List"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "BannerSection": {
+      "type": "component",
+      "repeatable": true,
+      "component": "global.banner-section"
+    },
+    "MetaDetails": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.meta-details"
+    }
+  }
+}

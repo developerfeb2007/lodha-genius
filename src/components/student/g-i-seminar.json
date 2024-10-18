@@ -1,18 +1,18 @@
 {
   "collectionName": "components_student_g_i_seminars",
   "info": {
-    "displayName": "G I Seminar"
+    "displayName": "G I Seminar",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "Seminars": {
-      "displayName": "G I Sem",
-      "type": "component",
-      "repeatable": true,
-      "component": "student.g-i-sem"
-    },
     "Heading": {
       "type": "string"
+    },
+    "Seminars": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::semi-nar.semi-nar"
     }
   }
 }

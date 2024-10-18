@@ -12,13 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Category": {
-      "type": "enumeration",
-      "enum": [
-        "For Grades 9 & 10",
-        "For Grades 11 & 12"
-      ]
-    },
     "Image": {
       "type": "media",
       "multiple": false,
@@ -53,13 +46,6 @@
       "allowedTypes": [
         "files",
         "images"
-      ]
-    },
-    "Track": {
-      "type": "enumeration",
-      "enum": [
-        "Mathematics",
-        "Science"
       ]
     }
   }

@@ -6,39 +6,13 @@
   },
   "options": {},
   "attributes": {
-    "Video": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "videos"
-      ]
-    },
-    "Title": {
+    "Heading": {
       "type": "string"
     },
-    "Thumbnail": {
-      "allowedTypes": [
-        "images"
-      ],
-      "type": "media",
-      "multiple": false
-    },
-    "Alt": {
-      "type": "string"
-    },
-    "YoutubeURL": {
-      "type": "string"
-    },
-    "Speaker": {
-      "type": "customField",
-      "options": {
-        "preset": "default"
-      },
-      "customField": "plugin::ckeditor5.CKEditor"
-    },
-    "Topic": {
-      "type": "string"
+    "Seminars": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::semi-nar.semi-nar"
     }
   }
 }

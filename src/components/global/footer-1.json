@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_global_footer_1s",
+  "info": {
+    "displayName": "Footer 1"
+  },
+  "options": {},
+  "attributes": {
+    "Content": {
+      "type": "customField",
+      "options": {
+        "preset": "default"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "ContactNumber": {
+      "displayName": "Mobile",
+      "type": "component",
+      "repeatable": true,
+      "component": "global.mobile"
+    },
+    "Email": {
+      "type": "email"
+    },
+    "Address": {
+      "type": "customField",
+      "options": {
+        "preset": "default"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "SocialMedia": {
+      "displayName": "Social Media",
+      "type": "component",
+      "repeatable": true,
+      "component": "global.social-media"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_global_footer_3s",
+  "info": {
+    "displayName": "Footer 3"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "Items": {
+      "displayName": "Subquestion",
+      "type": "component",
+      "repeatable": true,
+      "component": "global.subquestion"
+    }
+  }
+}

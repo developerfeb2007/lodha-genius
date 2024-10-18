@@ -17,16 +17,10 @@
       "repeatable": true,
       "component": "global.banner-section"
     },
-    "ModuleSection": {
-      "displayName": "Module",
-      "type": "component",
-      "repeatable": true,
-      "component": "learning.module"
-    },
     "CourseSection": {
       "displayName": "Course",
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "learning.course"
     },
     "MetaDetails": {

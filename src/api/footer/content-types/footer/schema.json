@@ -1,0 +1,48 @@
+{
+  "kind": "singleType",
+  "collectionName": "footers",
+  "info": {
+    "singularName": "footer",
+    "pluralName": "footers",
+    "displayName": "Footer"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "DetailSection": {
+      "displayName": "Footer 1",
+      "type": "component",
+      "repeatable": false,
+      "component": "global.footer-1"
+    },
+    "CurriculumSection": {
+      "displayName": "Footer 2",
+      "type": "component",
+      "repeatable": true,
+      "component": "global.footer-2"
+    },
+    "QuestionSection": {
+      "displayName": "Footer 3",
+      "type": "component",
+      "repeatable": true,
+      "component": "global.footer-3"
+    },
+    "PagesSection": {
+      "displayName": "Footer 4",
+      "type": "component",
+      "repeatable": true,
+      "component": "global.footer-4"
+    },
+    "CopyrightText": {
+      "type": "string"
+    },
+    "ButtonLink": {
+      "type": "string"
+    },
+    "ButtonText": {
+      "type": "string"
+    }
+  }
+}

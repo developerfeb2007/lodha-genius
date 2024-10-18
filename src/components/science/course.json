@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_science_courses",
+  "info": {
+    "displayName": "Course"
+  },
+  "options": {},
+  "attributes": {
+    "Category": {
+      "type": "enumeration",
+      "enum": [
+        "Science Workshops For Grades 9 & 10",
+        "Science Projects For Grades 11 & 12"
+      ]
+    },
+    "Courses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::course.course"
+    }
+  }
+}

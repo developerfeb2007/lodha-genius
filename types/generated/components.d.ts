@@ -412,6 +412,40 @@ export interface StudentSkill extends Schema.Component {
   };
 }
 
+export interface StudentScience extends Schema.Component {
+  collectionName: 'components_student_sciences';
+  info: {
+    displayName: 'Science';
+  };
+  attributes: {
+    Category: Attribute.Enumeration<
+      ['For Grades 9 & 10', 'For Grades 11 & 12']
+    >;
+    Courses: Attribute.Relation<
+      'student.science',
+      'oneToMany',
+      'api::course.course'
+    >;
+  };
+}
+
+export interface StudentMathematics extends Schema.Component {
+  collectionName: 'components_student_mathematics';
+  info: {
+    displayName: 'Mathematics';
+  };
+  attributes: {
+    Category: Attribute.Enumeration<
+      ['For Grades 9 & 10', 'For Grades 11 & 12']
+    >;
+    Courses: Attribute.Relation<
+      'student.mathematics',
+      'oneToMany',
+      'api::course.course'
+    >;
+  };
+}
+
 export interface StudentLifeSkill extends Schema.Component {
   collectionName: 'components_student_life_skills';
   info: {
@@ -429,10 +463,15 @@ export interface StudentGISeminar extends Schema.Component {
   collectionName: 'components_student_g_i_seminars';
   info: {
     displayName: 'G I Seminar';
+    description: '';
   };
   attributes: {
-    Seminars: Attribute.Component<'student.g-i-sem', true>;
     Heading: Attribute.String;
+    Seminars: Attribute.Relation<
+      'student.g-i-seminar',
+      'oneToMany',
+      'api::semi-nar.semi-nar'
+    >;
   };
 }
 
@@ -443,19 +482,12 @@ export interface StudentGISem extends Schema.Component {
     description: '';
   };
   attributes: {
-    Video: Attribute.Media<'videos'>;
-    Title: Attribute.String;
-    Thumbnail: Attribute.Media<'images'>;
-    Alt: Attribute.String;
-    YoutubeURL: Attribute.String;
-    Speaker: Attribute.RichText &
-      Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'default';
-        }
-      >;
-    Topic: Attribute.String;
+    Heading: Attribute.String;
+    Seminars: Attribute.Relation<
+      'student.g-i-sem',
+      'oneToMany',
+      'api::semi-nar.semi-nar'
+    >;
   };
 }
 
@@ -482,8 +514,12 @@ export interface StudentCourse extends Schema.Component {
     Category: Attribute.Enumeration<
       ['For Grades 9 & 10', 'For Grades 11 & 12']
     >;
-    Heading: Attribute.String;
     Track: Attribute.Enumeration<['Mathematics', 'Science']>;
+    Courses: Attribute.Relation<
+      'student.course',
+      'oneToMany',
+      'api::course.course'
+    >;
   };
 }
 
@@ -491,10 +527,12 @@ export interface StudentCourseSection extends Schema.Component {
   collectionName: 'components_student_course_sections';
   info: {
     displayName: 'Course Section';
+    description: '';
   };
   attributes: {
     Heading: Attribute.String;
-    CourseHeading: Attribute.Component<'student.course', true>;
+    Science: Attribute.Component<'student.science', true>;
+    Mathematics: Attribute.Component<'student.mathematics', true>;
   };
 }
 
@@ -502,10 +540,15 @@ export interface StudentCourseOffered extends Schema.Component {
   collectionName: 'components_student_course_offereds';
   info: {
     displayName: 'Course Offered';
+    description: '';
   };
   attributes: {
     Heading: Attribute.String;
-    Courses: Attribute.Component<'student.courses-off', true>;
+    Courses: Attribute.Relation<
+      'student.course-offered',
+      'oneToMany',
+      'api::course.course'
+    >;
   };
 }
 
@@ -517,8 +560,12 @@ export interface StudentCmiSeminar extends Schema.Component {
   };
   attributes: {
     Heading: Attribute.String;
-    Seminars: Attribute.Component<'student.cmi-sem', true>;
     Description: Attribute.String;
+    Seminars: Attribute.Relation<
+      'student.cmi-seminar',
+      'oneToMany',
+      'api::semi-nar.semi-nar'
+    >;
   };
 }
 
@@ -636,7 +683,10 @@ export interface ScienceFacultyMem extends Schema.Component {
   };
   attributes: {
     Category: Attribute.Enumeration<
-      ['For Grades 9 & 10', 'For Grades 11 & 12']
+      [
+        'Science Workshops For Grades 9 & 10',
+        'Science Projects For Grades 11 & 12'
+      ]
     >;
     Faculties: Attribute.Relation<
       'science.faculty-mem',
@@ -646,14 +696,36 @@ export interface ScienceFacultyMem extends Schema.Component {
   };
 }
 
+export interface ScienceCourse extends Schema.Component {
+  collectionName: 'components_science_courses';
+  info: {
+    displayName: 'Course';
+  };
+  attributes: {
+    Category: Attribute.Enumeration<
+      [
+        'Science Workshops For Grades 9 & 10',
+        'Science Projects For Grades 11 & 12'
+      ]
+    >;
+    Courses: Attribute.Relation<
+      'science.course',
+      'oneToMany',
+      'api::course.course'
+    >;
+  };
+}
+
 export interface ScienceCourseSection extends Schema.Component {
   collectionName: 'components_science_course_sections';
   info: {
     displayName: 'Course Section';
+    description: '';
   };
   attributes: {
     Heading: Attribute.String;
     Description: Attribute.String;
+    Course: Attribute.Component<'science.course', true>;
   };
 }
 
@@ -686,14 +758,33 @@ export interface MathsFacultyMem extends Schema.Component {
   };
 }
 
+export interface MathsCourse extends Schema.Component {
+  collectionName: 'components_maths_courses';
+  info: {
+    displayName: 'Course';
+  };
+  attributes: {
+    Category: Attribute.Enumeration<
+      ['For Grades 9 & 10', 'For Grades 11 & 12']
+    >;
+    Courses: Attribute.Relation<
+      'maths.course',
+      'oneToMany',
+      'api::course.course'
+    >;
+  };
+}
+
 export interface MathsCourseSection extends Schema.Component {
   collectionName: 'components_maths_course_sections';
   info: {
     displayName: 'Course Section';
+    description: '';
   };
   attributes: {
     Heading: Attribute.String;
     Description: Attribute.String;
+    Course: Attribute.Component<'maths.course', true>;
   };
 }
 
@@ -705,8 +796,12 @@ export interface MathsCmiSeminar extends Schema.Component {
   };
   attributes: {
     Heading: Attribute.String;
-    Seminars: Attribute.Component<'maths.cmi-sem', true>;
     Description: Attribute.String;
+    Seminars: Attribute.Relation<
+      'maths.cmi-seminar',
+      'oneToMany',
+      'api::semi-nar.semi-nar'
+    >;
   };
 }
 
@@ -716,21 +811,7 @@ export interface MathsCmiSem extends Schema.Component {
     displayName: 'CMI Sem';
     description: '';
   };
-  attributes: {
-    Video: Attribute.Media<'videos'>;
-    Title: Attribute.String;
-    FacultyDetail: Attribute.RichText &
-      Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'default';
-        }
-      >;
-    Thumbnail: Attribute.Media<'images'>;
-    Alt: Attribute.String;
-    YoutubeURL: Attribute.String;
-    Topic: Attribute.String;
-  };
+  attributes: {};
 }
 
 export interface LifeSkillCourse extends Schema.Component {
@@ -778,12 +859,15 @@ export interface LearningCourse extends Schema.Component {
   collectionName: 'components_learning_courses';
   info: {
     displayName: 'Course';
+    description: '';
   };
   attributes: {
-    Name: Attribute.String;
-    Image: Attribute.Media<'images'>;
-    Alt: Attribute.String;
-    Title: Attribute.String;
+    Heading: Attribute.String;
+    Courses: Attribute.Relation<
+      'learning.course',
+      'oneToMany',
+      'api::course.course'
+    >;
   };
 }
 
@@ -877,6 +961,65 @@ export interface HomepagePoSection extends Schema.Component {
   };
 }
 
+export interface GlobalTopMenu extends Schema.Component {
+  collectionName: 'components_global_top_menus';
+  info: {
+    displayName: 'Top Menu';
+    description: '';
+  };
+  attributes: {
+    Name: Attribute.String;
+    Link: Attribute.String;
+    Class: Attribute.String;
+    Submenu: Attribute.Component<'global.submenu', true>;
+  };
+}
+
+export interface GlobalSubquestion extends Schema.Component {
+  collectionName: 'components_global_subquestions';
+  info: {
+    displayName: 'Subquestion';
+  };
+  attributes: {
+    Question: Attribute.String;
+    Link: Attribute.String;
+    Class: Attribute.String;
+  };
+}
+
+export interface GlobalSubmenu extends Schema.Component {
+  collectionName: 'components_global_submenus';
+  info: {
+    displayName: 'Submenu';
+  };
+  attributes: {
+    Name: Attribute.String;
+    Link: Attribute.String;
+  };
+}
+
+export interface GlobalSublink extends Schema.Component {
+  collectionName: 'components_global_sublinks';
+  info: {
+    displayName: 'Sublink';
+  };
+  attributes: {
+    Title: Attribute.String;
+    Link: Attribute.String;
+  };
+}
+
+export interface GlobalSocialMedia extends Schema.Component {
+  collectionName: 'components_global_social_medias';
+  info: {
+    displayName: 'Social Media';
+  };
+  attributes: {
+    Logo: Attribute.Media<'images'>;
+    URL: Attribute.Text;
+  };
+}
+
 export interface GlobalSeminar extends Schema.Component {
   collectionName: 'components_global_seminars';
   info: {
@@ -960,6 +1103,16 @@ export interface GlobalPOverview extends Schema.Component {
   };
 }
 
+export interface GlobalMobile extends Schema.Component {
+  collectionName: 'components_global_mobiles';
+  info: {
+    displayName: 'Mobile';
+  };
+  attributes: {
+    Mobile: Attribute.String;
+  };
+}
+
 export interface GlobalMetaDetails extends Schema.Component {
   collectionName: 'components_global_meta_details';
   info: {
@@ -972,6 +1125,99 @@ export interface GlobalMetaDetails extends Schema.Component {
     OGTitle: Attribute.String;
     OGDescription: Attribute.Text;
     OGImage: Attribute.Media<'images'>;
+  };
+}
+
+export interface GlobalLearningModule extends Schema.Component {
+  collectionName: 'components_global_learning_modules';
+  info: {
+    displayName: 'Learning Module';
+    description: '';
+  };
+  attributes: {
+    Icon: Attribute.Media<'images', true>;
+    Topic: Attribute.String;
+    Description: Attribute.Text;
+    Alt: Attribute.String;
+  };
+}
+
+export interface GlobalHeader extends Schema.Component {
+  collectionName: 'components_global_headers';
+  info: {
+    displayName: 'Header';
+  };
+  attributes: {
+    ProfileURL: Attribute.String;
+    ButtonText: Attribute.String;
+    ButtonLink: Attribute.String;
+  };
+}
+
+export interface GlobalFooter extends Schema.Component {
+  collectionName: 'components_global_footers';
+  info: {
+    displayName: 'Footer';
+  };
+  attributes: {};
+}
+
+export interface GlobalFooter4 extends Schema.Component {
+  collectionName: 'components_global_footer_4s';
+  info: {
+    displayName: 'Footer 4';
+  };
+  attributes: {
+    Name: Attribute.String;
+    Link: Attribute.String;
+  };
+}
+
+export interface GlobalFooter3 extends Schema.Component {
+  collectionName: 'components_global_footer_3s';
+  info: {
+    displayName: 'Footer 3';
+  };
+  attributes: {
+    Heading: Attribute.String;
+    Items: Attribute.Component<'global.subquestion', true>;
+  };
+}
+
+export interface GlobalFooter2 extends Schema.Component {
+  collectionName: 'components_global_footer_2s';
+  info: {
+    displayName: 'Footer 2';
+  };
+  attributes: {
+    Heading: Attribute.String;
+    Items: Attribute.Component<'global.sublink', true>;
+  };
+}
+
+export interface GlobalFooter1 extends Schema.Component {
+  collectionName: 'components_global_footer_1s';
+  info: {
+    displayName: 'Footer 1';
+  };
+  attributes: {
+    Content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    ContactNumber: Attribute.Component<'global.mobile', true>;
+    Email: Attribute.Email;
+    Address: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    SocialMedia: Attribute.Component<'global.social-media', true>;
   };
 }
 
@@ -1580,6 +1826,8 @@ declare module '@strapi/types' {
       'user.address': UserAddress;
       'user.academic-record': UserAcademicRecord;
       'student.skill': StudentSkill;
+      'student.science': StudentScience;
+      'student.mathematics': StudentMathematics;
       'student.life-skill': StudentLifeSkill;
       'student.g-i-seminar': StudentGISeminar;
       'student.g-i-sem': StudentGISem;
@@ -1596,9 +1844,11 @@ declare module '@strapi/types' {
       'science.tabs': ScienceTabs;
       'science.faculty': ScienceFaculty;
       'science.faculty-mem': ScienceFacultyMem;
+      'science.course': ScienceCourse;
       'science.course-section': ScienceCourseSection;
       'maths.faculty-member': MathsFacultyMember;
       'maths.faculty-mem': MathsFacultyMem;
+      'maths.course': MathsCourse;
       'maths.course-section': MathsCourseSection;
       'maths.cmi-seminar': MathsCmiSeminar;
       'maths.cmi-sem': MathsCmiSem;
@@ -1611,12 +1861,25 @@ declare module '@strapi/types' {
       'homepage.shaping-tomorrow': HomepageShapingTomorrow;
       'homepage.programme-overview': HomepageProgrammeOverview;
       'homepage.po-section': HomepagePoSection;
+      'global.top-menu': GlobalTopMenu;
+      'global.subquestion': GlobalSubquestion;
+      'global.submenu': GlobalSubmenu;
+      'global.sublink': GlobalSublink;
+      'global.social-media': GlobalSocialMedia;
       'global.seminar': GlobalSeminar;
       'global.programme': GlobalProgramme;
       'global.prog-section': GlobalProgSection;
       'global.po-section': GlobalPoSection;
       'global.p-overview': GlobalPOverview;
+      'global.mobile': GlobalMobile;
       'global.meta-details': GlobalMetaDetails;
+      'global.learning-module': GlobalLearningModule;
+      'global.header': GlobalHeader;
+      'global.footer': GlobalFooter;
+      'global.footer-4': GlobalFooter4;
+      'global.footer-3': GlobalFooter3;
+      'global.footer-2': GlobalFooter2;
+      'global.footer-1': GlobalFooter1;
       'global.banner-section': GlobalBannerSection;
       'faq.question-answer': FaqQuestionAnswer;
       'faq.faq': FaqFaq;

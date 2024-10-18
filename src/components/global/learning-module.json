@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_global_learning_modules",
+  "info": {
+    "displayName": "Learning Module",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Icon": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Topic": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Alt": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_global_top_menus",
+  "info": {
+    "displayName": "Top Menu",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Link": {
+      "type": "string"
+    },
+    "Class": {
+      "type": "string"
+    },
+    "Submenu": {
+      "displayName": "Submenu",
+      "type": "component",
+      "repeatable": true,
+      "component": "global.submenu"
+    }
+  }
+}

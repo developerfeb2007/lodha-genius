@@ -1,25 +1,18 @@
 {
   "collectionName": "components_learning_courses",
   "info": {
-    "displayName": "Course"
+    "displayName": "Course",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "Name": {
+    "Heading": {
       "type": "string"
     },
-    "Image": {
-      "allowedTypes": [
-        "images"
-      ],
-      "type": "media",
-      "multiple": false
-    },
-    "Alt": {
-      "type": "string"
-    },
-    "Title": {
-      "type": "string"
+    "Courses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::course.course"
     }
   }
 }

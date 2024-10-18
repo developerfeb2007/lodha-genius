@@ -40,12 +40,6 @@
       "type": "component",
       "repeatable": false,
       "component": "science.course-section"
-    },
-    "Tabs": {
-      "displayName": "Tabs",
-      "type": "component",
-      "repeatable": true,
-      "component": "science.tabs"
     }
   }
 }

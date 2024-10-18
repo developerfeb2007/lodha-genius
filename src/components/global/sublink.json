@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_global_sublinks",
+  "info": {
+    "displayName": "Sublink"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Link": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "role_options",
+  "info": {
+    "singularName": "role-option",
+    "pluralName": "role-options",
+    "displayName": "Roles"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Value": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

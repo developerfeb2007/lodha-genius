@@ -12,15 +12,17 @@
         "For Grades 11 & 12"
       ]
     },
-    "Heading": {
-      "type": "string"
-    },
     "Track": {
       "type": "enumeration",
       "enum": [
         "Mathematics",
         "Science"
       ]
+    },
+    "Courses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::course.course"
     }
   }
 }

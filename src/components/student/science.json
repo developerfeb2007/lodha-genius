@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_student_sciences",
+  "info": {
+    "displayName": "Science"
+  },
+  "options": {},
+  "attributes": {
+    "Category": {
+      "type": "enumeration",
+      "enum": [
+        "For Grades 9 & 10",
+        "For Grades 11 & 12"
+      ]
+    },
+    "Courses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::course.course"
+    }
+  }
+}

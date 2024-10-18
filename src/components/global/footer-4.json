@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_global_footer_4s",
+  "info": {
+    "displayName": "Footer 4"
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Link": {
+      "type": "string"
+    }
+  }
+}

@@ -21,11 +21,13 @@
     "Email": {
       "type": "email"
     },
-    "Role": {
-      "type": "string"
-    },
     "Query": {
       "type": "text"
+    },
+    "Role": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::role-option.role-option"
     }
   }
 }

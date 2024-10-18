@@ -9,8 +9,8 @@
     "Category": {
       "type": "enumeration",
       "enum": [
-        "For Grades 9 & 10",
-        "For Grades 11 & 12"
+        "Science Workshops For Grades 9 & 10",
+        "Science Projects For Grades 11 & 12"
       ]
     },
     "Faculties": {

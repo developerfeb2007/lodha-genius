@@ -1,18 +1,25 @@
 {
   "collectionName": "components_student_course_sections",
   "info": {
-    "displayName": "Course Section"
+    "displayName": "Course Section",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "Heading": {
       "type": "string"
     },
-    "CourseHeading": {
-      "displayName": "Course",
+    "Science": {
+      "displayName": "Science",
       "type": "component",
       "repeatable": true,
-      "component": "student.course"
+      "component": "student.science"
+    },
+    "Mathematics": {
+      "displayName": "Mathematics",
+      "type": "component",
+      "repeatable": true,
+      "component": "student.mathematics"
     }
   }
 }

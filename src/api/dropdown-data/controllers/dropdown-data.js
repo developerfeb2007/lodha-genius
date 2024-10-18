@@ -76,6 +76,10 @@ module.exports = {
             select: ['id', 'value'],
             orderBy: { createdAt: 'ASC' },
         });
+        const role = await strapi.db.query('api::role-option.role-option').findMany({
+            select: ['id', 'value'],
+            orderBy: { createdAt: 'ASC' },
+        });
 
         const combinedData = {
             data: {
@@ -96,7 +100,8 @@ module.exports = {
                 course,
                 project,
                 research,
-                internship
+                internship,
+                role
             }
             
         };

@@ -1052,6 +1052,37 @@ export interface ApiBlogBlog extends Schema.CollectionType {
   };
 }
 
+export interface ApiBlogListBlogList extends Schema.SingleType {
+  collectionName: 'blog_lists';
+  info: {
+    singularName: 'blog-list';
+    pluralName: 'blog-lists';
+    displayName: 'Blog List';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    BannerSection: Attribute.Component<'global.banner-section', true>;
+    MetaDetails: Attribute.Component<'global.meta-details'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::blog-list.blog-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::blog-list.blog-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiBlogPageBlogPage extends Schema.SingleType {
   collectionName: 'blog_pages';
   info: {
@@ -1192,9 +1223,6 @@ export interface ApiCourseCourse extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    Category: Attribute.Enumeration<
-      ['For Grades 9 & 10', 'For Grades 11 & 12']
-    >;
     Image: Attribute.Media<'images'>;
     Alt: Attribute.String;
     Title: Attribute.String;
@@ -1208,7 +1236,6 @@ export interface ApiCourseCourse extends Schema.CollectionType {
         }
       >;
     File: Attribute.Media<'files' | 'images'>;
-    Track: Attribute.Enumeration<['Mathematics', 'Science']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1331,8 +1358,12 @@ export interface ApiEnquiryEnquiry extends Schema.CollectionType {
     FirstName: Attribute.String;
     LastName: Attribute.String;
     Email: Attribute.Email;
-    Role: Attribute.String;
     Query: Attribute.Text;
+    Role: Attribute.Relation<
+      'api::enquiry.enquiry',
+      'oneToOne',
+      'api::role-option.role-option'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1496,6 +1527,42 @@ export interface ApiFluencyFluency extends Schema.CollectionType {
   };
 }
 
+export interface ApiFooterFooter extends Schema.SingleType {
+  collectionName: 'footers';
+  info: {
+    singularName: 'footer';
+    pluralName: 'footers';
+    displayName: 'Footer';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    DetailSection: Attribute.Component<'global.footer-1'>;
+    CurriculumSection: Attribute.Component<'global.footer-2', true>;
+    QuestionSection: Attribute.Component<'global.footer-3', true>;
+    PagesSection: Attribute.Component<'global.footer-4', true>;
+    CopyrightText: Attribute.String;
+    ButtonLink: Attribute.String;
+    ButtonText: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::footer.footer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::footer.footer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiGenderGender extends Schema.CollectionType {
   collectionName: 'genders';
   info: {
@@ -1518,6 +1585,39 @@ export interface ApiGenderGender extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::gender.gender',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiHeaderHeader extends Schema.SingleType {
+  collectionName: 'headers';
+  info: {
+    singularName: 'header';
+    pluralName: 'headers';
+    displayName: 'Header';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Menu: Attribute.Component<'global.top-menu', true>;
+    IconURL: Attribute.String;
+    ButtonText: Attribute.String;
+    ButtonLink: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::header.header',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::header.header',
       'oneToOne',
       'admin::user'
     > &
@@ -1659,8 +1759,7 @@ export interface ApiLearningLearning extends Schema.SingleType {
   };
   attributes: {
     BannerSection: Attribute.Component<'global.banner-section', true>;
-    ModuleSection: Attribute.Component<'learning.module', true>;
-    CourseSection: Attribute.Component<'learning.course', true>;
+    CourseSection: Attribute.Component<'learning.course'>;
     MetaDetails: Attribute.Component<'global.meta-details'>;
     Content: Attribute.RichText &
       Attribute.CustomField<
@@ -1680,6 +1779,38 @@ export interface ApiLearningLearning extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::learning.learning',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiLearningModuleLearningModule extends Schema.SingleType {
+  collectionName: 'learning_modules';
+  info: {
+    singularName: 'learning-module';
+    pluralName: 'learning-modules';
+    displayName: 'Continued Learning Module';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Heading: Attribute.String;
+    Modules: Attribute.Component<'global.learning-module', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::learning-module.learning-module',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::learning-module.learning-module',
       'oneToOne',
       'admin::user'
     > &
@@ -1939,6 +2070,35 @@ export interface ApiResearchResearch extends Schema.CollectionType {
   };
 }
 
+export interface ApiRoleOptionRoleOption extends Schema.CollectionType {
+  collectionName: 'role_options';
+  info: {
+    singularName: 'role-option';
+    pluralName: 'role-options';
+    displayName: 'Roles';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    Value: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::role-option.role-option',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::role-option.role-option',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiSchoolBoardSchoolBoard extends Schema.CollectionType {
   collectionName: 'school_boards';
   info: {
@@ -1991,7 +2151,6 @@ export interface ApiScienceScience extends Schema.SingleType {
     FacultyMembers: Attribute.Component<'science.faculty'>;
     MetaDetails: Attribute.Component<'global.meta-details'>;
     CourseSection: Attribute.Component<'science.course-section'>;
-    Tabs: Attribute.Component<'science.tabs', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2192,7 +2351,6 @@ export interface ApiStudentStudent extends Schema.SingleType {
     GreatIdeasSeminarSection: Attribute.Component<'student.g-i-seminar'>;
     CMISeminarSection: Attribute.Component<'student.cmi-seminar'>;
     LifeSkillSection: Attribute.Component<'student.life-skill'>;
-    LearningModuleSection: Attribute.Component<'student.c-l-module'>;
     CoursesOfferedSection: Attribute.Component<'student.course-offered'>;
     MetaDetails: Attribute.Component<'global.meta-details'>;
     CourseSection: Attribute.Component<'student.course-section'>;
@@ -2238,6 +2396,7 @@ declare module '@strapi/types' {
       'api::application-form.application-form': ApiApplicationFormApplicationForm;
       'api::application-page.application-page': ApiApplicationPageApplicationPage;
       'api::blog.blog': ApiBlogBlog;
+      'api::blog-list.blog-list': ApiBlogListBlogList;
       'api::blog-page.blog-page': ApiBlogPageBlogPage;
       'api::class.class': ApiClassClass;
       'api::completion-year.completion-year': ApiCompletionYearCompletionYear;
@@ -2251,12 +2410,15 @@ declare module '@strapi/types' {
       'api::faculty.faculty': ApiFacultyFaculty;
       'api::faq.faq': ApiFaqFaq;
       'api::fluency.fluency': ApiFluencyFluency;
+      'api::footer.footer': ApiFooterFooter;
       'api::gender.gender': ApiGenderGender;
+      'api::header.header': ApiHeaderHeader;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::internship.internship': ApiInternshipInternship;
       'api::language.language': ApiLanguageLanguage;
       'api::laptop.laptop': ApiLaptopLaptop;
       'api::learning.learning': ApiLearningLearning;
+      'api::learning-module.learning-module': ApiLearningModuleLearningModule;
       'api::life-skill.life-skill': ApiLifeSkillLifeSkill;
       'api::math.math': ApiMathMath;
       'api::profession.profession': ApiProfessionProfession;
@@ -2265,6 +2427,7 @@ declare module '@strapi/types' {
       'api::project.project': ApiProjectProject;
       'api::relation.relation': ApiRelationRelation;
       'api::research.research': ApiResearchResearch;
+      'api::role-option.role-option': ApiRoleOptionRoleOption;
       'api::school-board.school-board': ApiSchoolBoardSchoolBoard;
       'api::science.science': ApiScienceScience;
       'api::semi-nar.semi-nar': ApiSemiNarSemiNar;

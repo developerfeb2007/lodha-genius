@@ -35,12 +35,6 @@
       "repeatable": false,
       "component": "student.life-skill"
     },
-    "LearningModuleSection": {
-      "displayName": "C L Module",
-      "type": "component",
-      "repeatable": false,
-      "component": "student.c-l-module"
-    },
     "CoursesOfferedSection": {
       "displayName": "Course Offered",
       "type": "component",

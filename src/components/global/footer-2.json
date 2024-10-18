@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_global_footer_2s",
+  "info": {
+    "displayName": "Footer 2"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "Items": {
+      "displayName": "Sublink",
+      "type": "component",
+      "repeatable": true,
+      "component": "global.sublink"
+    }
+  }
+}
