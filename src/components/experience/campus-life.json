@@ -1,7 +1,8 @@
 {
   "collectionName": "components_experience_campus_lives",
   "info": {
-    "displayName": "Campus Life"
+    "displayName": "Campus Life",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -17,6 +18,12 @@
       "type": "component",
       "repeatable": true,
       "component": "experience.campus"
+    },
+    "Heading": {
+      "type": "string"
+    },
+    "CostText": {
+      "type": "string"
     }
   }
 }

@@ -390,6 +390,169 @@ export interface UserAcademicRecord extends Schema.Component {
   };
 }
 
+export interface ScienceTabs extends Schema.Component {
+  collectionName: 'components_science_tabs';
+  info: {
+    displayName: 'Tabs';
+  };
+  attributes: {
+    Category: Attribute.Enumeration<
+      ['For Grades 9 & 10', 'For Grades 11 & 12']
+    >;
+    TabName: Attribute.String;
+  };
+}
+
+export interface ScienceFaculty extends Schema.Component {
+  collectionName: 'components_science_faculties';
+  info: {
+    displayName: 'Faculty';
+  };
+  attributes: {
+    Heading: Attribute.String;
+    Members: Attribute.Component<'science.faculty-mem', true>;
+  };
+}
+
+export interface ScienceFacultyMem extends Schema.Component {
+  collectionName: 'components_science_faculty_mems';
+  info: {
+    displayName: 'Faculty Mem';
+    description: '';
+  };
+  attributes: {
+    Category: Attribute.Enumeration<
+      [
+        'Science Workshops For Grades 9 & 10',
+        'Science Projects For Grades 11 & 12'
+      ]
+    >;
+    Faculties: Attribute.Relation<
+      'science.faculty-mem',
+      'oneToMany',
+      'api::faculty.faculty'
+    >;
+  };
+}
+
+export interface ScienceCourse extends Schema.Component {
+  collectionName: 'components_science_courses';
+  info: {
+    displayName: 'Course';
+  };
+  attributes: {
+    Category: Attribute.Enumeration<
+      [
+        'Science Workshops For Grades 9 & 10',
+        'Science Projects For Grades 11 & 12'
+      ]
+    >;
+    Courses: Attribute.Relation<
+      'science.course',
+      'oneToMany',
+      'api::course.course'
+    >;
+  };
+}
+
+export interface ScienceCourseSection extends Schema.Component {
+  collectionName: 'components_science_course_sections';
+  info: {
+    displayName: 'Course Section';
+    description: '';
+  };
+  attributes: {
+    Heading: Attribute.String;
+    Description: Attribute.String;
+    Course: Attribute.Component<'science.course', true>;
+  };
+}
+
+export interface MathsFacultyMember extends Schema.Component {
+  collectionName: 'components_maths_faculty_members';
+  info: {
+    displayName: 'Faculty Member';
+  };
+  attributes: {
+    Heading: Attribute.String;
+    Members: Attribute.Component<'maths.faculty-mem', true>;
+  };
+}
+
+export interface MathsFacultyMem extends Schema.Component {
+  collectionName: 'components_maths_faculty_mems';
+  info: {
+    displayName: 'Faculty Mem';
+    description: '';
+  };
+  attributes: {
+    Category: Attribute.Enumeration<
+      ['For Grades 9 & 10', 'For Grades 11 & 12']
+    >;
+    Faculties: Attribute.Relation<
+      'maths.faculty-mem',
+      'oneToMany',
+      'api::faculty.faculty'
+    >;
+  };
+}
+
+export interface MathsCourse extends Schema.Component {
+  collectionName: 'components_maths_courses';
+  info: {
+    displayName: 'Course';
+  };
+  attributes: {
+    Category: Attribute.Enumeration<
+      ['For Grades 9 & 10', 'For Grades 11 & 12']
+    >;
+    Courses: Attribute.Relation<
+      'maths.course',
+      'oneToMany',
+      'api::course.course'
+    >;
+  };
+}
+
+export interface MathsCourseSection extends Schema.Component {
+  collectionName: 'components_maths_course_sections';
+  info: {
+    displayName: 'Course Section';
+    description: '';
+  };
+  attributes: {
+    Heading: Attribute.String;
+    Description: Attribute.String;
+    Course: Attribute.Component<'maths.course', true>;
+  };
+}
+
+export interface MathsCmiSeminar extends Schema.Component {
+  collectionName: 'components_maths_cmi_seminars';
+  info: {
+    displayName: 'CMI Seminar';
+    description: '';
+  };
+  attributes: {
+    Heading: Attribute.String;
+    Description: Attribute.String;
+    Seminars: Attribute.Relation<
+      'maths.cmi-seminar',
+      'oneToMany',
+      'api::semi-nar.semi-nar'
+    >;
+  };
+}
+
+export interface MathsCmiSem extends Schema.Component {
+  collectionName: 'components_maths_cmi_sems';
+  info: {
+    displayName: 'CMI Sem';
+    description: '';
+  };
+  attributes: {};
+}
+
 export interface StudentSkill extends Schema.Component {
   collectionName: 'components_student_skills';
   info: {
@@ -618,260 +781,6 @@ export interface StudentCLMod extends Schema.Component {
     Alt: Attribute.String;
     Description: Attribute.Text;
     Topic: Attribute.String;
-  };
-}
-
-export interface SeminarSpeakers extends Schema.Component {
-  collectionName: 'components_seminar_speakers';
-  info: {
-    displayName: 'Speakers';
-    description: '';
-  };
-  attributes: {
-    Name: Attribute.String;
-    Designation: Attribute.Text;
-    Photo: Attribute.Media<'images'>;
-    Alt: Attribute.String;
-    Title: Attribute.String;
-    Profile: Attribute.RichText &
-      Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'default';
-        }
-      >;
-    Workplace: Attribute.String;
-  };
-}
-
-export interface SeminarSpeakerSection extends Schema.Component {
-  collectionName: 'components_seminar_speaker_sections';
-  info: {
-    displayName: 'Speaker Section';
-  };
-  attributes: {
-    Heading: Attribute.String;
-    Speakers: Attribute.Component<'seminar.speakers', true>;
-  };
-}
-
-export interface ScienceTabs extends Schema.Component {
-  collectionName: 'components_science_tabs';
-  info: {
-    displayName: 'Tabs';
-  };
-  attributes: {
-    Category: Attribute.Enumeration<
-      ['For Grades 9 & 10', 'For Grades 11 & 12']
-    >;
-    TabName: Attribute.String;
-  };
-}
-
-export interface ScienceFaculty extends Schema.Component {
-  collectionName: 'components_science_faculties';
-  info: {
-    displayName: 'Faculty';
-  };
-  attributes: {
-    Heading: Attribute.String;
-    Members: Attribute.Component<'science.faculty-mem', true>;
-  };
-}
-
-export interface ScienceFacultyMem extends Schema.Component {
-  collectionName: 'components_science_faculty_mems';
-  info: {
-    displayName: 'Faculty Mem';
-    description: '';
-  };
-  attributes: {
-    Category: Attribute.Enumeration<
-      [
-        'Science Workshops For Grades 9 & 10',
-        'Science Projects For Grades 11 & 12'
-      ]
-    >;
-    Faculties: Attribute.Relation<
-      'science.faculty-mem',
-      'oneToMany',
-      'api::faculty.faculty'
-    >;
-  };
-}
-
-export interface ScienceCourse extends Schema.Component {
-  collectionName: 'components_science_courses';
-  info: {
-    displayName: 'Course';
-  };
-  attributes: {
-    Category: Attribute.Enumeration<
-      [
-        'Science Workshops For Grades 9 & 10',
-        'Science Projects For Grades 11 & 12'
-      ]
-    >;
-    Courses: Attribute.Relation<
-      'science.course',
-      'oneToMany',
-      'api::course.course'
-    >;
-  };
-}
-
-export interface ScienceCourseSection extends Schema.Component {
-  collectionName: 'components_science_course_sections';
-  info: {
-    displayName: 'Course Section';
-    description: '';
-  };
-  attributes: {
-    Heading: Attribute.String;
-    Description: Attribute.String;
-    Course: Attribute.Component<'science.course', true>;
-  };
-}
-
-export interface MathsFacultyMember extends Schema.Component {
-  collectionName: 'components_maths_faculty_members';
-  info: {
-    displayName: 'Faculty Member';
-  };
-  attributes: {
-    Heading: Attribute.String;
-    Members: Attribute.Component<'maths.faculty-mem', true>;
-  };
-}
-
-export interface MathsFacultyMem extends Schema.Component {
-  collectionName: 'components_maths_faculty_mems';
-  info: {
-    displayName: 'Faculty Mem';
-    description: '';
-  };
-  attributes: {
-    Category: Attribute.Enumeration<
-      ['For Grades 9 & 10', 'For Grades 11 & 12']
-    >;
-    Faculties: Attribute.Relation<
-      'maths.faculty-mem',
-      'oneToMany',
-      'api::faculty.faculty'
-    >;
-  };
-}
-
-export interface MathsCourse extends Schema.Component {
-  collectionName: 'components_maths_courses';
-  info: {
-    displayName: 'Course';
-  };
-  attributes: {
-    Category: Attribute.Enumeration<
-      ['For Grades 9 & 10', 'For Grades 11 & 12']
-    >;
-    Courses: Attribute.Relation<
-      'maths.course',
-      'oneToMany',
-      'api::course.course'
-    >;
-  };
-}
-
-export interface MathsCourseSection extends Schema.Component {
-  collectionName: 'components_maths_course_sections';
-  info: {
-    displayName: 'Course Section';
-    description: '';
-  };
-  attributes: {
-    Heading: Attribute.String;
-    Description: Attribute.String;
-    Course: Attribute.Component<'maths.course', true>;
-  };
-}
-
-export interface MathsCmiSeminar extends Schema.Component {
-  collectionName: 'components_maths_cmi_seminars';
-  info: {
-    displayName: 'CMI Seminar';
-    description: '';
-  };
-  attributes: {
-    Heading: Attribute.String;
-    Description: Attribute.String;
-    Seminars: Attribute.Relation<
-      'maths.cmi-seminar',
-      'oneToMany',
-      'api::semi-nar.semi-nar'
-    >;
-  };
-}
-
-export interface MathsCmiSem extends Schema.Component {
-  collectionName: 'components_maths_cmi_sems';
-  info: {
-    displayName: 'CMI Sem';
-    description: '';
-  };
-  attributes: {};
-}
-
-export interface LifeSkillCourse extends Schema.Component {
-  collectionName: 'components_life_skill_courses';
-  info: {
-    displayName: 'Course';
-  };
-  attributes: {
-    Category: Attribute.Enumeration<
-      ['For Grades 9 & 10', 'For Grades 11 & 12']
-    > &
-      Attribute.Required;
-    Image: Attribute.Media<'images'> & Attribute.Required;
-    Alt: Attribute.String;
-    Title: Attribute.String;
-    Contents: Attribute.Component<'life-skill.content', true>;
-  };
-}
-
-export interface LifeSkillContent extends Schema.Component {
-  collectionName: 'components_life_skill_contents';
-  info: {
-    displayName: 'Course Content';
-    description: '';
-  };
-  attributes: {
-    Heading: Attribute.String;
-    Content: Attribute.Text;
-  };
-}
-
-export interface LearningModule extends Schema.Component {
-  collectionName: 'components_learning_modules';
-  info: {
-    displayName: 'Module';
-  };
-  attributes: {
-    Icon: Attribute.Media<'images'>;
-    Title: Attribute.String;
-    Description: Attribute.Text;
-  };
-}
-
-export interface LearningCourse extends Schema.Component {
-  collectionName: 'components_learning_courses';
-  info: {
-    displayName: 'Course';
-    description: '';
-  };
-  attributes: {
-    Heading: Attribute.String;
-    Courses: Attribute.Relation<
-      'learning.course',
-      'oneToMany',
-      'api::course.course'
-    >;
   };
 }
 
@@ -1248,6 +1157,35 @@ export interface GlobalBannerSection extends Schema.Component {
   };
 }
 
+export interface LifeSkillCourse extends Schema.Component {
+  collectionName: 'components_life_skill_courses';
+  info: {
+    displayName: 'Course';
+  };
+  attributes: {
+    Category: Attribute.Enumeration<
+      ['For Grades 9 & 10', 'For Grades 11 & 12']
+    > &
+      Attribute.Required;
+    Image: Attribute.Media<'images'> & Attribute.Required;
+    Alt: Attribute.String;
+    Title: Attribute.String;
+    Contents: Attribute.Component<'life-skill.content', true>;
+  };
+}
+
+export interface LifeSkillContent extends Schema.Component {
+  collectionName: 'components_life_skill_contents';
+  info: {
+    displayName: 'Course Content';
+    description: '';
+  };
+  attributes: {
+    Heading: Attribute.String;
+    Content: Attribute.Text;
+  };
+}
+
 export interface FaqQuestionAnswer extends Schema.Component {
   collectionName: 'components_faq_question_answers';
   info: {
@@ -1278,6 +1216,28 @@ export interface FaqFaq extends Schema.Component {
   };
 }
 
+export interface ExperienceWeekends extends Schema.Component {
+  collectionName: 'components_experience_weekends';
+  info: {
+    displayName: 'Weekends';
+  };
+  attributes: {
+    Title: Attribute.String;
+    Description: Attribute.Text;
+  };
+}
+
+export interface ExperienceTripSection extends Schema.Component {
+  collectionName: 'components_experience_trip_sections';
+  info: {
+    displayName: 'Trip Section';
+  };
+  attributes: {
+    Heading: Attribute.String;
+    RecentTrip: Attribute.Component<'experience.recent-trip', true>;
+  };
+}
+
 export interface ExperienceTestimonial extends Schema.Component {
   collectionName: 'components_experience_testimonials';
   info: {
@@ -1290,7 +1250,18 @@ export interface ExperienceTestimonial extends Schema.Component {
     Photo: Attribute.Media<'images'>;
     Alt: Attribute.String;
     Title: Attribute.String;
-    Year: Attribute.Integer;
+    Year: Attribute.String;
+  };
+}
+
+export interface ExperienceTestimonialSection extends Schema.Component {
+  collectionName: 'components_experience_testimonial_sections';
+  info: {
+    displayName: 'Testimonial Section';
+  };
+  attributes: {
+    Heading: Attribute.String;
+    Testimonial: Attribute.Component<'experience.testimonial', true>;
   };
 }
 
@@ -1298,28 +1269,49 @@ export interface ExperienceSuccessStories extends Schema.Component {
   collectionName: 'components_experience_success_stories';
   info: {
     displayName: 'Success Stories';
+    description: '';
   };
   attributes: {
-    Heading: Attribute.String;
     Thumbnail: Attribute.Media<'images'>;
     Alt: Attribute.String;
     Title: Attribute.String;
     YoutubeURL: Attribute.String;
-    File: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Video: Attribute.Media<'videos'>;
+    Description: Attribute.String;
   };
 }
 
-export interface ExperienceSchedule extends Schema.Component {
-  collectionName: 'components_experience_schedules';
+export interface ExperienceSuccessSection extends Schema.Component {
+  collectionName: 'components_experience_success_sections';
   info: {
-    displayName: 'Schedule';
+    displayName: 'Success Section';
   };
   attributes: {
+    Heading: Attribute.String;
+    SuccessStories: Attribute.Component<'experience.success-stories', true>;
+  };
+}
+
+export interface ExperienceScheduleSection extends Schema.Component {
+  collectionName: 'components_experience_schedule_sections';
+  info: {
+    displayName: 'Schedule Section';
+    description: '';
+  };
+  attributes: {
+    Category: Attribute.Enumeration<
+      ['For first time students', 'For returning students']
+    >;
     MorningSession: Attribute.Component<'experience.morning', true>;
-    NoonSession: Attribute.Component<'experience.morning', true>;
-    AfternoonSession: Attribute.Component<'experience.morning', true>;
-    EveningSession: Attribute.Component<'experience.morning', true>;
-    Weekends: Attribute.Component<'experience.morning', true>;
+    NoonSession: Attribute.Component<'experience.noon', true>;
+    AfternoonSession: Attribute.Component<'experience.afternoon', true>;
+    EveningSession: Attribute.Component<'experience.evening', true>;
+    WeekendsSession: Attribute.Component<'experience.weekends', true>;
+    Grade: Attribute.Relation<
+      'experience.schedule-section',
+      'oneToOne',
+      'api::grade.grade'
+    >;
   };
 }
 
@@ -1327,22 +1319,45 @@ export interface ExperienceRecentTrip extends Schema.Component {
   collectionName: 'components_experience_recent_trips';
   info: {
     displayName: 'Recent Trip';
+    description: '';
   };
   attributes: {
-    Name: Attribute.String;
     Thumbnail: Attribute.Media<'images'>;
     Alt: Attribute.String;
     Title: Attribute.String;
     YoutubeURL: Attribute.String;
-    File: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Video: Attribute.Media<'videos'>;
+    Description: Attribute.String;
+  };
+}
+
+export interface ExperienceNoon extends Schema.Component {
+  collectionName: 'components_experience_noons';
+  info: {
+    displayName: 'Noon';
+  };
+  attributes: {
+    Title: Attribute.String;
+    Description: Attribute.Text;
   };
 }
 
 export interface ExperienceMorning extends Schema.Component {
   collectionName: 'components_experience_mornings';
   info: {
-    displayName: 'Session';
+    displayName: 'Morning';
     description: '';
+  };
+  attributes: {
+    Title: Attribute.String;
+    Description: Attribute.Text;
+  };
+}
+
+export interface ExperienceEvening extends Schema.Component {
+  collectionName: 'components_experience_evenings';
+  info: {
+    displayName: 'Evening';
   };
   attributes: {
     Title: Attribute.String;
@@ -1354,13 +1369,14 @@ export interface ExperienceCampus extends Schema.Component {
   collectionName: 'components_experience_campuses';
   info: {
     displayName: 'Campus';
+    description: '';
   };
   attributes: {
-    TabName: Attribute.String;
     Description: Attribute.Text;
     Image: Attribute.Media<'images'>;
     Alt: Attribute.String;
     Title: Attribute.String;
+    Category: Attribute.String;
   };
 }
 
@@ -1368,6 +1384,7 @@ export interface ExperienceCampusLife extends Schema.Component {
   collectionName: 'components_experience_campus_lives';
   info: {
     displayName: 'Campus Life';
+    description: '';
   };
   attributes: {
     Content: Attribute.RichText &
@@ -1378,6 +1395,19 @@ export interface ExperienceCampusLife extends Schema.Component {
         }
       >;
     CampusLife: Attribute.Component<'experience.campus', true>;
+    Heading: Attribute.String;
+    CostText: Attribute.String;
+  };
+}
+
+export interface ExperienceAfternoon extends Schema.Component {
+  collectionName: 'components_experience_afternoons';
+  info: {
+    displayName: 'Afternoon';
+  };
+  attributes: {
+    Title: Attribute.String;
+    Description: Attribute.Text;
   };
 }
 
@@ -1478,6 +1508,219 @@ export interface DropdownAnnualIncome extends Schema.Component {
   };
   attributes: {
     Value: Attribute.String;
+  };
+}
+
+export interface AboutWriteUp extends Schema.Component {
+  collectionName: 'components_about_write_ups';
+  info: {
+    displayName: 'Write up';
+  };
+  attributes: {
+    Heading: Attribute.String;
+    Content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+  };
+}
+
+export interface AboutTeam extends Schema.Component {
+  collectionName: 'components_about_teams';
+  info: {
+    displayName: 'Team';
+    description: '';
+  };
+  attributes: {
+    Image: Attribute.Media<'images'>;
+    Alt: Attribute.String;
+    Title: Attribute.String;
+    Name: Attribute.String;
+    Designation: Attribute.String;
+    Profile: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+  };
+}
+
+export interface AboutTeamSection extends Schema.Component {
+  collectionName: 'components_about_team_sections';
+  info: {
+    displayName: 'Team Section';
+  };
+  attributes: {
+    Heading: Attribute.String;
+    Team: Attribute.Component<'about.team', true>;
+  };
+}
+
+export interface AboutSPSection extends Schema.Component {
+  collectionName: 'components_about_s_p_sections';
+  info: {
+    displayName: 'Strategic Partnership Section';
+    description: '';
+  };
+  attributes: {
+    StrategicPartnership: Attribute.Component<'about.s-p-sec', true>;
+    Category: Attribute.String;
+  };
+}
+
+export interface AboutSPSec extends Schema.Component {
+  collectionName: 'components_about_s_p_secs';
+  info: {
+    displayName: 'Strategic Partnership';
+    description: '';
+  };
+  attributes: {
+    Logo: Attribute.Media<'images'>;
+    Description: Attribute.Text;
+    Name: Attribute.String;
+    Alt: Attribute.String;
+  };
+}
+
+export interface AboutQuotes extends Schema.Component {
+  collectionName: 'components_about_quotes';
+  info: {
+    displayName: 'Quotes';
+  };
+  attributes: {
+    Name: Attribute.String;
+    Designation: Attribute.String;
+    Image: Attribute.Media<'images'>;
+    Alt: Attribute.String;
+    Title: Attribute.String;
+    Quotes: Attribute.Text;
+  };
+}
+
+export interface AboutQuotesSection extends Schema.Component {
+  collectionName: 'components_about_quotes_sections';
+  info: {
+    displayName: 'Quotes Section';
+  };
+  attributes: {
+    Heading: Attribute.String;
+    QuotesContent: Attribute.Component<'about.quotes', true>;
+  };
+}
+
+export interface AboutPartnership extends Schema.Component {
+  collectionName: 'components_about_partnerships';
+  info: {
+    displayName: 'Partnership';
+  };
+  attributes: {
+    Heading: Attribute.String;
+    Content: Attribute.Text;
+    BGImage: Attribute.Media<'images'>;
+  };
+}
+
+export interface AboutHappy extends Schema.Component {
+  collectionName: 'components_about_happies';
+  info: {
+    displayName: 'Happy';
+  };
+  attributes: {
+    Heading: Attribute.String;
+    Image: Attribute.Media<'images'>;
+    Alt: Attribute.String;
+    Title: Attribute.String;
+  };
+}
+
+export interface AboutDRSection extends Schema.Component {
+  collectionName: 'components_about_d_r_sections';
+  info: {
+    displayName: 'Download Resources Section';
+    description: '';
+  };
+  attributes: {
+    Heading: Attribute.String;
+    Resources: Attribute.Component<'about.d-r-s', true>;
+  };
+}
+
+export interface AboutDRS extends Schema.Component {
+  collectionName: 'components_about_d_r_s';
+  info: {
+    displayName: 'Download Resources';
+    description: '';
+  };
+  attributes: {
+    Name: Attribute.String;
+    File: Attribute.Media<'files'>;
+  };
+}
+
+export interface LearningModule extends Schema.Component {
+  collectionName: 'components_learning_modules';
+  info: {
+    displayName: 'Module';
+  };
+  attributes: {
+    Icon: Attribute.Media<'images'>;
+    Title: Attribute.String;
+    Description: Attribute.Text;
+  };
+}
+
+export interface LearningCourse extends Schema.Component {
+  collectionName: 'components_learning_courses';
+  info: {
+    displayName: 'Course';
+    description: '';
+  };
+  attributes: {
+    Heading: Attribute.String;
+    Courses: Attribute.Relation<
+      'learning.course',
+      'oneToMany',
+      'api::course.course'
+    >;
+  };
+}
+
+export interface SeminarSpeakers extends Schema.Component {
+  collectionName: 'components_seminar_speakers';
+  info: {
+    displayName: 'Speakers';
+    description: '';
+  };
+  attributes: {
+    Name: Attribute.String;
+    Designation: Attribute.Text;
+    Photo: Attribute.Media<'images'>;
+    Alt: Attribute.String;
+    Title: Attribute.String;
+    Profile: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    Workplace: Attribute.String;
+  };
+}
+
+export interface SeminarSpeakerSection extends Schema.Component {
+  collectionName: 'components_seminar_speaker_sections';
+  info: {
+    displayName: 'Speaker Section';
+  };
+  attributes: {
+    Heading: Attribute.String;
+    Speakers: Attribute.Component<'seminar.speakers', true>;
   };
 }
 
@@ -1644,157 +1887,6 @@ export interface ApplicationAaSection extends Schema.Component {
   };
 }
 
-export interface AboutWriteUp extends Schema.Component {
-  collectionName: 'components_about_write_ups';
-  info: {
-    displayName: 'Write up';
-  };
-  attributes: {
-    Heading: Attribute.String;
-    Content: Attribute.RichText &
-      Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'default';
-        }
-      >;
-  };
-}
-
-export interface AboutTeam extends Schema.Component {
-  collectionName: 'components_about_teams';
-  info: {
-    displayName: 'Team';
-    description: '';
-  };
-  attributes: {
-    Image: Attribute.Media<'images'>;
-    Alt: Attribute.String;
-    Title: Attribute.String;
-    Name: Attribute.String;
-    Designation: Attribute.String;
-    Profile: Attribute.RichText &
-      Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'default';
-        }
-      >;
-  };
-}
-
-export interface AboutTeamSection extends Schema.Component {
-  collectionName: 'components_about_team_sections';
-  info: {
-    displayName: 'Team Section';
-  };
-  attributes: {
-    Heading: Attribute.String;
-    Team: Attribute.Component<'about.team', true>;
-  };
-}
-
-export interface AboutSPSection extends Schema.Component {
-  collectionName: 'components_about_s_p_sections';
-  info: {
-    displayName: 'Strategic Partnership Section';
-    description: '';
-  };
-  attributes: {
-    StrategicPartnership: Attribute.Component<'about.s-p-sec', true>;
-    Category: Attribute.String;
-  };
-}
-
-export interface AboutSPSec extends Schema.Component {
-  collectionName: 'components_about_s_p_secs';
-  info: {
-    displayName: 'Strategic Partnership';
-    description: '';
-  };
-  attributes: {
-    Logo: Attribute.Media<'images'>;
-    Description: Attribute.Text;
-    Name: Attribute.String;
-    Alt: Attribute.String;
-  };
-}
-
-export interface AboutQuotes extends Schema.Component {
-  collectionName: 'components_about_quotes';
-  info: {
-    displayName: 'Quotes';
-  };
-  attributes: {
-    Name: Attribute.String;
-    Designation: Attribute.String;
-    Image: Attribute.Media<'images'>;
-    Alt: Attribute.String;
-    Title: Attribute.String;
-    Quotes: Attribute.Text;
-  };
-}
-
-export interface AboutQuotesSection extends Schema.Component {
-  collectionName: 'components_about_quotes_sections';
-  info: {
-    displayName: 'Quotes Section';
-  };
-  attributes: {
-    Heading: Attribute.String;
-    QuotesContent: Attribute.Component<'about.quotes', true>;
-  };
-}
-
-export interface AboutPartnership extends Schema.Component {
-  collectionName: 'components_about_partnerships';
-  info: {
-    displayName: 'Partnership';
-  };
-  attributes: {
-    Heading: Attribute.String;
-    Content: Attribute.Text;
-    BGImage: Attribute.Media<'images'>;
-  };
-}
-
-export interface AboutHappy extends Schema.Component {
-  collectionName: 'components_about_happies';
-  info: {
-    displayName: 'Happy';
-  };
-  attributes: {
-    Heading: Attribute.String;
-    Image: Attribute.Media<'images'>;
-    Alt: Attribute.String;
-    Title: Attribute.String;
-  };
-}
-
-export interface AboutDRSection extends Schema.Component {
-  collectionName: 'components_about_d_r_sections';
-  info: {
-    displayName: 'Download Resources Section';
-    description: '';
-  };
-  attributes: {
-    Heading: Attribute.String;
-    Resources: Attribute.Component<'about.d-r-s', true>;
-  };
-}
-
-export interface AboutDRS extends Schema.Component {
-  collectionName: 'components_about_d_r_s';
-  info: {
-    displayName: 'Download Resources';
-    description: '';
-  };
-  attributes: {
-    Name: Attribute.String;
-    File: Attribute.Media<'files'>;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -1821,6 +1913,17 @@ declare module '@strapi/types' {
       'user.campus': UserCampus;
       'user.address': UserAddress;
       'user.academic-record': UserAcademicRecord;
+      'science.tabs': ScienceTabs;
+      'science.faculty': ScienceFaculty;
+      'science.faculty-mem': ScienceFacultyMem;
+      'science.course': ScienceCourse;
+      'science.course-section': ScienceCourseSection;
+      'maths.faculty-member': MathsFacultyMember;
+      'maths.faculty-mem': MathsFacultyMem;
+      'maths.course': MathsCourse;
+      'maths.course-section': MathsCourseSection;
+      'maths.cmi-seminar': MathsCmiSeminar;
+      'maths.cmi-sem': MathsCmiSem;
       'student.skill': StudentSkill;
       'student.science': StudentScience;
       'student.mathematics': StudentMathematics;
@@ -1835,23 +1938,6 @@ declare module '@strapi/types' {
       'student.cmi-sem': StudentCmiSem;
       'student.c-l-module': StudentCLModule;
       'student.c-l-mod': StudentCLMod;
-      'seminar.speakers': SeminarSpeakers;
-      'seminar.speaker-section': SeminarSpeakerSection;
-      'science.tabs': ScienceTabs;
-      'science.faculty': ScienceFaculty;
-      'science.faculty-mem': ScienceFacultyMem;
-      'science.course': ScienceCourse;
-      'science.course-section': ScienceCourseSection;
-      'maths.faculty-member': MathsFacultyMember;
-      'maths.faculty-mem': MathsFacultyMem;
-      'maths.course': MathsCourse;
-      'maths.course-section': MathsCourseSection;
-      'maths.cmi-seminar': MathsCmiSeminar;
-      'maths.cmi-sem': MathsCmiSem;
-      'life-skill.course': LifeSkillCourse;
-      'life-skill.content': LifeSkillContent;
-      'learning.module': LearningModule;
-      'learning.course': LearningCourse;
       'homepage.stu-section': HomepageStuSection;
       'homepage.st-section': HomepageStSection;
       'homepage.shaping-tomorrow': HomepageShapingTomorrow;
@@ -1877,15 +1963,24 @@ declare module '@strapi/types' {
       'global.footer-2': GlobalFooter2;
       'global.footer-1': GlobalFooter1;
       'global.banner-section': GlobalBannerSection;
+      'life-skill.course': LifeSkillCourse;
+      'life-skill.content': LifeSkillContent;
       'faq.question-answer': FaqQuestionAnswer;
       'faq.faq': FaqFaq;
+      'experience.weekends': ExperienceWeekends;
+      'experience.trip-section': ExperienceTripSection;
       'experience.testimonial': ExperienceTestimonial;
+      'experience.testimonial-section': ExperienceTestimonialSection;
       'experience.success-stories': ExperienceSuccessStories;
-      'experience.schedule': ExperienceSchedule;
+      'experience.success-section': ExperienceSuccessSection;
+      'experience.schedule-section': ExperienceScheduleSection;
       'experience.recent-trip': ExperienceRecentTrip;
+      'experience.noon': ExperienceNoon;
       'experience.morning': ExperienceMorning;
+      'experience.evening': ExperienceEvening;
       'experience.campus': ExperienceCampus;
       'experience.campus-life': ExperienceCampusLife;
+      'experience.afternoon': ExperienceAfternoon;
       'dropdown.source': DropdownSource;
       'dropdown.school-board': DropdownSchoolBoard;
       'dropdown.relation': DropdownRelation;
@@ -1896,17 +1991,6 @@ declare module '@strapi/types' {
       'dropdown.completion-year': DropdownCompletionYear;
       'dropdown.class': DropdownClass;
       'dropdown.annual-income': DropdownAnnualIncome;
-      'application.steps': ApplicationSteps;
-      'application.steps-section': ApplicationStepsSection;
-      'application.schedule': ApplicationSchedule;
-      'application.schedule-section': ApplicationScheduleSection;
-      'application.dr': ApplicationDr;
-      'application.dr-section': ApplicationDrSection;
-      'application.content-section': ApplicationContentSection;
-      'application.banner-section': ApplicationBannerSection;
-      'application.af-section': ApplicationAfSection;
-      'application.aa': ApplicationAa;
-      'application.aa-section': ApplicationAaSection;
       'about.write-up': AboutWriteUp;
       'about.team': AboutTeam;
       'about.team-section': AboutTeamSection;
@@ -1918,6 +2002,21 @@ declare module '@strapi/types' {
       'about.happy': AboutHappy;
       'about.d-r-section': AboutDRSection;
       'about.d-r-s': AboutDRS;
+      'learning.module': LearningModule;
+      'learning.course': LearningCourse;
+      'seminar.speakers': SeminarSpeakers;
+      'seminar.speaker-section': SeminarSpeakerSection;
+      'application.steps': ApplicationSteps;
+      'application.steps-section': ApplicationStepsSection;
+      'application.schedule': ApplicationSchedule;
+      'application.schedule-section': ApplicationScheduleSection;
+      'application.dr': ApplicationDr;
+      'application.dr-section': ApplicationDrSection;
+      'application.content-section': ApplicationContentSection;
+      'application.banner-section': ApplicationBannerSection;
+      'application.af-section': ApplicationAfSection;
+      'application.aa': ApplicationAa;
+      'application.aa-section': ApplicationAaSection;
     }
   }
 }

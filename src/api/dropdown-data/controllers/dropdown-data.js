@@ -80,6 +80,10 @@ module.exports = {
             select: ['id', 'value'],
             orderBy: { createdAt: 'ASC' },
         });
+        const grades = await strapi.db.query('api::grade.grade').findMany({
+            select: ['id', 'value'],
+            orderBy: { createdAt: 'ASC' },
+        });
 
         const combinedData = {
             data: {
@@ -101,7 +105,8 @@ module.exports = {
                 project,
                 research,
                 internship,
-                role
+                role,
+                grades
             }
             
         };

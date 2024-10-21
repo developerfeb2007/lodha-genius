@@ -1,19 +1,18 @@
 {
   "collectionName": "components_experience_success_stories",
   "info": {
-    "displayName": "Success Stories"
+    "displayName": "Success Stories",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "Heading": {
-      "type": "string"
-    },
     "Thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "Alt": {
       "type": "string"
@@ -24,15 +23,15 @@
     "YoutubeURL": {
       "type": "string"
     },
-    "File": {
+    "Video": {
       "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
+        "videos"
       ],
       "type": "media",
       "multiple": false
+    },
+    "Description": {
+      "type": "string"
     }
   }
 }

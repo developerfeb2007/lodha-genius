@@ -1,0 +1,51 @@
+{
+  "collectionName": "components_experience_schedule_sections",
+  "info": {
+    "displayName": "Schedule Section",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Category": {
+      "type": "enumeration",
+      "enum": [
+        "For first time students",
+        "For returning students"
+      ]
+    },
+    "MorningSession": {
+      "type": "component",
+      "repeatable": true,
+      "component": "experience.morning"
+    },
+    "NoonSession": {
+      "displayName": "Noon",
+      "type": "component",
+      "repeatable": true,
+      "component": "experience.noon"
+    },
+    "AfternoonSession": {
+      "displayName": "Afternoon",
+      "type": "component",
+      "repeatable": true,
+      "component": "experience.afternoon"
+    },
+    "EveningSession": {
+      "displayName": "Evening",
+      "type": "component",
+      "repeatable": true,
+      "component": "experience.evening"
+    },
+    "WeekendsSession": {
+      "displayName": "Weekends",
+      "type": "component",
+      "repeatable": true,
+      "component": "experience.weekends"
+    },
+    "Grade": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::grade.grade"
+    }
+  }
+}

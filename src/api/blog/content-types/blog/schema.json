@@ -4,7 +4,8 @@
   "info": {
     "singularName": "blog",
     "pluralName": "blogs",
-    "displayName": "Blog"
+    "displayName": "Blog",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -21,18 +22,20 @@
       "type": "date"
     },
     "DesktopBanner": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "MobileBanner": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "Content": {
       "type": "customField",
@@ -40,6 +43,14 @@
         "preset": "default"
       },
       "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "MetaDetails": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.meta-details"
+    },
+    "ShortDescription": {
+      "type": "text"
     }
   }
 }

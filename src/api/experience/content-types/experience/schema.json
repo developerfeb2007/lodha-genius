@@ -17,35 +17,11 @@
       "repeatable": true,
       "component": "global.banner-section"
     },
-    "SuccessStoriesSection": {
-      "displayName": "Success Stories",
-      "type": "component",
-      "repeatable": true,
-      "component": "experience.success-stories"
-    },
-    "TestimonialSection": {
-      "displayName": "Testimonial",
-      "type": "component",
-      "repeatable": true,
-      "component": "experience.testimonial"
-    },
     "CampusLifeSection": {
       "displayName": "Campus Life",
       "type": "component",
       "repeatable": false,
       "component": "experience.campus-life"
-    },
-    "ScheduleSection": {
-      "displayName": "Schedule",
-      "type": "component",
-      "repeatable": false,
-      "component": "experience.schedule"
-    },
-    "RecentTripSection": {
-      "displayName": "Recent Trip",
-      "type": "component",
-      "repeatable": true,
-      "component": "experience.recent-trip"
     },
     "MetaDetails": {
       "type": "component",
@@ -58,6 +34,33 @@
         "preset": "default"
       },
       "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "SuccessStoriesSection": {
+      "displayName": "Success Section",
+      "type": "component",
+      "repeatable": false,
+      "component": "experience.success-section"
+    },
+    "TestimonialSection": {
+      "displayName": "Testimonial Section",
+      "type": "component",
+      "repeatable": false,
+      "component": "experience.testimonial-section"
+    },
+    "RecentTripSection": {
+      "displayName": "Trip Section",
+      "type": "component",
+      "repeatable": false,
+      "component": "experience.trip-section"
+    },
+    "ScheduleSection": {
+      "displayName": "Schedule Section",
+      "type": "component",
+      "repeatable": true,
+      "component": "experience.schedule-section"
+    },
+    "ScheduleSectionHeading": {
+      "type": "string"
     }
   }
 }

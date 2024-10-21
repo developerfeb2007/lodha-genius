@@ -1026,6 +1026,7 @@ export interface ApiBlogBlog extends Schema.CollectionType {
     singularName: 'blog';
     pluralName: 'blogs';
     displayName: 'Blog';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1043,6 +1044,8 @@ export interface ApiBlogBlog extends Schema.CollectionType {
           preset: 'default';
         }
       >;
+    MetaDetails: Attribute.Component<'global.meta-details'>;
+    ShortDescription: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1396,14 +1399,7 @@ export interface ApiExperienceExperience extends Schema.SingleType {
   };
   attributes: {
     BannerSection: Attribute.Component<'global.banner-section', true>;
-    SuccessStoriesSection: Attribute.Component<
-      'experience.success-stories',
-      true
-    >;
-    TestimonialSection: Attribute.Component<'experience.testimonial', true>;
     CampusLifeSection: Attribute.Component<'experience.campus-life'>;
-    ScheduleSection: Attribute.Component<'experience.schedule'>;
-    RecentTripSection: Attribute.Component<'experience.recent-trip', true>;
     MetaDetails: Attribute.Component<'global.meta-details'>;
     Content: Attribute.RichText &
       Attribute.CustomField<
@@ -1412,6 +1408,11 @@ export interface ApiExperienceExperience extends Schema.SingleType {
           preset: 'default';
         }
       >;
+    SuccessStoriesSection: Attribute.Component<'experience.success-section'>;
+    TestimonialSection: Attribute.Component<'experience.testimonial-section'>;
+    RecentTripSection: Attribute.Component<'experience.trip-section'>;
+    ScheduleSection: Attribute.Component<'experience.schedule-section', true>;
+    ScheduleSectionHeading: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1588,6 +1589,36 @@ export interface ApiGenderGender extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::gender.gender',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiGradeGrade extends Schema.CollectionType {
+  collectionName: 'grades';
+  info: {
+    singularName: 'grade';
+    pluralName: 'grades';
+    displayName: 'Grades';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    Value: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::grade.grade',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::grade.grade',
       'oneToOne',
       'admin::user'
     > &
@@ -2418,6 +2449,7 @@ declare module '@strapi/types' {
       'api::fluency.fluency': ApiFluencyFluency;
       'api::footer.footer': ApiFooterFooter;
       'api::gender.gender': ApiGenderGender;
+      'api::grade.grade': ApiGradeGrade;
       'api::header.header': ApiHeaderHeader;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::internship.internship': ApiInternshipInternship;

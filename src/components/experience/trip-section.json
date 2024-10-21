@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_experience_trip_sections",
+  "info": {
+    "displayName": "Trip Section"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "RecentTrip": {
+      "type": "component",
+      "repeatable": true,
+      "component": "experience.recent-trip"
+    }
+  }
+}

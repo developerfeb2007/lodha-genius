@@ -1,8 +1,7 @@
 {
-  "collectionName": "components_experience_mornings",
+  "collectionName": "components_experience_weekends",
   "info": {
-    "displayName": "Morning",
-    "description": ""
+    "displayName": "Weekends"
   },
   "options": {},
   "attributes": {

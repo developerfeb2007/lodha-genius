@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "grades",
+  "info": {
+    "singularName": "grade",
+    "pluralName": "grades",
+    "displayName": "Grades",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Value": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
