@@ -6,15 +6,6 @@
   },
   "options": {},
   "attributes": {
-    "Category": {
-      "type": "enumeration",
-      "enum": [
-        "Technology Partners",
-        "NGO Partners",
-        "Knowledge Partners",
-        "Philanthropic Partners"
-      ]
-    },
     "Logo": {
       "type": "media",
       "multiple": false,

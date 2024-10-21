@@ -884,7 +884,7 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
     BannerSection: Attribute.Component<'global.banner-section', true>;
     PartnershipSection: Attribute.Component<'about.partnership'>;
     TeamSection: Attribute.Component<'about.team-section'>;
-    StrategicPartnershipSection: Attribute.Component<'about.s-p-section'>;
+    StrategicPartnershipSection: Attribute.Component<'about.s-p-section', true>;
     HappyToHelpSection: Attribute.Component<'about.happy'>;
     MetaDetails: Attribute.Component<'global.meta-details'>;
     DownloadResourcesSection: Attribute.Component<'about.d-r-section'>;
@@ -896,6 +896,7 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
         }
       >;
     QuotesSection: Attribute.Component<'about.quotes-section'>;
+    StrategicPartnershipHeading: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

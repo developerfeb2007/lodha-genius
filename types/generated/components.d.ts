@@ -1697,8 +1697,8 @@ export interface AboutSPSection extends Schema.Component {
     description: '';
   };
   attributes: {
-    Heading: Attribute.String;
     StrategicPartnership: Attribute.Component<'about.s-p-sec', true>;
+    Category: Attribute.String;
   };
 }
 
@@ -1709,14 +1709,6 @@ export interface AboutSPSec extends Schema.Component {
     description: '';
   };
   attributes: {
-    Category: Attribute.Enumeration<
-      [
-        'Technology Partners',
-        'NGO Partners',
-        'Knowledge Partners',
-        'Philanthropic Partners'
-      ]
-    >;
     Logo: Attribute.Media<'images'>;
     Description: Attribute.Text;
     Name: Attribute.String;

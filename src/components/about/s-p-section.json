@@ -6,14 +6,14 @@
   },
   "options": {},
   "attributes": {
-    "Heading": {
-      "type": "string"
-    },
     "StrategicPartnership": {
       "displayName": "S P Sec",
       "type": "component",
       "repeatable": true,
       "component": "about.s-p-sec"
+    },
+    "Category": {
+      "type": "string"
     }
   }
 }

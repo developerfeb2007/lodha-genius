@@ -32,7 +32,7 @@
     "StrategicPartnershipSection": {
       "displayName": "S P Section",
       "type": "component",
-      "repeatable": false,
+      "repeatable": true,
       "component": "about.s-p-section"
     },
     "HappyToHelpSection": {
@@ -64,6 +64,9 @@
       "type": "component",
       "repeatable": false,
       "component": "about.quotes-section"
+    },
+    "StrategicPartnershipHeading": {
+      "type": "string"
     }
   }
 }
