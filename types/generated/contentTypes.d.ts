@@ -1534,6 +1534,7 @@ export interface ApiFooterFooter extends Schema.SingleType {
     singularName: 'footer';
     pluralName: 'footers';
     displayName: 'Footer';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1546,6 +1547,7 @@ export interface ApiFooterFooter extends Schema.SingleType {
     CopyrightText: Attribute.String;
     ButtonLink: Attribute.String;
     ButtonText: Attribute.String;
+    TrackingCode: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1599,6 +1601,7 @@ export interface ApiHeaderHeader extends Schema.SingleType {
     singularName: 'header';
     pluralName: 'headers';
     displayName: 'Header';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1608,6 +1611,7 @@ export interface ApiHeaderHeader extends Schema.SingleType {
     IconURL: Attribute.String;
     ButtonText: Attribute.String;
     ButtonLink: Attribute.String;
+    TrackingCode: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1841,6 +1845,7 @@ export interface ApiLifeSkillLifeSkill extends Schema.SingleType {
           preset: 'default';
         }
       >;
+    CourseSectionHeading: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

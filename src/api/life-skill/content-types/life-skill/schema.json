@@ -33,6 +33,9 @@
         "preset": "default"
       },
       "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "CourseSectionHeading": {
+      "type": "string"
     }
   }
 }

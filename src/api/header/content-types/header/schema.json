@@ -4,7 +4,8 @@
   "info": {
     "singularName": "header",
     "pluralName": "headers",
-    "displayName": "Header"
+    "displayName": "Header",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -24,6 +25,9 @@
     },
     "ButtonLink": {
       "type": "string"
+    },
+    "TrackingCode": {
+      "type": "text"
     }
   }
 }

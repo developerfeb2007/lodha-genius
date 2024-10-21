@@ -416,6 +416,7 @@ export interface StudentScience extends Schema.Component {
   collectionName: 'components_student_sciences';
   info: {
     displayName: 'Science';
+    description: '';
   };
   attributes: {
     Category: Attribute.Enumeration<
@@ -426,6 +427,7 @@ export interface StudentScience extends Schema.Component {
       'oneToMany',
       'api::course.course'
     >;
+    CourseHeading: Attribute.String;
   };
 }
 
@@ -433,6 +435,7 @@ export interface StudentMathematics extends Schema.Component {
   collectionName: 'components_student_mathematics';
   info: {
     displayName: 'Mathematics';
+    description: '';
   };
   attributes: {
     Category: Attribute.Enumeration<
@@ -443,6 +446,7 @@ export interface StudentMathematics extends Schema.Component {
       'oneToMany',
       'api::course.course'
     >;
+    CourseHeading: Attribute.String;
   };
 }
 

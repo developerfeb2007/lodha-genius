@@ -1,7 +1,8 @@
 {
   "collectionName": "components_student_mathematics",
   "info": {
-    "displayName": "Mathematics"
+    "displayName": "Mathematics",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -16,6 +17,9 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::course.course"
+    },
+    "CourseHeading": {
+      "type": "string"
     }
   }
 }
