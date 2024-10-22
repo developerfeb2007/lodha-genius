@@ -53,13 +53,25 @@
       "repeatable": false,
       "component": "experience.trip-section"
     },
-    "ScheduleSection": {
-      "displayName": "Schedule Section",
+    "ScheduleSectionHeading": {
+      "type": "string"
+    },
+    "NewStudents": {
+      "displayName": "New Students",
       "type": "component",
       "repeatable": true,
-      "component": "experience.schedule-section"
+      "component": "experience.new-students"
     },
-    "ScheduleSectionHeading": {
+    "OldStudents": {
+      "displayName": "Old Students",
+      "type": "component",
+      "repeatable": false,
+      "component": "experience.old-students"
+    },
+    "NewStudentsCategory": {
+      "type": "string"
+    },
+    "OldStudentsCategory": {
       "type": "string"
     }
   }

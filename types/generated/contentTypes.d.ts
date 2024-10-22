@@ -1411,8 +1411,11 @@ export interface ApiExperienceExperience extends Schema.SingleType {
     SuccessStoriesSection: Attribute.Component<'experience.success-section'>;
     TestimonialSection: Attribute.Component<'experience.testimonial-section'>;
     RecentTripSection: Attribute.Component<'experience.trip-section'>;
-    ScheduleSection: Attribute.Component<'experience.schedule-section', true>;
     ScheduleSectionHeading: Attribute.String;
+    NewStudents: Attribute.Component<'experience.new-students', true>;
+    OldStudents: Attribute.Component<'experience.old-students'>;
+    NewStudentsCategory: Attribute.String;
+    OldStudentsCategory: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1437,6 +1440,7 @@ export interface ApiFacultyFaculty extends Schema.CollectionType {
     singularName: 'faculty';
     pluralName: 'faculties';
     displayName: 'Faculty';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1456,6 +1460,7 @@ export interface ApiFacultyFaculty extends Schema.CollectionType {
           preset: 'default';
         }
       >;
+    Thumbnail: Attribute.Media<'images'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

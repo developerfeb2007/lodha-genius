@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_experience_new_students",
+  "info": {
+    "displayName": "New Students",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Grade": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::grade.grade"
+    },
+    "Morning": {
+      "type": "component",
+      "repeatable": true,
+      "component": "experience.morning"
+    },
+    "Noon": {
+      "type": "component",
+      "repeatable": true,
+      "component": "experience.noon"
+    },
+    "Afternoon": {
+      "type": "component",
+      "repeatable": true,
+      "component": "experience.afternoon"
+    },
+    "Evening": {
+      "type": "component",
+      "repeatable": true,
+      "component": "experience.evening"
+    },
+    "Weekends": {
+      "type": "component",
+      "repeatable": true,
+      "component": "experience.weekends"
+    }
+  }
+}
