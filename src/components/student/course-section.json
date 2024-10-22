@@ -6,20 +6,17 @@
   },
   "options": {},
   "attributes": {
-    "Heading": {
-      "type": "string"
+    "Category": {
+      "type": "enumeration",
+      "enum": [
+        "For Grades 9 & 10",
+        "For Grades 11 & 12"
+      ]
     },
-    "Science": {
-      "displayName": "Science",
+    "Course": {
       "type": "component",
       "repeatable": true,
-      "component": "student.science"
-    },
-    "Mathematics": {
-      "displayName": "Mathematics",
-      "type": "component",
-      "repeatable": true,
-      "component": "student.mathematics"
+      "component": "student.course"
     }
   }
 }

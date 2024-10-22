@@ -42,5 +42,39 @@ module.exports = {
     } catch (err) {
     ctx.throw(500, err);
     }
-  }
+  },
+
+  async findBySlug(ctx) {
+    const { slug } = ctx.params;
+    const blog = await strapi.db.query('api::blog.blog').findOne({
+        where: { 
+            slug,
+            publishedAt: { $notNull: true } 
+        },
+        select: ['id', 'Title', 'Slug', 'PublishedDate', 'Content', 'ShortDescription'],
+        populate: {
+            DesktopBanner: {
+                select: ['url']
+            },
+            MobileBanner: {
+                select: ['url']
+            },
+            MetaDetails: {
+                select: ['Title', 'Description', 'OGTitle', 'OGDescription'],
+                populate: {
+                    OGImage: {
+                        select: ['url']
+                    }
+                }
+            }
+        }
+    });
+
+    if (!blog) {
+      return ctx.notFound('Blog not found');
+    }
+
+    return {data: blog};
+  },
+
 };

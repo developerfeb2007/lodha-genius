@@ -47,10 +47,12 @@
       "component": "global.meta-details"
     },
     "CourseSection": {
-      "displayName": "Course Section",
       "type": "component",
-      "repeatable": false,
+      "repeatable": true,
       "component": "student.course-section"
+    },
+    "CurriculumHeading": {
+      "type": "string"
     }
   }
 }

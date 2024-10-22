@@ -1,17 +1,11 @@
 {
   "collectionName": "components_student_courses",
   "info": {
-    "displayName": "Course"
+    "displayName": "Course",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "Category": {
-      "type": "enumeration",
-      "enum": [
-        "For Grades 9 & 10",
-        "For Grades 11 & 12"
-      ]
-    },
     "Track": {
       "type": "enumeration",
       "enum": [
@@ -23,6 +17,9 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::course.course"
+    },
+    "CourseHeading": {
+      "type": "string"
     }
   }
 }

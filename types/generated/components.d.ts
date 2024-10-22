@@ -513,17 +513,16 @@ export interface StudentCourse extends Schema.Component {
   collectionName: 'components_student_courses';
   info: {
     displayName: 'Course';
+    description: '';
   };
   attributes: {
-    Category: Attribute.Enumeration<
-      ['For Grades 9 & 10', 'For Grades 11 & 12']
-    >;
     Track: Attribute.Enumeration<['Mathematics', 'Science']>;
     Courses: Attribute.Relation<
       'student.course',
       'oneToMany',
       'api::course.course'
     >;
+    CourseHeading: Attribute.String;
   };
 }
 
@@ -534,9 +533,10 @@ export interface StudentCourseSection extends Schema.Component {
     description: '';
   };
   attributes: {
-    Heading: Attribute.String;
-    Science: Attribute.Component<'student.science', true>;
-    Mathematics: Attribute.Component<'student.mathematics', true>;
+    Category: Attribute.Enumeration<
+      ['For Grades 9 & 10', 'For Grades 11 & 12']
+    >;
+    Course: Attribute.Component<'student.course', true>;
   };
 }
 
@@ -1508,6 +1508,106 @@ export interface ExperienceAfternoon extends Schema.Component {
   };
 }
 
+export interface DropdownSource extends Schema.Component {
+  collectionName: 'components_dropdown_sources';
+  info: {
+    displayName: 'Source';
+  };
+  attributes: {
+    Value: Attribute.String;
+  };
+}
+
+export interface DropdownSchoolBoard extends Schema.Component {
+  collectionName: 'components_dropdown_school_boards';
+  info: {
+    displayName: 'School Board';
+  };
+  attributes: {
+    Value: Attribute.String;
+  };
+}
+
+export interface DropdownRelation extends Schema.Component {
+  collectionName: 'components_dropdown_relations';
+  info: {
+    displayName: 'Relation';
+  };
+  attributes: {
+    Value: Attribute.String;
+  };
+}
+
+export interface DropdownProfession extends Schema.Component {
+  collectionName: 'components_dropdown_professions';
+  info: {
+    displayName: 'Profession';
+  };
+  attributes: {
+    Value: Attribute.String;
+  };
+}
+
+export interface DropdownLanguage extends Schema.Component {
+  collectionName: 'components_dropdown_languages';
+  info: {
+    displayName: 'Language';
+  };
+  attributes: {
+    Value: Attribute.String;
+  };
+}
+
+export interface DropdownGender extends Schema.Component {
+  collectionName: 'components_dropdown_genders';
+  info: {
+    displayName: 'Gender';
+  };
+  attributes: {
+    Value: Attribute.String;
+  };
+}
+
+export interface DropdownFluency extends Schema.Component {
+  collectionName: 'components_dropdown_fluencies';
+  info: {
+    displayName: 'Fluency';
+  };
+  attributes: {
+    Value: Attribute.String;
+  };
+}
+
+export interface DropdownCompletionYear extends Schema.Component {
+  collectionName: 'components_dropdown_completion_years';
+  info: {
+    displayName: 'Completion Year';
+  };
+  attributes: {
+    Value: Attribute.String;
+  };
+}
+
+export interface DropdownClass extends Schema.Component {
+  collectionName: 'components_dropdown_classes';
+  info: {
+    displayName: 'Class';
+  };
+  attributes: {
+    Value: Attribute.String;
+  };
+}
+
+export interface DropdownAnnualIncome extends Schema.Component {
+  collectionName: 'components_dropdown_annual_incomes';
+  info: {
+    displayName: 'Annual Income';
+  };
+  attributes: {
+    Value: Attribute.String;
+  };
+}
+
 export interface ApplicationSteps extends Schema.Component {
   collectionName: 'components_application_steps';
   info: {
@@ -1822,106 +1922,6 @@ export interface AboutDRS extends Schema.Component {
   };
 }
 
-export interface DropdownSource extends Schema.Component {
-  collectionName: 'components_dropdown_sources';
-  info: {
-    displayName: 'Source';
-  };
-  attributes: {
-    Value: Attribute.String;
-  };
-}
-
-export interface DropdownSchoolBoard extends Schema.Component {
-  collectionName: 'components_dropdown_school_boards';
-  info: {
-    displayName: 'School Board';
-  };
-  attributes: {
-    Value: Attribute.String;
-  };
-}
-
-export interface DropdownRelation extends Schema.Component {
-  collectionName: 'components_dropdown_relations';
-  info: {
-    displayName: 'Relation';
-  };
-  attributes: {
-    Value: Attribute.String;
-  };
-}
-
-export interface DropdownProfession extends Schema.Component {
-  collectionName: 'components_dropdown_professions';
-  info: {
-    displayName: 'Profession';
-  };
-  attributes: {
-    Value: Attribute.String;
-  };
-}
-
-export interface DropdownLanguage extends Schema.Component {
-  collectionName: 'components_dropdown_languages';
-  info: {
-    displayName: 'Language';
-  };
-  attributes: {
-    Value: Attribute.String;
-  };
-}
-
-export interface DropdownGender extends Schema.Component {
-  collectionName: 'components_dropdown_genders';
-  info: {
-    displayName: 'Gender';
-  };
-  attributes: {
-    Value: Attribute.String;
-  };
-}
-
-export interface DropdownFluency extends Schema.Component {
-  collectionName: 'components_dropdown_fluencies';
-  info: {
-    displayName: 'Fluency';
-  };
-  attributes: {
-    Value: Attribute.String;
-  };
-}
-
-export interface DropdownCompletionYear extends Schema.Component {
-  collectionName: 'components_dropdown_completion_years';
-  info: {
-    displayName: 'Completion Year';
-  };
-  attributes: {
-    Value: Attribute.String;
-  };
-}
-
-export interface DropdownClass extends Schema.Component {
-  collectionName: 'components_dropdown_classes';
-  info: {
-    displayName: 'Class';
-  };
-  attributes: {
-    Value: Attribute.String;
-  };
-}
-
-export interface DropdownAnnualIncome extends Schema.Component {
-  collectionName: 'components_dropdown_annual_incomes';
-  info: {
-    displayName: 'Annual Income';
-  };
-  attributes: {
-    Value: Attribute.String;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -2022,6 +2022,16 @@ declare module '@strapi/types' {
       'experience.campus': ExperienceCampus;
       'experience.campus-life': ExperienceCampusLife;
       'experience.afternoon': ExperienceAfternoon;
+      'dropdown.source': DropdownSource;
+      'dropdown.school-board': DropdownSchoolBoard;
+      'dropdown.relation': DropdownRelation;
+      'dropdown.profession': DropdownProfession;
+      'dropdown.language': DropdownLanguage;
+      'dropdown.gender': DropdownGender;
+      'dropdown.fluency': DropdownFluency;
+      'dropdown.completion-year': DropdownCompletionYear;
+      'dropdown.class': DropdownClass;
+      'dropdown.annual-income': DropdownAnnualIncome;
       'application.steps': ApplicationSteps;
       'application.steps-section': ApplicationStepsSection;
       'application.schedule': ApplicationSchedule;
@@ -2044,16 +2054,6 @@ declare module '@strapi/types' {
       'about.happy': AboutHappy;
       'about.d-r-section': AboutDRSection;
       'about.d-r-s': AboutDRS;
-      'dropdown.source': DropdownSource;
-      'dropdown.school-board': DropdownSchoolBoard;
-      'dropdown.relation': DropdownRelation;
-      'dropdown.profession': DropdownProfession;
-      'dropdown.language': DropdownLanguage;
-      'dropdown.gender': DropdownGender;
-      'dropdown.fluency': DropdownFluency;
-      'dropdown.completion-year': DropdownCompletionYear;
-      'dropdown.class': DropdownClass;
-      'dropdown.annual-income': DropdownAnnualIncome;
     }
   }
 }

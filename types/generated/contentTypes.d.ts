@@ -2395,7 +2395,8 @@ export interface ApiStudentStudent extends Schema.SingleType {
     LifeSkillSection: Attribute.Component<'student.life-skill'>;
     CoursesOfferedSection: Attribute.Component<'student.course-offered'>;
     MetaDetails: Attribute.Component<'global.meta-details'>;
-    CourseSection: Attribute.Component<'student.course-section'>;
+    CourseSection: Attribute.Component<'student.course-section', true>;
+    CurriculumHeading: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
