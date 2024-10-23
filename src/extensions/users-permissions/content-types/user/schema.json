@@ -169,7 +169,9 @@
         "Submitted",
         "Approved",
         "Rejected"
-      ]
+      ],
+      "default": "Pending",
+      "required": true
     },
     "InterviewDetails": {
       "displayName": "Interview",

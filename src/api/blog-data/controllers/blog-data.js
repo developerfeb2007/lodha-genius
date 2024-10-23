@@ -60,7 +60,7 @@ module.exports = {
                 select: ['url']
             },
             MetaDetails: {
-                select: ['Title', 'Description', 'OGTitle', 'OGDescription'],
+                select: ['id', 'Title', 'Description', 'OGTitle', 'OGDescription'],
                 populate: {
                     OGImage: {
                         select: ['url']

@@ -22,6 +22,7 @@
     "react-dom": "^18.0.0",
     "react-router-dom": "5.3.4",
     "strapi-plugin-media-prefix": "^1.0.4",
+    "strapi-plugin-responsive-image": "^1.2.0",
     "strapi-plugin-slugify": "^2.3.8",
     "styled-components": "5.3.3"
   },

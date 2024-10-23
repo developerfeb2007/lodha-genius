@@ -848,7 +848,9 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       Attribute.DefaultTo<'Pending'>;
     ApplicationStatus: Attribute.Enumeration<
       ['Pending', 'Submitted', 'Approved', 'Rejected']
-    >;
+    > &
+      Attribute.Required &
+      Attribute.DefaultTo<'Pending'>;
     InterviewDetails: Attribute.Component<'user.interview'>;
     PostApplicationAcceptance: Attribute.Component<'user.post-application'>;
     CourseCompletion: Attribute.Component<'user.course-com'>;
