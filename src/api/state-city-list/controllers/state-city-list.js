@@ -22,12 +22,16 @@ module.exports = {
             let parsedData;
             try {
                 parsedData = JSON.parse(rawData);
+                const sortedKeys = Object.keys(parsedData).sort();
+                const sortedData = {};
+                sortedKeys.forEach(key => {
+                    sortedData[key] = parsedData[key].sort();
+                });
+                ctx.send({data:sortedData});
             } catch (error) {
                 return ctx.badRequest('Invalid JSON format');
             }
-      
-            // Send the parsed data
-            ctx.send({data: parsedData});
+
         } else {
             ctx.badRequest('No file found');
         }
