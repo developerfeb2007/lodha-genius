@@ -3,8 +3,9 @@
 module.exports = {
   
   async findBySlug(ctx) {
-    const { slug } = ctx.params;
-    const page = await strapi.db.query('api::content-driven.content-driven').findOne({
+    try{
+      const { slug } = ctx.params;
+      const page = await strapi.db.query('api::content-driven.content-driven').findOne({
         where: { 
             slug,
             publishedAt: { $notNull: true } 
@@ -20,13 +21,18 @@ module.exports = {
                 }
             }
         }
-    });
+      });
 
-    if (!page) {
-      return ctx.notFound('Page not found');
+      if (!page) {
+        return ctx.notFound('Page not found');
+      }
+
+      return {data: page};
+
+    }catch (err) {
+      ctx.throw(500, err);
     }
-
-    return {data: page};
+    
   },
 
 };

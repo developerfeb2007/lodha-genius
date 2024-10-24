@@ -953,18 +953,21 @@ export interface ApiApplicationFormApplicationForm
     singularName: 'application-form';
     pluralName: 'application-forms';
     displayName: 'Application Form';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    FirstName: Attribute.String;
-    LastName: Attribute.String;
-    Phone: Attribute.String;
-    Email: Attribute.Email;
-    City: Attribute.String;
-    State: Attribute.String;
-    EmailUpdates: Attribute.Boolean;
+    FirstName: Attribute.String & Attribute.Required;
+    LastName: Attribute.String & Attribute.Required;
+    Phone: Attribute.String & Attribute.Required;
+    Email: Attribute.Email & Attribute.Required;
+    City: Attribute.String & Attribute.Required;
+    State: Attribute.String & Attribute.Required;
+    EmailUpdates: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
     UTM: Attribute.JSON;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1511,7 +1514,7 @@ export interface ApiFluencyFluency extends Schema.CollectionType {
   info: {
     singularName: 'fluency';
     pluralName: 'fluencies';
-    displayName: 'English Fluency';
+    displayName: 'English Proficiency';
     description: '';
   };
   options: {
@@ -1736,7 +1739,8 @@ export interface ApiLanguageLanguage extends Schema.CollectionType {
   info: {
     singularName: 'language';
     pluralName: 'languages';
-    displayName: 'Language';
+    displayName: 'Mother Tongue';
+    description: '';
   };
   options: {
     draftAndPublish: false;
@@ -1932,6 +1936,35 @@ export interface ApiMathMath extends Schema.SingleType {
     createdBy: Attribute.Relation<'api::math.math', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::math.math', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPocDesignationPocDesignation extends Schema.CollectionType {
+  collectionName: 'poc_designations';
+  info: {
+    singularName: 'poc-designation';
+    pluralName: 'poc-designations';
+    displayName: 'POC Designation';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    Value: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::poc-designation.poc-designation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::poc-designation.poc-designation',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -2467,6 +2500,7 @@ declare module '@strapi/types' {
       'api::learning-module.learning-module': ApiLearningModuleLearningModule;
       'api::life-skill.life-skill': ApiLifeSkillLifeSkill;
       'api::math.math': ApiMathMath;
+      'api::poc-designation.poc-designation': ApiPocDesignationPocDesignation;
       'api::profession.profession': ApiProfessionProfession;
       'api::programme-overview.programme-overview': ApiProgrammeOverviewProgrammeOverview;
       'api::programme-section.programme-section': ApiProgrammeSectionProgrammeSection;

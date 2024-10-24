@@ -84,6 +84,10 @@ module.exports = {
             select: ['id', 'value'],
             orderBy: { createdAt: 'ASC' },
         });
+        const poc_designation = await strapi.db.query('api::poc-designation.poc-designation').findMany({
+            select: ['id', 'value'],
+            orderBy: { createdAt: 'ASC' },
+        });
 
         const combinedData = {
             data: {
@@ -106,7 +110,8 @@ module.exports = {
                 research,
                 internship,
                 role,
-                grades
+                grades,
+                poc_designation
             }
             
         };

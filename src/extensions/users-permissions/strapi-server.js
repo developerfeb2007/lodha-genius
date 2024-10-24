@@ -122,7 +122,7 @@ module.exports = (plugin) => {
             await strapi.plugins['email'].services.email.send({
                 to: user.email,
                 subject: 'OTP Verification',
-                html: `<p>Welcome to Lodha family</p>
+                html: `<p>Lodha Genius Programme 2025 Application</p>
                         <p>Here is the otp to verify your account - </p>
                         <h4>`+ otp +`</h4>`,
             })
@@ -167,7 +167,7 @@ module.exports = (plugin) => {
             await strapi.plugins['email'].services.email.send({
                 to: ctx.response.body.user.email,
                 subject: 'OTP Verification',
-                html: `<p>Welcome to Lodha family</p>
+                html: `<p>Lodha Genius Programme 2025 Application</p>
                         <p>Here is the otp to verify your account - </p>
                         <h4>`+ otp +`</h4>`,
             })

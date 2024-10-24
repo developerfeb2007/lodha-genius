@@ -1,11 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "languages",
+  "collectionName": "poc_designations",
   "info": {
-    "singularName": "language",
-    "pluralName": "languages",
-    "displayName": "Mother Tongue",
-    "description": ""
+    "singularName": "poc-designation",
+    "pluralName": "poc-designations",
+    "displayName": "POC Designation"
   },
   "options": {
     "draftAndPublish": false

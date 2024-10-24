@@ -1,14 +1,11 @@
 {
   "collectionName": "components_user_pocs",
   "info": {
-    "displayName": "POC"
+    "displayName": "POC",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "PoC": {
-      "type": "string",
-      "required": true
-    },
     "Name": {
       "type": "string",
       "required": true
@@ -24,6 +21,11 @@
     "Email": {
       "type": "email",
       "required": true
+    },
+    "POCDesignation": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::poc-designation.poc-designation"
     }
   }
 }

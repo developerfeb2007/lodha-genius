@@ -1,7 +1,8 @@
 {
   "collectionName": "components_user_others",
   "info": {
-    "displayName": "Other"
+    "displayName": "Other",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -20,6 +21,16 @@
     },
     "Interests": {
       "type": "text"
+    },
+    "EnglishProficiency": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::fluency.fluency"
+    },
+    "MotherTongue": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::language.language"
     }
   }
 }

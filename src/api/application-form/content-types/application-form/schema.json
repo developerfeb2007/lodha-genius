@@ -4,7 +4,8 @@
   "info": {
     "singularName": "application-form",
     "pluralName": "application-forms",
-    "displayName": "Application Form"
+    "displayName": "Application Form",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,25 +13,33 @@
   "pluginOptions": {},
   "attributes": {
     "FirstName": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "LastName": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Phone": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Email": {
-      "type": "email"
+      "type": "email",
+      "required": true
     },
     "City": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "State": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "EmailUpdates": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": false,
+      "required": true
     },
     "UTM": {
       "type": "json"

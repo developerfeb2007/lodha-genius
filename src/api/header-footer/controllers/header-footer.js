@@ -4,7 +4,10 @@ module.exports = {
   async combinedData(ctx) {
     try {
       
-        const header = await strapi.db.query('api::header.header').findMany({
+        const header = await strapi.db.query('api::header.header').findOne({
+            where: { 
+                publishedAt: { $notNull: true } 
+            },
             select: ['icon_url', 'button_text', 'button_link'],
             populate: {
                 Menu: {
@@ -18,7 +21,10 @@ module.exports = {
             },
             orderBy: { createdAt: 'ASC' },
         });
-        const footer = await strapi.db.query('api::footer.footer').findMany({
+        const footer = await strapi.db.query('api::footer.footer').findOne({
+            where: { 
+                publishedAt: { $notNull: true } 
+            },
             select: ['id', 'copyright_text', 'button_link', 'button_text'],
             populate: {
                 DetailSection: {
