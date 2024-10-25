@@ -1906,6 +1906,36 @@ export interface ApiLifeSkillLifeSkill extends Schema.SingleType {
   };
 }
 
+export interface ApiLoginLogin extends Schema.SingleType {
+  collectionName: 'logins';
+  info: {
+    singularName: 'login';
+    pluralName: 'logins';
+    displayName: 'Login';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    MetaDetails: Attribute.Component<'global.meta-details'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::login.login',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::login.login',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiMathMath extends Schema.SingleType {
   collectionName: 'maths';
   info: {
@@ -2082,6 +2112,37 @@ export interface ApiProjectProject extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::project.project',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiRegistrationRegistration extends Schema.SingleType {
+  collectionName: 'registrations';
+  info: {
+    singularName: 'registration';
+    pluralName: 'registrations';
+    displayName: 'Registration';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    MetaDetails: Attribute.Component<'global.meta-details'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::registration.registration',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::registration.registration',
       'oneToOne',
       'admin::user'
     > &
@@ -2499,12 +2560,14 @@ declare module '@strapi/types' {
       'api::learning.learning': ApiLearningLearning;
       'api::learning-module.learning-module': ApiLearningModuleLearningModule;
       'api::life-skill.life-skill': ApiLifeSkillLifeSkill;
+      'api::login.login': ApiLoginLogin;
       'api::math.math': ApiMathMath;
       'api::poc-designation.poc-designation': ApiPocDesignationPocDesignation;
       'api::profession.profession': ApiProfessionProfession;
       'api::programme-overview.programme-overview': ApiProgrammeOverviewProgrammeOverview;
       'api::programme-section.programme-section': ApiProgrammeSectionProgrammeSection;
       'api::project.project': ApiProjectProject;
+      'api::registration.registration': ApiRegistrationRegistration;
       'api::relation.relation': ApiRelationRelation;
       'api::research.research': ApiResearchResearch;
       'api::role-option.role-option': ApiRoleOptionRoleOption;
