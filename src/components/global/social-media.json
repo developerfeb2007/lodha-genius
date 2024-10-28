@@ -1,20 +1,25 @@
 {
   "collectionName": "components_global_social_medias",
   "info": {
-    "displayName": "Social Media"
+    "displayName": "Social Media",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "Logo": {
-      "allowedTypes": [
-        "images"
-      ],
-      "type": "media",
-      "multiple": false,
-      "required": false
+    "LinkedinURL": {
+      "type": "string"
     },
-    "URL": {
-      "type": "text"
+    "InstagramURL": {
+      "type": "string"
+    },
+    "FacebookURL": {
+      "type": "string"
+    },
+    "YoutubeURL": {
+      "type": "string"
+    },
+    "TwitterURL": {
+      "type": "string"
     }
   }
 }

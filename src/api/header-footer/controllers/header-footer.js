@@ -34,12 +34,7 @@ module.exports = {
                             select: ['mobile']
                         },
                         SocialMedia: {
-                            select: ['url'],
-                            populate: {
-                                Logo: {
-                                    select: ['url']
-                                }
-                            }
+                            select: ['LinkedinURL', 'InstagramURL', 'FacebookURL', 'YoutubeURL', 'TwitterURL'],
                         }
                     }
                 },
