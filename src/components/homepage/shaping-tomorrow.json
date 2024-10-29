@@ -41,10 +41,10 @@
       },
       "customField": "plugin::ckeditor5.CKEditor"
     },
-    "Color1": {
+    "MainColor": {
       "type": "string"
     },
-    "Color2": {
+    "BottomColor": {
       "type": "string"
     }
   }
