@@ -40,6 +40,12 @@
         "preset": "default"
       },
       "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "Color1": {
+      "type": "string"
+    },
+    "Color2": {
+      "type": "string"
     }
   }
 }
