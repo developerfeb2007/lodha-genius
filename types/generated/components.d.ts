@@ -705,8 +705,8 @@ export interface ScienceFacultyMem extends Schema.Component {
   attributes: {
     Category: Attribute.Enumeration<
       [
-        'Science Workshops For Grades 9 & 10',
-        'Science Projects For Grades 11 & 12'
+        'Science Workshops <br/> For Grades 9 & 10',
+        'Science Projects <br/> For Grades 11 & 12'
       ]
     >;
     Faculties: Attribute.Relation<
