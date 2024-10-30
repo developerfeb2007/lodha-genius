@@ -1092,36 +1092,6 @@ export interface ApiBlogListBlogList extends Schema.SingleType {
   };
 }
 
-export interface ApiBlogPageBlogPage extends Schema.SingleType {
-  collectionName: 'blog_pages';
-  info: {
-    singularName: 'blog-page';
-    pluralName: 'blog-pages';
-    displayName: 'Blog Page';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    MetaDetails: Attribute.Component<'global.meta-details'>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::blog-page.blog-page',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::blog-page.blog-page',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiClassClass extends Schema.CollectionType {
   collectionName: 'classes';
   info: {
@@ -1244,7 +1214,7 @@ export interface ApiCourseCourse extends Schema.CollectionType {
           preset: 'default';
         }
       >;
-    File: Attribute.Media<'files' | 'images'>;
+    File: Attribute.Media<'files'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2536,7 +2506,6 @@ declare module '@strapi/types' {
       'api::application-page.application-page': ApiApplicationPageApplicationPage;
       'api::blog.blog': ApiBlogBlog;
       'api::blog-list.blog-list': ApiBlogListBlogList;
-      'api::blog-page.blog-page': ApiBlogPageBlogPage;
       'api::class.class': ApiClassClass;
       'api::completion-year.completion-year': ApiCompletionYearCompletionYear;
       'api::content-driven.content-driven': ApiContentDrivenContentDriven;

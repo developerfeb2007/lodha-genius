@@ -44,8 +44,7 @@
       "multiple": false,
       "required": false,
       "allowedTypes": [
-        "files",
-        "images"
+        "files"
       ]
     }
   }

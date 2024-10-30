@@ -1,12 +1,33 @@
 // module.exports = () => ({});
 module.exports = ({ env }) => ({
     // other plugin configurations
+    // upload: {
+    //   config: {
+    //     providerOptions: {
+    //       // Other provider options if needed
+    //     },
+    //     breakpoints: {}, // This disables the creation of additional image formats
+    //   },
+    // },
     upload: {
       config: {
+        provider: 'aws-s3',
         providerOptions: {
-          // Other provider options if needed
+          s3Options: {
+            accessKeyId: env('AWS_ACCESS_KEY_ID'),
+            secretAccessKey: env('AWS_ACCESS_SECRET_KEY'),
+            region: env('AWS_REGION'),
+            params: {
+              ACL: 'private',
+              Bucket: env('AWS_BUCKET_NAME'),
+            },
+          },
         },
-        breakpoints: {}, // This disables the creation of additional image formats
+        actionOptions: {
+          upload: {},
+          uploadStream: {},
+          delete: {},
+        },
       },
     },
     email: {
