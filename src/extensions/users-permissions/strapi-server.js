@@ -1,4 +1,4 @@
-
+const emailTemplates = require('../../utils/emailTemplates');
 
 module.exports = (plugin) => {
 
@@ -122,9 +122,7 @@ module.exports = (plugin) => {
             await strapi.plugins['email'].services.email.send({
                 to: user.email,
                 subject: 'OTP Verification',
-                html: `<p>Lodha Genius Programme 2025 Application</p>
-                        <p>Here is the otp to verify your account - </p>
-                        <h4>`+ otp +`</h4>`,
+                html: emailTemplates.sendOTPEmail(otp),
             })
             
             ctx.send({
@@ -167,9 +165,7 @@ module.exports = (plugin) => {
             await strapi.plugins['email'].services.email.send({
                 to: ctx.response.body.user.email,
                 subject: 'OTP Verification',
-                html: `<p>Lodha Genius Programme 2025 Application</p>
-                        <p>Here is the otp to verify your account - </p>
-                        <h4>`+ otp +`</h4>`,
+                html: emailTemplates.sendOTPEmail(otp),
             })
             
             ctx.send({

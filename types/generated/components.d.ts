@@ -892,6 +892,98 @@ export interface LearningCourse extends Schema.Component {
   };
 }
 
+export interface HomepageStuSection extends Schema.Component {
+  collectionName: 'components_homepage_stu_sections';
+  info: {
+    displayName: 'Students Section';
+    description: '';
+  };
+  attributes: {
+    Heading: Attribute.String;
+    URL: Attribute.String;
+    Image: Attribute.Media<'images'>;
+    Alt: Attribute.String;
+    Title: Attribute.String;
+    BackgroundImage: Attribute.Media<'images'>;
+    BGAlt: Attribute.String;
+    BGTitle: Attribute.String;
+    Description: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+  };
+}
+
+export interface HomepageStSection extends Schema.Component {
+  collectionName: 'components_homepage_st_sections';
+  info: {
+    displayName: 'Shaping Tomorrow Section';
+    description: '';
+  };
+  attributes: {
+    Heading: Attribute.String;
+    ShapingTomorrow: Attribute.Component<'homepage.shaping-tomorrow', true>;
+  };
+}
+
+export interface HomepageShapingTomorrow extends Schema.Component {
+  collectionName: 'components_homepage_shaping_tomorrows';
+  info: {
+    displayName: 'Shaping Tomorrow';
+    description: '';
+  };
+  attributes: {
+    Name: Attribute.String;
+    Image: Attribute.Media<'images'>;
+    Alt: Attribute.String;
+    Title: Attribute.String;
+    URL: Attribute.String;
+    Video: Attribute.Media<'videos'>;
+    Description: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    MainColor: Attribute.String;
+    BottomColor: Attribute.String;
+  };
+}
+
+export interface HomepageProgrammeOverview extends Schema.Component {
+  collectionName: 'components_homepage_programme_overviews';
+  info: {
+    displayName: 'Programme Overview';
+    description: '';
+  };
+  attributes: {
+    Subject: Attribute.String;
+    Image: Attribute.Media<'images'>;
+    Video: Attribute.Media<'videos'>;
+    Alt: Attribute.String;
+    Title: Attribute.String;
+    Description: Attribute.RichText;
+    URL: Attribute.String;
+    Color: Attribute.String;
+  };
+}
+
+export interface HomepagePoSection extends Schema.Component {
+  collectionName: 'components_homepage_po_sections';
+  info: {
+    displayName: 'Programme Overview Section';
+    description: '';
+  };
+  attributes: {
+    Heading: Attribute.String;
+    ProgrammeOverview: Attribute.Component<'homepage.programme-overview', true>;
+  };
+}
+
 export interface GlobalTopMenu extends Schema.Component {
   collectionName: 'components_global_top_menus';
   info: {
@@ -1177,98 +1269,6 @@ export interface GlobalBannerSection extends Schema.Component {
           preset: 'default';
         }
       >;
-  };
-}
-
-export interface HomepageStuSection extends Schema.Component {
-  collectionName: 'components_homepage_stu_sections';
-  info: {
-    displayName: 'Students Section';
-    description: '';
-  };
-  attributes: {
-    Heading: Attribute.String;
-    URL: Attribute.String;
-    Image: Attribute.Media<'images'>;
-    Alt: Attribute.String;
-    Title: Attribute.String;
-    BackgroundImage: Attribute.Media<'images'>;
-    BGAlt: Attribute.String;
-    BGTitle: Attribute.String;
-    Description: Attribute.RichText &
-      Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'default';
-        }
-      >;
-  };
-}
-
-export interface HomepageStSection extends Schema.Component {
-  collectionName: 'components_homepage_st_sections';
-  info: {
-    displayName: 'Shaping Tomorrow Section';
-    description: '';
-  };
-  attributes: {
-    Heading: Attribute.String;
-    ShapingTomorrow: Attribute.Component<'homepage.shaping-tomorrow', true>;
-  };
-}
-
-export interface HomepageShapingTomorrow extends Schema.Component {
-  collectionName: 'components_homepage_shaping_tomorrows';
-  info: {
-    displayName: 'Shaping Tomorrow';
-    description: '';
-  };
-  attributes: {
-    Name: Attribute.String;
-    Image: Attribute.Media<'images'>;
-    Alt: Attribute.String;
-    Title: Attribute.String;
-    URL: Attribute.String;
-    Video: Attribute.Media<'videos'>;
-    Description: Attribute.RichText &
-      Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'default';
-        }
-      >;
-    MainColor: Attribute.String;
-    BottomColor: Attribute.String;
-  };
-}
-
-export interface HomepageProgrammeOverview extends Schema.Component {
-  collectionName: 'components_homepage_programme_overviews';
-  info: {
-    displayName: 'Programme Overview';
-    description: '';
-  };
-  attributes: {
-    Subject: Attribute.String;
-    Image: Attribute.Media<'images'>;
-    Video: Attribute.Media<'videos'>;
-    Alt: Attribute.String;
-    Title: Attribute.String;
-    Description: Attribute.RichText;
-    URL: Attribute.String;
-    Color: Attribute.String;
-  };
-}
-
-export interface HomepagePoSection extends Schema.Component {
-  collectionName: 'components_homepage_po_sections';
-  info: {
-    displayName: 'Programme Overview Section';
-    description: '';
-  };
-  attributes: {
-    Heading: Attribute.String;
-    ProgrammeOverview: Attribute.Component<'homepage.programme-overview', true>;
   };
 }
 
@@ -2004,6 +2004,11 @@ declare module '@strapi/types' {
       'life-skill.content': LifeSkillContent;
       'learning.module': LearningModule;
       'learning.course': LearningCourse;
+      'homepage.stu-section': HomepageStuSection;
+      'homepage.st-section': HomepageStSection;
+      'homepage.shaping-tomorrow': HomepageShapingTomorrow;
+      'homepage.programme-overview': HomepageProgrammeOverview;
+      'homepage.po-section': HomepagePoSection;
       'global.top-menu': GlobalTopMenu;
       'global.subquestion': GlobalSubquestion;
       'global.submenu': GlobalSubmenu;
@@ -2024,11 +2029,6 @@ declare module '@strapi/types' {
       'global.footer-2': GlobalFooter2;
       'global.footer-1': GlobalFooter1;
       'global.banner-section': GlobalBannerSection;
-      'homepage.stu-section': HomepageStuSection;
-      'homepage.st-section': HomepageStSection;
-      'homepage.shaping-tomorrow': HomepageShapingTomorrow;
-      'homepage.programme-overview': HomepageProgrammeOverview;
-      'homepage.po-section': HomepagePoSection;
       'faq.question-answer': FaqQuestionAnswer;
       'faq.faq': FaqFaq;
       'experience.weekends': ExperienceWeekends;

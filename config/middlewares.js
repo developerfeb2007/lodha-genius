@@ -35,4 +35,5 @@ module.exports = [
       },
     },
   },
+  'global::registration-login-check',
 ];

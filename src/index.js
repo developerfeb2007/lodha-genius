@@ -1,5 +1,5 @@
 'use strict';
-
+const emailTemplates = require('./utils/emailTemplates');
 module.exports = {
   /**
    * An asynchronous register function that runs before
@@ -33,13 +33,7 @@ module.exports = {
               await strapi.plugins['email'].services.email.send({
                 to: data.email,
                 subject: 'Application Submitted',
-                html: `
-                  <h2>Thank You</h2>
-                  <p>For submitting the form.</p>
-                  <p><strong>Your Application Number is: ${data.registrationNumber}</strong></p>
-                  <p>Please save this for future reference.</p>
-                  <p>We will share details about the test with you soon over your registered email ID.</p>
-                `,
+                html: emailTemplates.applicationSubmissionEmail(data.registrationNumber)
               });
               console.log('Email sent successfully');
             } catch (error) {

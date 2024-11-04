@@ -1,4 +1,4 @@
-const fs = require('fs');
+const axios = require('axios');
 
 module.exports = {
   async getStateCityList(ctx) {
@@ -6,32 +6,31 @@ module.exports = {
             select: ['id'],
             populate: {
             Attachment: {
-                select: ['url'], // Get the file URL
+                select: ['url'],
             },
             },
         });
       
         if (states && states.Attachment && states.Attachment.url) {
             const fileUrl = states.Attachment.url;
-            // const filePath = `./public${fileUrl}`;
-            const relativeFilePath = fileUrl.replace(strapi.config.server.url, '');
-            const filePath = `./public${relativeFilePath}`;
-      
-            // Read and parse the JSON file
-            const rawData = fs.readFileSync(filePath, 'utf8');
-            let parsedData;
             try {
-                parsedData = JSON.parse(rawData);
-                const sortedKeys = Object.keys(parsedData).sort();
-                const sortedData = {};
-                sortedKeys.forEach(key => {
-                    sortedData[key] = parsedData[key].sort();
-                });
-                ctx.send({data:sortedData});
+                const response = await axios.get(fileUrl);
+                const rawData = response.data;
+                let parsedData;
+                try {
+                    parsedData = typeof rawData === 'string' ? JSON.parse(rawData) : rawData;
+                    const sortedKeys = Object.keys(parsedData).sort();
+                    const sortedData = {};
+                    sortedKeys.forEach(key => {
+                        sortedData[key] = parsedData[key].sort();
+                    });
+                    ctx.send({ data: sortedData });
+                } catch (error) {
+                    return ctx.badRequest('Invalid JSON format');
+                }
             } catch (error) {
-                return ctx.badRequest('Invalid JSON format');
+                ctx.badRequest('Failed to fetch the file');
             }
-
         } else {
             ctx.badRequest('No file found');
         }
