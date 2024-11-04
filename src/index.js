@@ -23,7 +23,7 @@ module.exports = {
         models: ['plugin::users-permissions.user'],
 
         async beforeUpdate(event){
-          
+          console.log(event);
           const { data, where } = event.params;
     
           const existingEntry = await strapi.entityService.findOne('plugin::users-permissions.user', where.id);
@@ -31,9 +31,9 @@ module.exports = {
           if (data.ApplicationStatus === 'Submitted' && existingEntry.ApplicationStatus !== 'Submitted') {
             try {
               await strapi.plugins['email'].services.email.send({
-                to: data.email,
+                to: existingEntry.email,
                 subject: 'Application Submitted',
-                html: emailTemplates.applicationSubmissionEmail(data.registrationNumber)
+                html: emailTemplates.applicationSubmissionEmail(existingEntry.registrationNumber)
               });
               console.log('Email sent successfully');
             } catch (error) {
