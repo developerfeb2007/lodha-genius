@@ -64,5 +64,9 @@ module.exports = ({ env }) => ({
     "media-prefix": {
       enabled: true,
     },
+    'export-data': {
+      enabled: true,
+      resolve: './src/plugins/export-data'
+    },
   });
   
